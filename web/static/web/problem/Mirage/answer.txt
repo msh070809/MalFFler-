@@ -1,0 +1,5 @@
+Mirage Q1=APT15
+Mirage Q2=cdll_wWinMain,DllEntryPoint
+Mirage Q3=HARDWARE\\DESCRIPTION\\System\\CentralProcessor\\0
+Mirage Q4=192
+Mirage Q5=CreateProcessA

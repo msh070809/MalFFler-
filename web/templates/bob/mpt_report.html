@@ -1,0 +1,51 @@
+{% extends "bob/header.html" %}
+
+
+
+
+
+{% block content %}
+
+
+{% load static %}
+
+
+<head>
+
+</head>
+<br><br><br><br>
+
+
+<style>
+
+a {
+    text-decoration: none; /* 밑줄 제거 */
+}
+</style>
+<body style="background-color: #D7DAE7; ">
+
+
+    
+      <div style="background-color: white; width: 30%; border-radius: 15px; margin-left: 35%; padding: 10px;">
+        <h1>강의 보고서</h1>
+        <br>
+        <h3>기초 강의</h3>
+        {% for report in report1s %}
+           <a href="http://127.0.0.1:8000/report2/?report={{ report.table }}" target="_blank"> - {{ report.table }} [질문 : {{report1s_count}} 개]</a>  <br>
+        {% endfor %}
+        
+        <h3>제작 강의</h3>
+        {% for report in report2s %}
+        <a href="http://127.0.0.1:8000/report2/?report={{ report.table }}" target="_blank"> - {{ report.table }} [질문 : {{report2s_count}} 개]</a>  <br>
+        {% endfor %}
+        
+        <h3>분석 강의</h3>
+        {% for report in report3s %}
+        <a href="http://127.0.0.1:8000/report2/?report={{ report.table }}" target="_blank"> - {{ report.table }} [질문 : {{report3s_count}} 개]</a>  <br>
+        {% endfor %}
+        
+        <!-- 여기까지 -->
+      </div>
+  </body>
+
+{% endblock %}

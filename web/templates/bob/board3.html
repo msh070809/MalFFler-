@@ -1,0 +1,283 @@
+
+{% extends "bob/header.html" %}
+
+
+
+
+
+{% block content %}
+
+
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'web/css/board.css' %}">
+
+
+
+
+<!-- 테그 창 -->
+
+
+<div class="radio-input">
+    <input value="value-1" name="value-radio" id="value-1" type="radio"> <!-- 첫 번째 라디오 버튼에 checked 속성 추가 -->
+    <label for="value-1">커뮤니티</label>
+    <input value="value-2" name="value-radio" id="value-2" type="radio">
+    <label for="value-2"> &nbsp;&nbsp;&nbsp;Qna&nbsp;&nbsp;&nbsp;</label>
+    <input value="value-3" name="value-radio" id="value-3" type="radio" checked>
+    <label for="value-3">공지사항</label>
+  </div>
+  
+
+
+  
+  <script>
+    // 라디오 버튼의 변경을 감지하는 이벤트 리스너 추가
+    document.querySelectorAll('input[name="value-radio"]').forEach(function(radio) {
+        radio.addEventListener('change', function() {
+            // 선택한 라디오 버튼의 값에 따라 다른 주소로 이동
+            if (radio.value === "value-1") {
+                window.location.href = "/board"; 
+            } else if (radio.value === "value-2") {
+                window.location.href = "/board2";
+            } else if (radio.value === "value-3") {
+                window.location.href = "/board3"; 
+            }
+        });
+    });
+  </script>
+
+
+    
+
+
+
+
+<div class="board_margin" >
+
+<!-- 
+<div class="board_flex" >
+
+
+    <div class="board1" >
+        <div class="task" draggable="true">
+          <div class="tags">
+            <span class="tag">'bob' 님</span> 
+            <button class="options">
+           <g stroke-linejoin="round" stroke-linecap="round" id="SVGRepo_tracerCarrier"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M11.214,20.956c0,3.091-2.509,5.589-5.607,5.589C2.51,26.544,0,24.046,0,20.956c0-3.082,2.511-5.585,5.607-5.585 C8.705,15.371,11.214,17.874,11.214,20.956z"></path> <path d="M26.564,20.956c0,3.091-2.509,5.589-5.606,5.589c-3.097,0-5.607-2.498-5.607-5.589c0-3.082,2.511-5.585,5.607-5.585 C24.056,15.371,26.564,17.874,26.564,20.956z"></path> <path d="M41.915,20.956c0,3.091-2.509,5.589-5.607,5.589c-3.097,0-5.606-2.498-5.606-5.589c0-3.082,2.511-5.585,5.606-5.585 C39.406,15.371,41.915,17.874,41.915,20.956z"></path> </g> </g> </g></svg>
+            </button>
+          </div>
+          <h5>Qna</h5>
+          <p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed to an unknown </p>
+          <div class="stats">
+            <div>
+              <div><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><g stroke-width="0" id="SVGRepo_bgCarrier"></g><g stroke-linejoin="round" stroke-linecap="round" id="SVGRepo_tracerCarrier"></g><g id="SVGRepo_iconCarrier"> <path stroke-linecap="round" stroke-width="2" d="M12 8V12L15 15"></path> <circle stroke-width="2" r="9" cy="12" cx="12"></circle> </g></svg>Feb 24</div>
+              <div><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><g stroke-width="0" id="SVGRepo_bgCarrier"></g><g stroke-linejoin="round" stroke-linecap="round" id="SVGRepo_tracerCarrier"></g><g id="SVGRepo_iconCarrier"> <path stroke-linejoin="round" stroke-linecap="round" stroke-width="1.5" d="M16 10H16.01M12 10H12.01M8 10H8.01M3 10C3 4.64706 5.11765 3 12 3C18.8824 3 21 4.64706 21 10C21 15.3529 18.8824 17 12 17C11.6592 17 11.3301 16.996 11.0124 16.9876L7 21V16.4939C4.0328 15.6692 3 13.7383 3 10Z"></path> </g></svg>18</div>
+              <div><svg fill="#000000" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="-2.5 0 32 32"><g stroke-width="0" id="SVGRepo_bgCarrier"></g><g stroke-linejoin="round" stroke-linecap="round" id="SVGRepo_tracerCarrier"></g><g id="SVGRepo_iconCarrier">
+          
+              <span>읽은 사람 : 20</span>
+          </div>
+          </div>
+        </div>
+    </div>
+</div>     -->
+
+
+    
+    
+
+
+
+<!--  -->
+
+
+</div>
+</div>
+       
+
+<div class="search-write">
+  <!-- 검색 폼 -->
+  <div class="search">
+    <div class="search-write">
+      <!-- 검색 폼 -->
+      <div class="search">
+          <form class="form" method="get" action="{% url 'board3' %}">
+              <button type="submit">
+                  <svg width="17" height="16" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="search">
+                      <path d="M7.667 12.667A5.333 5.333 0 107.667 2a5.333 5.333 0 000 10.667zM14.334 14l-2.9-2.9" stroke="currentColor" stroke-width="1.333" stroke-linecap="round" stroke-linejoin="round"></path>
+                  </svg>
+              </button>
+              <input class="input" placeholder="제목을 입력해주세요." required="" type="text" name="search">
+              <button class="reset" type="reset">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+                  </svg>
+              </button>
+          </form>
+      </div>
+    </div>
+    
+  </div>
+
+
+  <!-- 글쓰기 버튼 -->
+  <div class="write">
+    
+
+    <div class="write_info">
+   
+      <div class="write_info__title"><a href="/board_write">글쓰기</a></div>
+     
+  </div>
+
+  </div>
+</div>
+
+
+
+
+
+
+<!-- 전체 질문 창 -->
+
+
+<div class="introduce">
+    <div class="card2">
+        <div class="header">
+   
+    
+            <p class="alert">
+              
+                
+
+                
+            <div class="board1" >
+<!--  -->
+
+{% for board in question_list %}
+
+<a href="/board_view?web_id={{board.web_id}}&title={{board.title}}&text={{board.text}}&filed={{board.filed}}"  target='_blank'>
+              
+                        <div class="task1" draggable="true">
+                          <div class="tags">
+                            <span class="tag">{{board.web_id}} 님</span>
+                            <button class="options">
+                           <g stroke-linejoin="round" stroke-linecap="round" id="SVGRepo_tracerCarrier"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M11.214,20.956c0,3.091-2.509,5.589-5.607,5.589C2.51,26.544,0,24.046,0,20.956c0-3.082,2.511-5.585,5.607-5.585 C8.705,15.371,11.214,17.874,11.214,20.956z"></path> <path d="M26.564,20.956c0,3.091-2.509,5.589-5.606,5.589c-3.097,0-5.607-2.498-5.607-5.589c0-3.082,2.511-5.585,5.607-5.585 C24.056,15.371,26.564,17.874,26.564,20.956z"></path> <path d="M41.915,20.956c0,3.091-2.509,5.589-5.607,5.589c-3.097,0-5.606-2.498-5.606-5.589c0-3.082,2.511-5.585,5.606-5.585 C39.406,15.371,41.915,17.874,41.915,20.956z"></path> </g> </g> </g></svg>
+                            </button>
+                          </div>
+                          <h5>{{board.title}}</h5>
+                          <p>{{ board.text|slice:":100" }}...</p>
+                          <div class="stats">
+                        <div>
+                              <div><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><g stroke-width="0" id="SVGRepo_bgCarrier"></g><g stroke-linejoin="round" stroke-linecap="round" id="SVGRepo_tracerCarrier"></g><g id="SVGRepo_iconCarrier"> <path stroke-linecap="round" stroke-width="2" d="M12 8V12L15 15"></path> <circle stroke-width="2" r="9" cy="12" cx="12"></circle> </g></svg>{{board.created_at}}</div>
+                              <div><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><g stroke-width="0" id="SVGRepo_bgCarrier"></g><g stroke-linejoin="round" stroke-linecap="round" id="SVGRepo_tracerCarrier"></g><g id="SVGRepo_iconCarrier"> <path stroke-linejoin="round" stroke-linecap="round" stroke-width="1.5" d="M16 10H16.01M12 10H12.01M8 10H8.01M3 10C3 4.64706 5.11765 3 12 3C18.8824 3 21 4.64706 21 10C21 15.3529 18.8824 17 12 17C11.6592 17 11.3301 16.996 11.0124 16.9876L7 21V16.4939C4.0328 15.6692 3 13.7383 3 10Z"></path> </g></svg>{{board.answer}}</div>
+                              <div><svg fill="#000000" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="-2.5 0 32 32"><g stroke-width="0" id="SVGRepo_bgCarrier"></g><g stroke-linejoin="round" stroke-linecap="round" id="SVGRepo_tracerCarrier"></g><g id="SVGRepo_iconCarrier">
+                          
+                              <span>읽은 사람 : {{board.count}}</span>
+                        </div>
+                    </div>
+                  </div>
+              </div>
+                      
+</a>                      
+
+{% endfor %}
+</div>
+
+
+
+
+                
+
+
+
+
+
+</div>
+</div>
+
+
+
+
+
+<div class="paging" style="color:black;">
+  <ul class="pagination justify-content-center">
+      <!-- 이전페이지 -->
+      {% if question_list.has_previous %}
+      
+          <a class="page-link btn-type" href="?page={{ question_list.previous_page_number }}">이전</a>
+      
+      {% else %}
+      
+          <span class="page-link btn-type" aria-disabled="true">이전</span>
+      
+      {% endif %}
+      <!-- 페이지리스트 -->
+      {% for page_number in question_list.paginator.page_range %}
+      {% if page_number == question_list.number %}
+  
+          <span class="page-link" style="font-size:20px ;font-weight: 600; color: black;">{{ page_number }}</span>
+  
+      {% else %}
+
+          <a class="page-link" href="?page={{ page_number }}">{{ page_number }}</a>
+
+      {% endif %}
+      {% endfor %}
+      <!-- 다음페이지 -->
+      {% if question_list.has_next %}
+          <a class="page-link btn-type" href="?page={{ question_list.next_page_number }}">다음</a>
+
+      {% else %}
+          <span class="page-link btn-type" aria-disabled="true">다음</span>
+  
+      {% endif %}
+  </ul>
+</div>
+<br><br>
+
+
+
+<!-- Footer -->
+<!-- <footer class="w3-center w3-black w3-padding-64">
+  <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
+  <div class="w3-xlarge w3-section">
+    <i class="fa fa-facebook-official w3-hover-opacity"></i>
+    <i class="fa fa-instagram w3-hover-opacity"></i>
+    <i class="fa fa-snapchat w3-hover-opacity"></i>
+    <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+    <i class="fa fa-twitter w3-hover-opacity"></i>
+    <i class="fa fa-linkedin w3-hover-opacity"></i>
+  </div>
+  <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-text-green">w3.css</a></p>
+</footer>
+  -->
+<script>
+// Modal Image Gallery
+function onClick(element) {
+  document.getElementById("img01").src = element.src;
+  document.getElementById("modal01").style.display = "block";
+  var captionText = document.getElementById("caption");
+  captionText.innerHTML = element.alt;
+}
+
+
+// Toggle between showing and hiding the sidebar when clicking the menu icon
+var mySidebar = document.getElementById("mySidebar");
+
+function w3_open() {
+  if (mySidebar.style.display === 'block') {
+    mySidebar.style.display = 'none';
+  } else {
+    mySidebar.style.display = 'block';
+  }
+}
+
+// Close the sidebar with the close button
+function w3_close() {
+    mySidebar.style.display = "none";
+}
+</script>
+
+
+
+
+{% endblock %}

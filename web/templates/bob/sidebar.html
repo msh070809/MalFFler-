@@ -1,0 +1,135 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>malware security education platform</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../static/web/css/exe.css">
+    <style>
+        body, h1, h2, h3, h4, h5, h6 {
+            font-family: "Raleway", sans-serif
+        }
+
+        body, html {
+            height: 100%;
+            line-height: 1.8;
+        }
+
+        /* Full height image header */
+        .bgimg-1 {
+            background-position: center;
+            background-size: cover;
+            background-image: url("/w3images/mac.jpg");
+            min-height: 100%;
+        }
+
+        .w3-bar .w3-button {
+            padding: 16px;
+        }
+
+        .w3-greyscale,
+        .w3-grayscale {
+            filter: grayscale(75%)
+        }
+
+        .w3-greyscale-min,
+        .w3-grayscale-min {
+            filter: grayscale(0%)
+        }
+
+        .w3-white-bar,
+        .w3-hover-white:hover {
+            color: white!important;
+            background-color: #1A244D;
+        }
+
+        .w3-button {
+            border: none;
+            display: inline-block;
+            padding: 16px 16px;
+            vertical-align: middle;
+            overflow: hidden;
+            text-decoration: none;
+            color: inherit;
+            background-color: inherit;
+            text-align: center;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        #mySidebar {
+            position: fixed;
+            width: 0;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background-color: #1A244D;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+            color: white;
+        }
+
+        #mySidebar a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 25px;
+            color: #818181;
+            display: block;
+            transition: 0.3s;
+        }
+
+        #mySidebar a:hover {
+            color: #f1f1f1;
+        }
+
+        #mySidebar .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            padding: 16px;
+        }
+
+        #main {
+            transition: margin-left .5s;
+            padding: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div id="mySidebar" class="sidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">☰ Close Sidebar</a>
+        <a href="/education1">기초강의</a>
+        <a href="/education2">제작강의</a>
+        <a href="/education3">분석강의</a>
+        <a href="/exe">문제풀이</a>
+        <a href="/board">커뮤니티</a>
+        <a href="/home">{{web_id}} 님</a>
+    </div>
+
+    <div id="main">
+        <span onclick="openNav()">☰ Open Sidebar</span>
+        <div class="content">
+            <h1>Main Content</h1>
+            <p>Click on the element below to open the sidebar:</p>
+        </div>
+    </div>
+
+    <script>
+        function openNav() {
+            document.getElementById("mySidebar").style.width = "250px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidebar").style.width = "0";
+        }
+    </script>
+    {% endif %}
+    {% block content %}
+    {% endblock %}
+</body>
+</html>

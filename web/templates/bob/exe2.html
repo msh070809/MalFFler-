@@ -1,0 +1,174 @@
+{% extends "bob/header.html" %}
+
+
+
+
+{% block content %}
+
+
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'web/css/exe2.css' %}">
+
+
+
+
+<br><br><br>
+
+
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // Find the button by its id
+    var openWindowButton = document.getElementById('openWindowButton');
+
+    // Add a click event listener to the button
+    openWindowButton.addEventListener('click', function () {
+      // Define the URL you want to open in the popup window
+      var urlToOpen = ''; // Replace with your desired URL
+
+      // Define the dimensions of the popup window
+      var width = 900; // Width of the window in pixels
+      var height = 600; // Height of the window in pixels
+
+      // Calculate the position of the popup window to center it on the screen
+      var left = (window.innerWidth - width) / 2;
+      var top = (window.innerHeight - height) / 2;
+
+      // Use window.open() to open the popup window with specified dimensions and position
+      var popupWindow = window.open(urlToOpen, 'PopupWindow', 'width=' + width + ',height=' + height + ',left=' + left + ',top=' + top);
+
+      // Focus the popup window (optional)
+      if (popupWindow) {
+        popupWindow.focus();
+      }
+    });
+  });
+</script>
+
+
+<style>
+  .margin-right{
+  margin-right: 120px;
+  }
+
+  .margin-left{
+    margin-left: 120px;
+  }
+</style>
+
+<div class="card margin-left margin-right">
+  <div class="header">
+    <span class="icon">
+
+    </span>
+    <p class="alert"><h5>{{file}}</h5></p>
+
+
+    <div class="checkbox-wrapper-35">
+      <input value="private" name="switch" id="switch" type="checkbox" class="switch">
+   
+        <div class="os">
+          <button id="openWindowButton">
+            가상화 os
+          </button>
+        </div>
+        </div>
+
+      </label>
+    </div>
+
+
+  
+  </div>
+
+
+
+</div>
+
+<div class="card2 margin-left margin-right">
+  <div class="contentg">
+ 
+
+
+<!-- 내용이 들어가는 곳 -->
+
+
+
+
+<style>
+  /* iframe을 선택하고 테두리 스타일을 none(없음)으로 설정합니다. */
+  iframe {
+      border: none;
+  }
+</style>
+
+
+
+
+
+<!-- 목차 -->
+<!-- 목차 -->
+{% load custom_filters %}
+{% if exes %}
+{% for exe in exes %}
+
+{% for exe in exe.table|split_string %}
+
+{% with cleaned_exe=exe.strip %}  <!-- 줄 바꿈 문자 제거 -->
+
+<div class="info">
+
+  <div class="info__title">
+ 
+      <details>
+        <summary> {{ cleaned_exe }}</summary>
+      
+        <div class="card3">
+          <!-- html -->
+   
+          <iframe src="{% static 'web/problem_dir/'|add:file|add:'/'|add:cleaned_exe|add:'.html' %}" style="width: 100%; height: 400px; margin: 0 10px 0 10px;"></iframe>
+
+          <!-- 제출 버튼 -->
+          <br>
+       
+       <!-- 정답 제출 -->
+        <form action="/exe_answer/" method="post">
+          {% csrf_token %}
+          <div class="submit">
+            <div class="search">
+                <input placeholder="문제의 답을 작성해주세요" type="text" name="answer">
+                <input type="hidden" name="problem_name" value="{{cleaned_exe}}">
+                <input type="hidden" name="problem_name2" value="{{file}}">
+                <button type="submit">제출하기</button>
+              </div>
+          </div>
+        </form>
+
+    </details>
+  </div>
+</div>
+{% endwith %}
+{% endfor %}
+{% endfor %}
+{% else %}
+<p>No data available.</p>
+{% endif %}
+
+
+
+
+
+
+
+<br>
+
+
+
+
+
+
+
+
+
+{% endblock %}

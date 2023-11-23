@@ -1,0 +1,101 @@
+
+
+<style>
+    .quiz_task .form {
+    display: flex;
+    align-items: left;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 300px;
+    background-color: white;
+    border-radius: 15px;
+    padding: 20px;
+
+    
+    }
+
+    .quiz_task .title {
+    font-size: 17px;
+    font-weight: bold;
+    color: black
+    }
+
+    .quiz_task .message {
+    color: #a3a3a3;
+    font-size: 14px;
+    margin-top: 4px;
+    text-align: center
+    }
+
+    .quiz_task .inputs {
+    margin-top: 10px
+    }
+
+    .quiz_task .inputs input {
+    width: 32px;
+    height: 32px;
+    text-align: center;
+    border: none;
+    border-bottom: 1.5px solid #d2d2d2;
+    margin: 0 10px;
+    }
+
+    .quiz_task .inputs input:focus {
+    border-bottom: 1.5px solid royalblue;
+    outline: none;
+    }
+
+    .quiz_task .action {
+    margin-top: 12px;
+    padding: 12px 16px;
+    border-radius: 8px;
+    border: none;
+    background-color: royalblue;
+    color: white;
+    cursor: pointer;
+    align-self: end;
+    }
+  
+    .quiz_column {
+        display: flex;
+      }
+    
+</style>
+
+
+
+
+<div class="quiz_task">
+    <form class="form">
+        <div>
+            
+            <h3>Quiz_N. 문제를 적어주세요.
+            <hr>
+            <p> Byte = ? byte</p>
+            <p> Word = ? byte</p>
+            <p> Dword = ? byte</p>
+            <p> Qword = ? byte</p>
+        </h3>
+            <hr/>
+
+        </div> 
+        <div class="quiz_column"><div id="quiz_number">①&nbsp;</div><div id="quiz_answer">1번</div></div>
+        <div class="quiz_column"><div id="quiz_number">②&nbsp;</div><div id="quiz_answer">2번</div></div>
+        <div class="quiz_column"><div id="quiz_number">③&nbsp;</div><div id="quiz_answer">3번</div></div>
+        <div class="quiz_column"><div id="quiz_number">④&nbsp;</div><div id="quiz_answer">4번</div></div>
+        <div class="quiz_column"><div id="quiz_number">⑤&nbsp;</div><div id="quiz_answer">5번</div></div>
+
+        </form>
+</div>
+
+<div class="quiz_task">
+    <form class="form">
+        <h3>Quiz2. 아래에 보기들 중 알맞는 것끼리 짝지어진 것을 고르시오</h3>
+        <div class="quiz_column"><div id="quiz_number">①&nbsp;</div><div id="quiz_answer">1번</div></div>
+        <div class="quiz_column"><div id="quiz_number">②&nbsp;</div><div id="quiz_answer">2번</div></div>
+        <div class="quiz_column"><div id="quiz_number">③&nbsp;</div><div id="quiz_answer">3번</div></div>
+        <div class="quiz_column"><div id="quiz_number">④&nbsp;</div><div id="quiz_answer">4번</div></div>
+        <div class="quiz_column"><div id="quiz_number">⑤&nbsp;</div><div id="quiz_answer">5번</div></div>
+    </form>
+</div>
+

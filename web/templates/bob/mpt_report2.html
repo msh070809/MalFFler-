@@ -1,0 +1,51 @@
+{% extends "bob/header.html" %}
+
+
+
+
+
+{% block content %}
+
+
+{% load static %}
+
+
+<head>
+
+</head>
+<br><br><br><br>
+
+
+<style>
+
+a {
+    text-decoration: none; /* 밑줄 제거 */
+}
+</style>
+<body style="background-color: #D7DAE7; ">
+
+
+    
+      <div style="background-color: white; width: 90%; border-radius: 15px; margin-left: 5%; margin-right: 10%; padding: 10px;">
+        <h1>{{report}}</h1>
+        <br>
+       
+        {% for matching_report in matching_reports %}
+
+
+         <details>
+          <summary>{{matching_report.answer}}</summary>
+          <h5>
+            <ul>  
+              
+            {{matching_report.report}}
+            </ul></h5>
+      </details>
+        {% endfor %}
+      
+      
+      
+      </div>
+  </body>
+
+{% endblock %}

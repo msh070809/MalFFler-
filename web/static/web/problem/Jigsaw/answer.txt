@@ -1,0 +1,8 @@
+Jigsaw Q1=confuser
+Jigsaw Q2=costura
+Jigsaw Q3=2016년 4월 1일
+Jigsaw Q4=C:/users/username/appdata/local/drpbx/drpbx.exe
+Jigsaw Q5=firefox.exe
+Jigsaw Q6=HKEY_Current_User\\Software\\Microsoft\\Windows\\CurrentVersion\\Run
+Jigsaw Q7=aesfun  
+Jigsaw Q8=0103530100206760

@@ -1,0 +1,231 @@
+{% extends "bob/header.html" %}
+
+
+
+
+
+{% block content %}
+
+
+
+<!-- Header with full-height image -->
+
+
+
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'web/css/login.css' %}">
+
+
+
+  
+
+
+<!-- 로그인 상태 -->
+{% if web_id %}
+
+
+<!-- Sidebar on small screens when clicking the menu icon -->
+<nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-left w3-hide-medium w3-hide-large" style="display:none" id="mySidebar">
+  <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">Close ×</a>
+  <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button">강의</a>
+  <a href="#team" onclick="w3_close()" class="w3-bar-item w3-button">문제</a>
+  <a href="#work" onclick="w3_close()" class="w3-bar-item w3-button">시나리오</a>
+  <a href="#pricing" onclick="w3_close()" class="w3-bar-item w3-button">커뮤니티</a>
+  <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button">로그인</a>
+</nav>
+
+<!-- Header with full-height image -->
+<header class="bgimg-1 w3-display-container w3-grayscale-min" id="home" style="background-color: #f0f0f5;">
+  <div class="w3-display-left w3-text-white introduction margin-left" >
+    <h1 style="color: #333; font-size:4em; font-weight:bold">MalFFleR</h1>
+    <span class="w3-large" style="color:#333">MalFFleR 는 악성코드의 기초부터 제작, 분석에 이르는 다양한 강의와 실전 경험을 제공합니다.<br>
+      강의와 실전 분석 문제를 통해 악성코드의 작동 원리를 이해하고, <br>
+      자체적으로 악성코드를 제작하고 분석하는 과정을 경험해보세요.<br>
+      우리 플랫폼을 통해 악성코드의 세계로 여행을 떠나보세요. <br>
+      보안 분야에서의 성공적인 경력을 쌓기 위한 첫 걸음을 내딛을 준비가 되셨나요?<br>
+    </span>
+  </div> 
+
+
+
+  <form class="form margin-right" style="right:0;">
+    <div class="flex-column">
+      <label><H2>'{{web_id}}' 님</H2></label>
+    </div>
+      <br>
+      <div class="card">
+        <div class="header">나의 진도률</div>
+        <div class="body">
+          <div class="skill">
+            <div class="skill-name">기초/분석</div>
+            <div class="skill-level">
+              <div class="skill-percent" style="width: 90%"></div>
+            </div>
+            <div class="skill-percent-number">90%</div>
+          </div>
+          <div class="skill">
+            <div class="skill-name">제작</div>
+            <div class="skill-level">
+              <div class="skill-percent" style="width: 80%"></div>
+            </div>
+            <div class="skill-percent-number">80%</div>
+          </div>
+          <div class="skill">
+            <div class="skill-name">문제</div>
+            <div class="skill-level">
+              <div class="skill-percent" style="width: 75%"></div>
+            </div>
+            <div class="skill-percent-number">75%</div>
+          </div>
+
+          <div class="skill">
+            <div class="skill-name">시나리오</div>
+            <div class="skill-level">
+              <div class="skill-percent" style="width: 75%"></div>
+            </div>
+            <div class="skill-percent-number">75%</div>
+          </div>
+        </div>
+      </div>
+      <br>
+      <span class="span">회원 정보수정</span>
+      </div></form>
+
+  </header>
+  
+
+
+
+
+
+
+
+<!-- 비로그인 상태 -->
+{% else %}
+
+
+
+
+<header class="bgimg-1 w3-display-container w3-grayscale-min" id="home" style="background-color: #f0f0f5;">
+  <div class="w3-display-left w3-text-white introduction margin-left" >
+    <h1 style="color: #333; font-size:4em; font-weight:bold">MalFFleR</h1>
+    <span class="w3-large" style="color:#333">MalFFleR 는 악성코드의 기초부터 제작, 분석에 이르는 다양한 강의와 실전 경험을 제공합니다.<br>
+      강의와 실전 분석 문제를 통해 악성코드의 작동 원리를 이해하고, <br>
+      자체적으로 악성코드를 제작하고 분석하는 과정을 경험해보세요.<br>
+      우리 플랫폼을 통해 악성코드의 세계로 여행을 떠나보세요. <br>
+      보안 분야에서의 성공적인 경력을 쌓기 위한 첫 걸음을 내딛을 준비가 되셨나요?<br>
+    </span>
+  </div> 
+
+
+   <form class="form">
+      <div class="flex-column">
+        <label>아이디 </label></div>
+        <div class="inputForm">
+               <input placeholder="아이디를 입력해주세요." class="input" type="text">
+        </div>
+      
+      <div class="flex-column">
+        <label>비밀번호 </label></div>
+        <div class="inputForm">
+          <input placeholder="비밀번호를 입력해주세요." class="input" type="password">
+        </div>
+      
+      <div class="flex-row">
+        <div>
+        <!-- <input type="radio"> -->
+        <!-- <label>Remember me </label> -->
+        </div>
+        <span class="span">비밀번호 찾기</span>
+      </div>
+      <button class="button-submit">로그인</button>
+      <p class="p">회원이 아니신가요?<span class="span">회원가입</span>
+  
+    </div></form>
+
+</header>
+
+
+{% endif %}
+
+
+
+
+
+<!-- About Section -->
+
+
+<!-- <div class="w3-container" style="padding:128px 16px" id="about">
+<h3 class="w3-center">ABOUT THE COMPANY</h3>
+<p class="w3-center w3-large">Key features of our company</p>
+<div class="w3-row-padding w3-center" style="margin-top:64px">
+  <div class="w3-quarter">
+    <i class="fa fa-desktop w3-margin-bottom w3-jumbo w3-center"></i>
+    <p class="w3-large">Responsive</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+  </div>
+  <div class="w3-quarter">
+    <i class="fa fa-heart w3-margin-bottom w3-jumbo"></i>
+    <p class="w3-large">Passion</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+  </div>
+  <div class="w3-quarter">
+    <i class="fa fa-diamond w3-margin-bottom w3-jumbo"></i>
+    <p class="w3-large">Design</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+  </div>
+  <div class="w3-quarter">
+    <i class="fa fa-cog w3-margin-bottom w3-jumbo"></i>
+    <p class="w3-large">Support</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+  </div>
+</div>
+</div> -->
+
+
+<!-- Footer -->
+<!-- 
+<footer class="w3-center w3-black w3-padding-64">
+<a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
+<div class="w3-xlarge w3-section">
+  <i class="fa fa-facebook-official w3-hover-opacity"></i>
+  <i class="fa fa-instagram w3-hover-opacity"></i>
+  <i class="fa fa-snapchat w3-hover-opacity"></i>
+  <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+  <i class="fa fa-twitter w3-hover-opacity"></i>
+  <i class="fa fa-linkedin w3-hover-opacity"></i>
+</div>
+<p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-text-green">w3.css</a></p>
+</footer> -->
+
+<script>
+// Modal Image Gallery
+function onClick(element) {
+document.getElementById("img01").src = element.src;
+document.getElementById("modal01").style.display = "block";
+var captionText = document.getElementById("caption");
+captionText.innerHTML = element.alt;
+}
+
+
+// Toggle between showing and hiding the sidebar when clicking the menu icon
+var mySidebar = document.getElementById("mySidebar");
+
+function w3_open() {
+if (mySidebar.style.display === 'block') {
+  mySidebar.style.display = 'none';
+} else {
+  mySidebar.style.display = 'block';
+}
+}
+
+// Close the sidebar with the close button
+function w3_close() {
+  mySidebar.style.display = "none";
+}
+</script>
+
+
+
+
+{% endblock %}

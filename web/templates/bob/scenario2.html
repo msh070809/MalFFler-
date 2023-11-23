@@ -1,0 +1,154 @@
+{% extends "bob/header.html" %}
+
+
+
+
+
+{% block content %}
+
+
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'web/css/exe2.css' %}">
+
+
+
+
+<br><br><br>
+
+
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // Find the button by its id
+    var openWindowButton = document.getElementById('openWindowButton');
+
+    // Add a click event listener to the button
+    openWindowButton.addEventListener('click', function () {
+      // Define the URL you want to open in the popup window
+      var urlToOpen = ''; // Replace with your desired URL
+
+      // Define the dimensions of the popup window
+      var width = 900; // Width of the window in pixels
+      var height = 600; // Height of the window in pixels
+
+      // Calculate the position of the popup window to center it on the screen
+      var left = (window.innerWidth - width) / 2;
+      var top = (window.innerHeight - height) / 2;
+
+      // Use window.open() to open the popup window with specified dimensions and position
+      var popupWindow = window.open(urlToOpen, 'PopupWindow', 'width=' + width + ',height=' + height + ',left=' + left + ',top=' + top);
+
+      // Focus the popup window (optional)
+      if (popupWindow) {
+        popupWindow.focus();
+      }
+    });
+  });
+</script>
+
+
+
+
+
+<div class="card">
+  <div class="header">
+    <span class="icon">
+
+    </span>
+    <p class="alert"><h5>{{file}}</h5></p>
+
+
+    <div class="checkbox-wrapper-35">
+      <input value="private" name="switch" id="switch" type="checkbox" class="switch">
+   
+        <div class="os">
+          <button id="openWindowButton">
+            가상화 os
+          </button>
+        </div>
+        </div>
+
+      </label>
+    </div>
+
+
+  
+  </div>
+
+
+
+</div>
+
+<div class="card2">
+  <div class="contentg">
+ 
+
+
+<!-- 내용이 들어가는 곳 -->
+
+
+
+<!-- 목차 -->
+{% load custom_filters %}
+{% if exes %}
+{% for exe in exes %}
+
+{% for exe in exe.table|split_string %}
+
+{% with cleaned_exe=exe.strip %}  <!-- 줄 바꿈 문자 제거 -->
+
+<div class="info">
+
+  <div class="info__title">
+ 
+      <details>
+        <summary> {{ cleaned_exe }}</summary>
+      
+        <div class="card3">
+          <!-- html -->
+          <div id="external-content"></div>
+          {% include 'bob/scenario/'|add:cleaned_exe|add:'.html' %}  <!-- 정제된 변수 사용 -->
+          <!-- 제출 버튼 -->
+        <br><br><br><br>
+       
+       <!-- 정답 제출 -->
+        <form action="/scenario_answer/" method="post">
+          {% csrf_token %}
+          <div class="submit">
+            <div class="search">
+                <input placeholder="문제의 답을 작성해주세요" type="text" name="answer">
+                <input type="hidden" name="problem_name" value="{{cleaned_exe}}">
+                <button type="submit">제출하기</button>
+              </div>
+          </div>
+        </form>
+
+    </details>
+  </div>
+</div>
+{% endwith %}
+{% endfor %}
+{% endfor %}
+{% else %}
+<p>No data available.</p>
+{% endif %}
+
+
+<!--  -->
+
+
+
+
+
+<br>
+
+
+
+
+
+
+
+
+
+{% endblock %}

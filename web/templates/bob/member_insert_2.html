@@ -1,0 +1,167 @@
+{% extends "bob/header.html" %}
+
+
+
+
+
+{% block content %}
+
+
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'web/css/member_insert_2.css' %}">
+
+
+<body>
+  <div class="middle">
+    <h1 style="color: black;">회원가입</h1>
+    </div>
+    <div class="radio-input">
+      
+      <label>
+      <input type="radio" id="value-1" name="value-radio" value="value-1"  disabled>
+      <span>이용약관</span>
+      </label>
+      <label>
+        <input type="radio" id="value-2" name="value-radio" value="value-2" checked disabled>
+      <span>개인정보</span>
+      </label>
+      <label>
+        <input type="radio" id="value-3" name="value-radio" value="value-3" disabled>
+      <span>회원가입</span>
+      </label>
+      <span class="selection"></span>
+    </div>
+    
+    
+    
+    <form class="form" method="post" action="{% url 'member_insert_logic'%}">
+      {% csrf_token %}
+      <p class="title" >회원가입 </p>
+      <p class="message">아이디 정보를 입력해주세요</p>
+      <label>
+          <input required="" placeholder="" type="text" class="input" name="username">
+          <span>아이디를 입력해주세요</span>
+      </label>
+      <label>
+        <input required="" placeholder="" type="password" class="input" name="password">
+        <span>비밀번호를 입력해주세요</span>
+      </label>
+      <label>
+        <input required="" placeholder="" type="password" class="input" name="password_confirm">
+        <span>비밀번호를 확인해주세요</span>
+      </label>
+      <br>
+      <!-- <p class="message">개인정보를 입력해주세요</p>
+    
+      <label>
+        <input required="" placeholder="" type="text" class="input">
+        <span>이메일을 입력해주세요</span>
+      </label> 
+            
+          
+      <div class="flex">
+        <label>
+          <input required="" placeholder="" type="text" class="input" disabled>
+          <span >010</span>
+      </label>
+    
+      <label>
+        <input required="" placeholder="" type="text" class="input" maxlength="4">
+        <span>전화번호 앞자리</span>
+      </label>
+    
+        <label>
+            <input required="" placeholder="" type="text" class="input" maxlength="4">
+            <span>전화번호 뒷자리</span>
+        </label>
+    </div>  
+            <div class="mydict">
+              <div class="flex">
+              <label>
+              <p class="message">성별을 선택해주세요</p>
+            </label>
+             
+    
+          <label>
+            <div>
+              <label>
+                <input type="radio" name="radio">
+                <span>남성</span>
+              </label>
+              <label>
+                <input type="radio" name="radio">
+                <span>여성</span>
+              </label>   
+            </div>
+            </div>
+        </label> -->
+        {% if messages %}
+        <div id="error-messages">
+            {% for message in messages %}
+                <p>{{ message }}</p>
+            {% endfor %}
+        </div>
+        {% endif %}
+        <button class="submit" type="submit">회원가입</button>
+    </form>
+    
+    
+    
+    
+    <br>
+    
+    </div>
+    </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer class="w3-center w3-black w3-padding-64">
+      <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
+      <div class="w3-xlarge w3-section">
+        <i class="fa fa-facebook-official w3-hover-opacity"></i>
+        <i class="fa fa-instagram w3-hover-opacity"></i>
+        <i class="fa fa-snapchat w3-hover-opacity"></i>
+        <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+        <i class="fa fa-twitter w3-hover-opacity"></i>
+        <i class="fa fa-linkedin w3-hover-opacity"></i>
+      </div>
+      <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-text-green">w3.css</a></p>
+    </footer>
+     
+    <script>
+    // Modal Image Gallery
+    function onClick(element) {
+      document.getElementById("img01").src = element.src;
+      document.getElementById("modal01").style.display = "block";
+      var captionText = document.getElementById("caption");
+      captionText.innerHTML = element.alt;
+    }
+    
+    
+    // Toggle between showing and hiding the sidebar when clicking the menu icon
+    var mySidebar = document.getElementById("mySidebar");
+    
+    function w3_open() {
+      if (mySidebar.style.display === 'block') {
+        mySidebar.style.display = 'none';
+      } else {
+        mySidebar.style.display = 'block';
+      }
+    }
+    
+    // Close the sidebar with the close button
+    function w3_close() {
+        mySidebar.style.display = "none";
+    }
+    
+    // 1초 후에 실행될 함수
+    setTimeout(function () {
+        var errorMessages = document.getElementById('error-messages');
+        if (errorMessages) {
+            errorMessages.parentNode.removeChild(errorMessages); // <p> 엘리먼트 삭제
+        }
+    }, 1000); // 1000ms (1초) 후에 실행
+    </script>
+</body>
+
+{% endblock %}

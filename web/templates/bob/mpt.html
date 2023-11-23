@@ -1,0 +1,81 @@
+
+{% extends "bob/mpt_header.html" %}
+
+
+
+
+
+{% block content %}
+<body style="background-color: #D7DAE7;">
+
+
+    
+<br><br><br>
+<form method="post"  action="">
+    {% csrf_token %}
+<div class="answer">
+    <div class="card">
+      <!-- <div class="chat-header">댓글</div> -->
+        <div class="chat-input">
+            <input type="text" class="message-input" name="answer" placeholder="Type your message here">
+            <input hidden name="table" value="{{table}}">
+            <input hidden name="lecture" value="{{lecture}}">
+          
+            <button class="send-button">질문하기</button>
+        </div>
+      </div>
+  </div>    
+</form>    
+
+<div id="waiting-message" style="display: none;">
+<form>
+  <div class="answer">
+  <div class="card">
+    <!-- <div class="chat-header">댓글</div> -->
+      <div class="chat-input">
+       
+          답변을 생성하고 있습니다. 질문에 따라 시간이 다소 걸릴 수 있습니다.
+        
+        
+      </div>
+    </div>
+</div>    
+</form>    
+</div>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+      const form = document.querySelector("form");
+      const waitingMessage = document.getElementById("waiting-message");
+
+      form.addEventListener("submit", function () {
+          // 폼이 제출될 때 메시지를 표시
+          waitingMessage.style.display = "block";
+      });
+
+      // 서버 응답을 받았을 때, 메시지를 숨김
+      // 예를 들어, 서버 응답 후에 메시지를 숨기려면 이 부분을 수정해야 합니다.
+  });
+</script>
+
+{% if t_text %}
+<form>
+    {% csrf_token %}
+<div class="answer">
+    <div class="card">
+      <!-- <div class="chat-header">댓글</div> -->
+        <div class="chat-input">
+        
+            {{ t_text }}
+      
+        </div>
+      </div>
+  </div>    
+</form> 
+
+</body>
+
+{% endif %}
+     
+{% endblock %}

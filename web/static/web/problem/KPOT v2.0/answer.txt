@@ -1,0 +1,8 @@
+KPOT Q1=text
+KPOT Q2=sub_4042FC
+KPOT Q3=xor
+KPOT Q4=sub_4045DC
+KPOT Q5=murmur3
+KPOT Q6=Namecoin
+KPOT Q7=kpot2.exe
+KPOT Q8=SCP

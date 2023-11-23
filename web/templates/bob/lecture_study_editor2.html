@@ -1,0 +1,175 @@
+{% extends "bob/header.html" %}
+
+{% block content %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'web/css/lecture_study.css' %}">
+
+<div class="coulmn">
+  <div class="coulmn_item1">
+    <div class="cardg">
+      <div class="contentg">
+        <link rel="stylesheet" type="text/css" href="{% static 'web/lecture2/'|add:file|add:'.css' %}">
+        <img id="image" src="{% static 'web/lecture2/'|add:file|add:'.png' %}">
+      </div>
+    </div>
+  </div>
+
+  <div class="coulmn_item2">
+    <div class="card2">
+      <div class="contentg">
+        <div id="loaded-content"></div>
+      </div>
+      
+      <!-- 버튼 -->
+      <div class="button-container">
+        <!-- Django 템플릿 -->
+        <!-- 편집기 js -->
+        <!-- 편집기 저장값 -->
+        <form action="" method="post">
+          {% csrf_token %}
+          <input type="hidden" name="image_width" id="image-width" value="">
+          <input type="hidden" name="image_height" id="image-height" value="">
+          <input type="hidden" name="image_margin_left" id="image-margin-left" value="">
+          <input type="hidden" name="image_margin_top" id="image-margin-top" value="">
+          <input type="hidden" name="file" id="file" value="{{file}}">
+          
+          <button type="submit" id="저장">저장하기</button>
+        </form>
+
+
+ 
+
+        <button id="previous-button">전장으로</button>
+        <button id="next-button">다음장으로</button>
+      </div>
+
+      <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          // "전장으로" 버튼에 클릭 이벤트 리스너를 추가합니다.
+          document.querySelector('#previous-button').addEventListener('click', moveToPrevious);
+  
+          // "다음장으로" 버튼에 클릭 이벤트 리스너를 추가합니다.
+          document.querySelector('#next-button').addEventListener('click', moveToNext);
+  
+          function moveToPrevious() {
+            // 현재 페이지의 URL을 가져옵니다.
+            let currentUrl = window.location.href;
+  
+            // URL에서 "table"과 "value" 매개변수를 추출하고 현재 값을 얻습니다.
+            let url = new URL(currentUrl);
+            let currentTable = url.searchParams.get("table");
+            let currentValue = parseInt(url.searchParams.get("page"));
+  
+            // 값이 없을 경우 기본값을 설정할 수 있습니다.
+            if (isNaN(currentValue)) {
+              currentValue = 0;
+            }
+  
+            // 현재 값이 -1 미만이면 "첫 페이지 입니다" 메시지를 표시하고 더 이상 진행하지 않습니다.
+            if (currentValue <= 1) {
+              alert("첫 페이지 입니다");
+              return;
+            }
+  
+            // 값을 감소시킵니다.
+            let newValue = currentValue - 1;
+  
+            // 새로운 URL을 만듭니다.
+            let newUrl = `${url.pathname}?table=${currentTable}&page=${newValue}`;
+  
+            // 새 URL로 이동합니다.
+            window.location.href = newUrl;
+          }
+  
+          function moveToNext() {
+            // 현재 페이지의 URL을 가져옵니다.
+            let currentUrl = window.location.href;
+  
+            // URL에서 "table"과 "value" 매개변수를 추출하고 현재 값을 얻습니다.
+            let url = new URL(currentUrl);
+            let currentTable = url.searchParams.get("table");
+            let currentValue = parseInt(url.searchParams.get("page"));
+  
+            // 값이 없을 경우 기본값을 설정할 수 있습니다.
+            if (isNaN(currentValue)) {
+              currentValue = 0;
+            }
+  
+            // 값을 증가시킵니다.
+            let newValue = currentValue + 1;
+  
+            // 새로운 URL을 만듭니다.
+            let newUrl = `${url.pathname}?table=${currentTable}&page=${newValue}`;
+  
+            // 새 URL로 이동합니다.
+            window.location.href = newUrl;
+          }
+        });
+      </script>
+  
+      <script>
+        function changeWidth(newWidth) {
+          var image = document.getElementById("image");
+          image.style.maxWidth = newWidth + "px";
+          
+          // 가로 크기를 변경한 후, 텍스트로 표시
+          document.getElementById("width-display").textContent = "가로 크기: " + newWidth + "px";
+          
+          // 이미지 가로 크기 값을 업데이트
+          document.getElementById("image-width").value = newWidth;
+        }
+  
+        function changeHeight(newHeight) {
+          var image = document.getElementById("image");
+          image.style.maxHeight = newHeight + "px";
+          
+          // 세로 크기를 변경한 후, 텍스트로 표시
+          document.getElementById("height-display").textContent = "세로 크기: " + newHeight + "px";
+          
+          // 이미지 세로 크기 값을 업데이트
+          document.getElementById("image-height").value = newHeight;
+        }
+  
+        function changeMarginTop(newMarginTop) {
+          var image = document.getElementById("image");
+          image.style.marginTop = newMarginTop + "px";
+          
+          // 상단 여백을 변경한 후, 텍스트로 표시
+          document.getElementById("margin-top-display").textContent = "상단 여백: " + newMarginTop + "px";
+          
+          // 이미지 상단 여백 값을 업데이트
+          document.getElementById("image-margin-top").value = newMarginTop;
+        }
+  
+        function changeMarginLeft(newMarginLeft) {
+          var image = document.getElementById("image");
+          image.style.marginLeft = newMarginLeft + "px";
+          
+          // 왼쪽 여백을 변경한 후, 텍스트로 표시
+          document.getElementById("margin-left-display").textContent = "왼쪽 여백: " + newMarginLeft + "px";
+          
+          // 이미지 왼쪽 여백 값을 업데이트
+          document.getElementById("image-margin-left").value = newMarginLeft;
+        }
+  
+        var initialWidth = 650;
+        var initialHeight = 500;
+  
+        document.write("<h5><div id='width-display'>가로 크기: " + initialWidth + "px</div>");
+        document.write("<input onchange='changeWidth(this.value)' type='range' min='0' max='650' value=" + initialWidth + " >");
+  
+        document.write("<div id='height-display'>세로 크기: " + initialHeight + "px</div>");
+        document.write("<input onchange='changeHeight(this.value)' type='range' min='0' max='500' value=" + initialHeight + " >");
+  
+        document.write("<div id='margin-top-display'>상단 여백: 0px</div>");
+        document.write("<input onchange='changeMarginTop(this.value)' type='range' min='0' max='200' value='0' id='margin-top-slider'>");
+  
+        document.write("<div id='margin-left-display'>왼쪽 여백: 0px</div>");
+        document.write("<input onchange='changeMarginLeft(this.value)' type='range' min='0' max='200' value='0' id='margin-left-slider'></h5>");
+      </script>
+    </div>
+
+
+  </div>
+</div>
+{% endblock %}
