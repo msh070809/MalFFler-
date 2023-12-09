@@ -1,8 +1,4 @@
 
-footer {
-  height: 100%;
-}
-
 
 .radio-input input[type="radio"]:checked + label {
     background-color: royalblue;
@@ -43,10 +39,10 @@ footer {
     border-radius: 1rem;
     background-color: rgba(255, 255, 255, 1);
     padding: 1rem;
-    margin-left: 200px; /* 원하는 좌측 마진 크기를 여기에 지정하세요. */
-    margin-right: 200px; /* 원하는 좌측 마진 크기를 여기에 지정하세요. */
-    margin-top:20px; /* 원하는 좌측 마진 크기를 여기에 지정하세요. */
-    margin-bottom:20px; /* 원하는 좌측 마진 크기를 여기에 지정하세요. */
+    margin-left: 200px;
+    margin-right: 200px; 
+    margin-top:20px; 
+    margin-bottom:20px; 
    
   }
   
@@ -170,7 +166,7 @@ footer {
     justify-content: start;
     background: #6e7b8c;
     border-radius: 8px;
-    box-shadow: 0px 0px 5px -3px #111;
+    box-shadow: 0 15px 30px 0 rgba(0, 0, 0, 0.25);
     margin-bottom: 10px;
   }
   
@@ -187,7 +183,7 @@ footer {
     justify-content: start;
     background: #509AF8;
     border-radius: 8px;
-    box-shadow: 0px 0px 5px -3px #111;
+    box-shadow: 0 15px 30px 0 rgba(0, 0, 0, 0.25);
     margin-bottom: 10px;
   }
   
@@ -401,11 +397,11 @@ footer {
   }
   
   .radio-input label:has(input:checked) {
-    color: #fff;
+    color: #333333;
   }
   
   .radio-input label:has(input:checked) ~ .selection {
-    background-color: rgb(11 117 223);
+    background-color: #FFCC57;
     display: inline-block;
   }
   
@@ -459,7 +455,6 @@ footer {
     margin-left: auto;
     margin-right: auto;
     margin-top: 70px;
-    margin-bottom: 100px;
     background-color: #fff;
     border-radius: 16px;
     overflow: hidden;
@@ -639,18 +634,15 @@ footer {
   
   
   .results-summary-container {
-    margin-left: 300px;
-    margin-right: 300px;
-    margin-top: 60px;
-    margin-bottom: 60px;
+    margin: 0 auto;
+    margin-top: 50px;
     height: 400px;
-    
+    width: 40%;
     font-family: "Hanken Grotesk", sans-serif;
     display: flex;
     justify-content: center; /* 수평 중앙 정렬 */
     gap: 10px;
     border-radius: 30px;
-    box-shadow: 10px 10px 30px rgba(120, 87, 255, 0.3);
     backface-visibility: hidden;
   }
   
@@ -660,7 +652,7 @@ footer {
   .heading-primary,
   .heading-secondary,
   .heading-tertiary {
-    color: #ffffff;
+    color: #333333;
     text-transform: capitalize;
     margin-bottom: 15px;
     margin-top: 20px;
@@ -698,7 +690,7 @@ footer {
   .paragraph {
     font-size: 17px;
     line-height: 1.6;
-    color: hsl(221, 100%, 96%);
+    color: hsl(214, 5%, 26%);
     margin-bottom: 15px;
   }
   
@@ -723,14 +715,14 @@ footer {
     justify-content: center;
     padding: 10px 5px;
     border-radius: 30px 10px;
-    background-image: linear-gradient(to bottom, #aa076b, #61045f);
-    animation: gradient 10s linear infinite;
-    .result-box {
-      width: 150px;
+    background-image: linear-gradient(to bottom, #f8e7bf, #FFCC57);
+    box-shadow: 0 15px 30px 0 rgba(0, 0, 0, 0.25);
+  }
+  .result-box {
+    width: 150px;
     height: 150px;
     border-radius: 50%;
     background-position: 100% 50%;
-    background-image: linear-gradient(to bottom, #aa076b, #61045f);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -744,7 +736,6 @@ footer {
     font-size: 14px;
     font-weight: 400;
     color: hsl(241, 100%, 89%);
-  }
   }
   
   .results-summary-container__options {
@@ -786,6 +777,7 @@ footer {
     font-size: 14px;
     align-items: center;
     gap: 1px;
+    box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.25);
   }
   
   .reaction-icon-text {
@@ -818,8 +810,9 @@ footer {
   .btn {
     width: 100%;
     padding: 10px;
-    color: #ffffff;
-    background-image: linear-gradient(to right, #aa076b, #61045f);
+    background-color: #FFCC57;
+    text-align: center;
+    color: #333333;
     border: none;
     border-radius: 5px;
     font-size: 14px;
@@ -848,32 +841,15 @@ footer {
   
   @keyframes background {
     0% {
-      background-image: linear-gradient(to right, #aa076b, #61045f);
+      background-image: linear-gradient(to bottom,#FFCC57, #f8e7bf);
     }
   
     50% {
-      background-image: linear-gradient(to right, #aa076b, #61045f);
+      background-image: linear-gradient(to bottom,#FFCC57, #f8e7bf);
     }
   
     100% {
-      background-image: linear-gradient(to right, #ef629f, #42275a);
-    }
-  }
-  
-  @keyframes gradient {
-    0% {
-      background-position: 0% 50%;
-      background-image: linear-gradient(-45deg, #ef629f, #42275a);
-    }
-  
-    50% {
-      background-position: 100% 50%;
-      background-image: linear-gradient(to bottom, #aa076b, #61045f);
-    }
-  
-    100% {
-      background-position: 0% 50%;
-      background-image: linear-gradient(to top, #ef629f, #42275a);
+      background-image: linear-gradient(to bottom,#FFCC57, #f8e7bf);
     }
   }
   
@@ -1106,7 +1082,7 @@ footer {
     width: 100px;
     height: 50px;
     padding: 12px;
-    background-color: #aa076b;
+    background-color: #FFCC57;
     border-radius: 10px;
     text-align: center;
     margin: 0 auto; /* 수평 중앙 정렬 */
@@ -1117,5 +1093,5 @@ footer {
     font-family: system-ui;
     font-size: 15px;
     font-weight: 500;
-    color: #fff;
+    color: #333333;
   }

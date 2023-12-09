@@ -1,11 +1,15 @@
 
+*{
+  font-family: 'Noto Sans KR', sans-serif !important;
+}
+
 footer {
   height: 100%;
 }
 
 body {
     background-color: #D7DAE7; /* 원하는 배경색으로 변경합니다. */
-    font-family: "Raleway", sans-serif;
+    font-family: 'Noto Sans KR', sans-serif;
     height: 90%;
     line-height: 1.8;
   }

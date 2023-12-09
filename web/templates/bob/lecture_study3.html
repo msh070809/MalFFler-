@@ -24,45 +24,27 @@
 </style>
 
 <link rel="stylesheet" type="text/css" href="{% static 'web/css/lecture_study.css' %}">
-
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@600&display=swap" rel="stylesheet">
 
 
 <div class="coulmn">
   <div class="card2">
-    <div class="contentg">
+    <div class="contentg" >
       <!-- 사진이 들어간는 곳 -->
-      <iframe src="{% static 'web/lecture3/'|add:file|add:'(좌).html' %}" style="width: 100%; height: 585px;" allow="autoplay; camera; encrypted-media; picture-in-picture; microphone; geolocation; fullscreen; speaker; usb; vr; xr-spatial-tracking; display-capture; image" ></iframe>
-
+      <iframe src="https://mal-ffler.github.io/BoB/lecture3/{{file}}(좌).html" style="width: 100%; height: 585px;" ></iframe>
     </div>
 
     
-    <!-- <div class="pagination">
-
-
-      <div class="button">
-        <span>학습 중 모르는 내용이 있다면 질문해주세요.</span>
-        &nbsp;&nbsp;&nbsp;&nbsp;
-        <button id="openWindowButton">&nbsp;&nbsp;gpt&nbsp;&nbsp;</button>
-
-      
-    </div>
-      </div> -->
-
   </div>
-
-
-
     <div class="card2">
-      <div class="contentg">
-  
-        <!-- <div id="loaded-content"></div> -->
-        <iframe src="{% static 'web/lecture3/'|add:file|add:'(우).html' %}" style="width: 100%; height: 585px;" allow="autoplay; camera; encrypted-media; picture-in-picture; microphone; geolocation; fullscreen; speaker; usb; vr; xr-spatial-tracking; display-capture; image" ></iframe>
+      <div class="contentg" >
+        <iframe src="https://mal-ffler.github.io/BoB/lecture3/{{file}}(우).html" style="width: 100%; height: 585px;" ></iframe>
+        <br>
 
-   
- 
- 
 
-      <br>
+
       <!-- <div class="pagination">
         
         
@@ -88,6 +70,7 @@
   <button id="previous-button">전장으로</button>
 <button id="next-button">다음장으로</button>
 <button id="openWindowButton">&nbsp;&nbsp;gpt&nbsp;&nbsp;</button>
+<button id="openWindowButton">&nbsp;&nbsp;가상화&nbsp;&nbsp;</button>
 </div>
 
       </div>
@@ -108,7 +91,7 @@
         <script>
           document.getElementById('openWindowButton').addEventListener('click', function() {
               // 새 창을 열기 위한 URL을 여기에 입력
-              var newWindowURL = 'http://127.0.0.1:8000/mpt/?table={{file}}&lecture=3';
+              var newWindowURL = 'http://218.146.20.61:20022/mpt/?table={{file}}&lecture=3';
               // var newWindowURL = 'http://192.168.3.135:8000/mpt/?table={{file}}';  // 새 창을 열고자 하는 웹 페이지 URL로 변경
               var windowWidth = 800;  // 창의 너비를 설정 (픽셀 단위로)
               var windowHeight = 600;  // 창의 높이를 설정 (픽셀 단위로)

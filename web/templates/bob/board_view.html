@@ -2,130 +2,15 @@
 
 
 
-
-
 {% block content %}
 
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'web/css/board_view.css' %}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@600&display=swap" rel="stylesheet">
 
 
-
-<style>
-
-.board-form {
-    max-width: 800px;
-    margin-left: 25%;
-    padding: 20px;
-    background: #f4f4f4;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-h1 {
-    font-size: 24px;
-    margin-bottom: 20px;
-}
-
-label {
-    display: block;
-    font-weight: bold;
-    margin-top: 10px;
-}
-
-input,
-select,
-textarea {
-    width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-button {
-    background: #FFCC57;
-    color: black;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-button:hover {
-    background: #0056b3;
-}
-
-
-
-#content{
-
-    height:250px
-    
-
-}
-
-
-.answer .card {
-  margin-left : 25%;
-  width: 800px;
-  background-color: #fff;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.answer .chat-header {
-  background-color: #1A244D;
-  color: #fff;
-  padding: 10px;
-  font-size: 18px;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-}
-
-.answer .chat-window {
-  height: 220px;
-  overflow-y: scroll;
-}
-
-.answer .message-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.answer .chat-input {
-  display: flex;
-  align-items: center;
-  padding: 10px;
-  border-top: 1px solid #ccc;
-}
-
-.answer .message-input {
-  flex: 1;
-  border: none;
-  outline: none;
-  padding: 5px;
-  font-size: 14px;
-}
-
-.answer .send-button {
-  border: none;
-  outline: none;
-  background-color: #1A244D;
-  color: #fff;
-  font-size: 14px;
-  padding: 5px 10px;
-  cursor: pointer;
-}
-
-.answer .send-button:hover {
-  background-color: rgb(255, 255, 255);
-  color: rgb(0, 0, 0);
-  box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.25);
-}
-
-</style>
 <style>
     hr {
       border: 1px solid #000; /* 실선 스타일을 사용하고 실선 색상을 설정합니다. */
@@ -183,7 +68,7 @@ button:hover {
     <form>
         {% csrf_token %}
         {{answer.created_at}}<br><br>
-        '{{ answer.web_id }}' 님의 답변 
+        '{{ answer.answer_id }}' 님의 답변 
         <label for="text">{{ answer.answer }}</label>
         <hr>
     </form>

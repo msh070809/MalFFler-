@@ -1,0 +1,165 @@
+{% extends "bob/header.html" %}
+
+
+{% block content %}
+
+<!-- Header with full-height image -->
+
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'web/css/footer.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'web/css/user_chart.css' %}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@600&display=swap" rel="stylesheet">
+
+<style>
+  .margin-right{
+  margin-right: 6.5%;
+  }
+
+  .margin-left{
+    margin-left: 6.5%;
+  }
+
+  /*footer{
+    bottom: 0;
+    position: absolute;
+  }*/
+</style>
+
+<header class="bgimg-1 w3-display-container w3-grayscale-min" id="home" style="background-color: #D7DAE7;">
+<form class="form margin-left" style="left: 0px;">
+  <div class="flex-column">
+    <label><H2 style="font-size:2em; font-weight:bold;">'{{web_id}}' 님</H2></label>
+  </div>
+  <div class="card">
+    <div class="header">나의 진도율</div>
+    <div class="content-div">
+      <div class="skill">
+        <div class="skill-name">기초강의</div>
+        <div class="skill-level">
+          <div class="skill-percent" style="width: {{user_instance.lec1}}%"></div>
+        </div>
+        <div class="skill-percent-number">{{user_instance.lec1}}%</div>
+      </div>
+      <div class="skill">
+        <div class="skill-name">핵심원리</div>
+        <div class="skill-level">
+          <div class="skill-percent" style="width: {{user_instance.lec2}}%"></div>
+        </div>
+        <div class="skill-percent-number">{{user_instance.lec2}}%</div>
+      </div>
+      <div class="skill">
+        <div class="skill-name">분석문제</div>
+        <div class="skill-level">
+          <div class="skill-percent" style="width: {{user_instance.lec3}}%"></div>
+        </div>
+        <div class="skill-percent-number">{{user_instance.lec3}}%</div>
+      </div>
+      <div class="skill">
+        <div class="skill-name">문제풀이</div>
+        <div class="skill-level">
+          <div class="skill-percent" style="width: 0%"></div>
+        </div>
+        <div class="skill-percent-number">0%</div>
+      </div>
+    </div>  
+  </div>
+</form>
+<div class="col-xl-8 margin-right" style="right: 0;">
+    <div class="card-body pt-3 tabs">
+      <input id="all" type="radio" name="tab_item" checked>
+      <label class="tab_item" for="all">분석 역량</label>
+      <input id="programming" type="radio" name="tab_item">
+      <label class="tab_item" for="programming">랭킹</label>
+      <input id="design" type="radio" name="tab_item">
+      <label class="tab_item" for="design">설정</label>
+      <div class="w3-text-white tab_content" id="all_content">
+        <div class="introduction child">
+        <div class="chart-size" style="background-color: white;"> 
+          <div class="content">
+            <p class="message">
+              <canvas id="radarChart" style="width: 30%;"></canvas>
+            </p> 
+            </div> 
+    
+                </div> 
+              </div>
+              <div class="child">
+                <ul class="explanation">
+                  <li class="explanation_element">분석능력 : 분석 능력은 악성코드의 행동, 기술, 패턴 등을 신속하고 효과적으로 이해하고 해석하는 능력을 의미합니다. </li>
+                  <li class="explanation_element">보안지식 : 보안 지식은 악성코드가 이용하는 공격 기법, 취약점, 보안 프로토콜, 암호화 기술 등에 대한 깊은 이해를 의미합니다.</li>
+                  <li class="explanation_element">역공학 기술 : 역공학 기술은 코드 복잡성이라는 어려움을 해결하고 악성 코드의 내부 동작을 해석하는 기술을 의미합니다.</li>
+                  <li class="explanation_element">코드해석능력 : 코드해석능력은 프로그래밍 언어 및 어셈블리 언어에 대한 이해와 해당 코드의 의미를 파악하는 능력을 의미합니다.</li>
+                  <li class="explanation_element">정확성 : 정확성은 오류를 최소화하고 정확한 결과를 도출하는 능력을 의미합니다.</li>
+                </ul>
+              </div>
+            </div>
+    <div class="tab_content" id="programming_content" style="text-align: center;">
+      <h1 style="color: #ced1d6;">준비 중이에요!</h1>
+    </div>
+    <div class="tab_content" id="design_content" style="text-align: center;">
+      <h1 style="color: #ced1d6;">준비 중이에요!</h1>
+    </div>
+    </div>
+    </div>
+  </div>
+
+</div>
+
+</header>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!--
+<footer class="footer">
+  <div style="background-color: black;">
+    <div class="footer_bottom">
+      <div class="footer-logo">
+        <img src="{% static 'LOGO_remove.png' %}" style="max-width: 10rem;  opacity: 0.5;">
+      </div>
+      <div class="company-miscellaneous">
+        <div class="company-brand-title">
+          <p class="company-title">Best Of the Best 12기</p> 
+          <p class="copyright">
+        Copyright © 2023 MalLaB Inc. All rights reserved.
+          </p>
+        </div> 
+        <p class="copyright">
+          <span>서비스 운영: MalLaB</span> |
+          <span>금천구 서부샛길 606, 대성디폴리스 지식산업센터 A동 27층</span> |
+          <span>이메일: mallab@gmail.com</span> |
+          <span>대표 연락처: 010-0000-0000</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>-->
+<script>
+  // Radar Chart를 그리기 위한 데이터
+  const data = {
+    labels: [
+      '분석능력',
+      '보안지식',
+      '역공학기술',
+      '코드해석능력',
+      '정확성',
+    ],
+    datasets: [{
+      label: '나의 학습 역량 표',
+      data: [{{user_instance.A}}, {{user_instance.B}}, {{user_instance.C}}, {{user_instance.D}}, {{user_instance.E}}],
+      fill: true,
+      backgroundColor: 'rgba(255, 99, 132, 0.2)',
+      borderColor: 'rgb(255, 99, 132)',
+      pointBackgroundColor: 'rgb(255, 99, 132)',
+      pointBorderColor: '#fff',
+      pointHoverBackgroundColor: '#fff',
+      pointHoverBorderColor: 'rgb(255, 99, 132)'
+    }]
+  };
+
+  // Chart를 그리기 위한 설정
+  const ctx = document.getElementById('radarChart').getContext('2d');
+  const myRadarChart = new Chart(ctx, {type: 'radar',data: data,options: {responsive: true,scale: {ticks: {beginAtZero: true, max: 100, stepSize: 10,}}}});
+</script>
+
+
+{% endblock %}

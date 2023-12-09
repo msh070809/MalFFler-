@@ -5,8 +5,11 @@ urlpatterns = [
 
 
 #홈
-path('', views.home),
+path('', views.start ,name="start"),
+
+
 path('home', views.home, name='home'),
+
 
 #로그인
 path('login_logic',views.login_logic, name='login_logic'),
@@ -20,6 +23,9 @@ path('member_insert1',views.member_insert1, name='member_insert1'),
 path('member_insert2',views.member_insert2, name='member_insert2'),
 path('member_insert3',views.member_insert3, name='member_insert3'),
 path('member_insert_logic',views.member_insert_logic, name='member_insert_logic'),
+
+#마이페이지
+path('my_profile.html', views.my_profile, name='my_profile'),
 
 #멤버 정보 수정
 path('info_change_logic',views.info_change_logic, name='info_change_logic'),
@@ -37,22 +43,14 @@ path('education3', views.lecture_table_3),
 # 기초분석 강의 목차
 path('lecture1/',views.lecture_study1),
 
-# 기초분석 편집기
-path('size1/',views.lecture_editor1),
-
 
 # 분석 교육 강의 목차
 path('lecture2/',views.lecture_study2),
-
-# 분석 교육편집기
-path('size2/',views.lecture_editor2),
 
 
 # 제작 교육 강의 목차
 path('lecture3/',views.lecture_study3),
 
-# 제작 교육편집기
-path('size3/',views.lecture_editor3),
 
 
 
@@ -70,20 +68,6 @@ path('exe_answer/',views.exe3),
 
 
 
-### 시나리오
-# 시나리오 종류
-path('scenario/',views.scenario1),
-
-# 시나리오 풀이
-path('scenario_problem/',views.scenario2),
-
-# 시나리오 정답 처리
-path('scenario_answer/',views.scenario3),
-
-
-
-
-
 ### 게시판
 
 path('board/',views.board,  name='board'),
@@ -95,7 +79,6 @@ path('board_write/',views.board_write),
 
 # 게시판 뷰
 path('board_view/',views.board_view),
-
 
 
 # 답변
@@ -124,13 +107,20 @@ path('cookie_reset/',views.cookie_reset),
 path('save/',views.save_problem),
 
 
+path('핵심원리 문제풀이1/',views.vi_api_num1),
+path('핵심원리 문제풀이2/',views.vi_api_num2),
+path('핵심원리 문제풀이3/',views.vi_api_num3),
+path('핵심원리 문제풀이4/',views.vi_api_num4),
 
 
 
 
 
+path('mpt/',views.mpt ,  name='mpt'),
 
-# path('mpt/',views.mpt ,  name='mpt')
+
+path('mpt_key/',views.mpt_key),
+
 
 
 ]

@@ -1,0 +1,559 @@
+
+
+footer {
+  height: 100%;
+}
+
+body {
+    
+    background-color: #D7DAE7; /* 원하는 배경색으로 변경합니다. */
+    font-family: "Raleway", sans-serif;
+    line-height: 1.8;
+  }
+  
+  
+  
+  .card {
+    max-width: 95.5%;
+    border-width: 1px;
+    border-color: rgba(219, 234, 254, 1);
+    border-radius: 1rem;
+    background-color: rgba(255, 255, 255, 1);
+    padding: 1rem;
+    margin-left: 30px; /* 원하는 좌측 마진 크기를 여기에 지정하세요. */
+    margin-right: 20px; /* 원하는 좌측 마진 크기를 여기에 지정하세요. */
+    margin-top:20px; /* 원하는 좌측 마진 크기를 여기에 지정하세요. */
+    margin-bottom:20px; /* 원하는 좌측 마진 크기를 여기에 지정하세요. */
+   
+  }
+  
+  
+  .card2 {
+      max-width: 100%;
+      height: 200%;
+      border-width: 1px;
+      border-color: rgba(219, 234, 254, 1);
+      border-radius: 1rem;
+      background-color: rgba(255, 255, 255, 1);
+      padding: 1rem;
+      margin-left: 30px;
+      margin-right: 40px;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      overflow: auto; /* 스크롤바를 표시하도록 설정 */
+    }
+  
+  
+  .card3 {
+    color: black; /* 텍스트 색상을 검은색으로 지정 */
+    width: 1135px;
+    border-width: 1px;
+    border-color: rgba(219, 234, 254, 1);
+    border-radius: 1rem;
+    background-color: rgba(255, 255, 255, 1);
+    padding: 1rem;
+    margin-left: 20px; /* 원하는 좌측 마진 크기를 여기에 지정하세요. */
+    margin-right: 20px; /* 원하는 좌측 마진 크기를 여기에 지정하세요. */
+    margin-top:20px; /* 원하는 좌측 마진 크기를 여기에 지정하세요. */
+    margin-bottom:20px; /* 원하는 좌측 마진 크기를 여기에 지정하세요. */
+   
+  }
+  
+  
+  .header {
+    display: flex;
+    align-items: center;
+    grid-gap: 1rem;
+    gap: 1rem;
+  }
+  
+  .header2 {
+    display: table-column;
+    align-items: center;
+    grid-gap: 1rem;
+    gap: 1rem;
+  }
+  
+  
+  .icon {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9999px;
+    background-color: #485176;
+    padding: 0.5rem;
+    color: rgba(255, 255, 255, 1);
+  }
+  
+  .icon svg {
+    height: 1rem;
+    width: 1rem;
+  }
+  
+  .alert {
+    font-weight: 600;
+    color: rgba(107, 114, 128, 1);
+  }
+  
+  .message {
+    margin-top: 1rem;
+    color: rgba(107, 114, 128, 1);
+  }
+  
+  .actions {
+    margin-top: 1.5rem;
+  }
+  
+  .actions a {
+    text-decoration: none;
+  }
+  
+  .mark-as-read, .read {
+    display: inline-block;
+    border-radius: 0.5rem;
+    width: 100%;
+    padding: 0.75rem 1.25rem;
+    text-align: center;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    font-weight: 600;
+  }
+  
+  .read {
+    background-color: rgba(59, 130, 246, 1);
+    color: rgba(255, 255, 255, 1);
+  }
+  
+  .mark-as-read {
+    margin-top: 0.5rem;
+    background-color: rgba(249, 250, 251, 1);
+    color: rgba(107, 114, 128, 1);
+    transition: all .15s ease;
+  }
+  
+  .mark-as-read:hover {
+    background-color: rgb(230, 231, 233);
+  }
+  
+  
+  
+  
+  .info {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    width: 100%;
+    padding: 12px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+    background: #6e7b8c;
+    border-radius: 8px;
+    box-shadow: 0px 0px 5px -3px #111;
+    margin-bottom: 10px;
+  }
+  
+  
+  
+  
+  .info2 {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    width: 100%;
+    padding: 12px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+    background: #509AF8;
+    border-radius: 8px;
+    box-shadow: 0px 0px 5px -3px #111;
+    margin-bottom: 10px;
+  }
+  
+  .info__icon {
+    width: 20px;
+    height: 20px;
+    transform: translateY(-2px);
+    margin-right: 8px;
+  }
+  
+  .info__icon path {
+    fill: #fff;
+  }
+  
+  .info__title {
+    font-weight: 500;
+    font-size: 14px;
+    color: #fff;
+  }
+  
+  .info__close {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    margin-left: auto;
+  }
+  
+  .info__close path {
+    fill: #fff;
+  }
+  
+  
+  
+  .form {
+    position: absolute;
+    top: 55%;
+    right: 130px;
+    transform: translateY(-50%);
+    background-color: #ffffff;
+    padding: 30px;
+    width: 400px;
+    height: 1000px;
+    border-radius: 20px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  
+  }
+  
+  
+  
+  
+  
+  .cardk {
+  
+    margin-top: 20px;
+    --main-color: #000;
+    --bg-color: royalblue;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    width: 260px;
+    padding: 25px;
+    background: var(--bg-color);
+    border-radius: 20px;
+  }
+  
+  .card__wrapperk {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  
+  
+  
+  
+  
+  
+  /* 우측 강의 소개 카드 */
+  .cardg {
+    width: 700px;
+    height: 700px;
+    border-radius: 0.5rem;
+    background-color: #fff;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    border: 1px solid transparent;
+  
+    margin-top: 20px;
+  }
+  
+  .cardg a {
+    text-decoration: none
+  }
+  
+  .contentg {
+    padding: 1.1rem;
+  }
+  
+  .imageg {
+    object-fit: cover;
+    width: 100%;
+    height: 150px;
+    background-color: rgb(239, 205, 255);
+  }
+  
+  .titleg {
+    color: #111827;
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    font-weight: 600;
+  }
+  
+  .descg {
+    margin-top: 0.5rem;
+    color: #6B7280;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+  
+  .actiong {
+    display: inline-flex;
+    margin-top: 1rem;
+    color: #ffffff;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    font-weight: 500;
+    align-items: center;
+    gap: 0.25rem;
+    background-color: #2563EB;
+    padding: 4px 8px;
+    border-radius: 4px;
+  }
+  
+  .actiong span {
+    transition: .3s ease;
+  }
+  
+  .actiong:hover span {
+    transform: translateX(4px);
+  }
+  
+  
+  
+  button {
+    border: none;
+    outline: none;
+    background-color: #FFCC57;
+    padding: 10px 20px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #333;
+    border-radius: 5px;
+    transition: all ease 0.1s;
+    box-shadow: 0px 5px 0px 0px #d5a73d;
+    cursor: pointer;
+  }
+  
+  button:active {
+    transform: translateY(5px);
+    box-shadow: 0px 0px 0px 0px #d5a73d;
+  }
+  
+  
+  
+  
+  
+  /* os 버튼 */
+  
+  .checkbox-wrapper-35 .switch {
+    display: none;
+  }
+  
+  .checkbox-wrapper-35 .switch + label {
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    color: #78768d;
+    cursor: pointer;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 12px;
+    line-height: 15px;
+    position: relative;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  .checkbox-wrapper-35 .switch + label::before,
+    .checkbox-wrapper-35 .switch + label::after {
+    content: '';
+    display: block;
+  }
+  
+  .checkbox-wrapper-35 .switch + label::before {
+    background-color: #05012c;
+    border-radius: 500px;
+    height: 15px;
+    margin-right: 8px;
+    -webkit-transition: background-color 0.125s ease-out;
+    transition: background-color 0.125s ease-out;
+    width: 25px;
+  }
+  
+  .checkbox-wrapper-35 .switch + label::after {
+    background-color: #fff;
+    border-radius: 13px;
+    box-shadow: 0 3px 1px 0 rgba(37, 34, 71, 0.05), 0 2px 2px 0 rgba(37, 34, 71, 0.1), 0 3px 3px 0 rgba(37, 34, 71, 0.05);
+    height: 13px;
+    left: 1px;
+    position: absolute;
+    top: 1px;
+    -webkit-transition: -webkit-transform 0.125s ease-out;
+    transition: -webkit-transform 0.125s ease-out;
+    transition: transform 0.125s ease-out;
+    transition: transform 0.125s ease-out, -webkit-transform 0.125s ease-out;
+    width: 13px;
+  }
+  
+  .checkbox-wrapper-35 .switch + label .switch-x-text {
+    display: block;
+    margin-right: .3em;
+  }
+  
+  .checkbox-wrapper-35 .switch + label .switch-x-toggletext {
+    display: block;
+    font-weight: bold;
+    height: 15px;
+    overflow: hidden;
+    position: relative;
+    width: 25px;
+  }
+  
+  .checkbox-wrapper-35 .switch + label .switch-x-unchecked,
+    .checkbox-wrapper-35 .switch + label .switch-x-checked {
+    left: 0;
+    position: absolute;
+    top: 0;
+    -webkit-transition: opacity 0.125s ease-out, -webkit-transform 0.125s ease-out;
+    transition: opacity 0.125s ease-out, -webkit-transform 0.125s ease-out;
+    transition: transform 0.125s ease-out, opacity 0.125s ease-out;
+    transition: transform 0.125s ease-out, opacity 0.125s ease-out, -webkit-transform 0.125s ease-out;
+  }
+  
+  .checkbox-wrapper-35 .switch + label .switch-x-unchecked {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+  
+  .checkbox-wrapper-35 .switch + label .switch-x-checked {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+  }
+  
+  .checkbox-wrapper-35 .switch + label .switch-x-hiddenlabel {
+    position: absolute;
+    visibility: hidden;
+  }
+  
+  .checkbox-wrapper-35 .switch:checked + label::before {
+    background-color: royalblue;
+  }
+  
+  .checkbox-wrapper-35 .switch:checked + label::after {
+    -webkit-transform: translate3d(10px, 0, 0);
+    transform: translate3d(10px, 0, 0);
+  }
+  
+  .checkbox-wrapper-35 .switch:checked + label .switch-x-unchecked {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+  }
+  
+  .checkbox-wrapper-35 .switch:checked + label .switch-x-checked {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+  
+  
+  
+  
+  
+  /* 제출 버튼 */
+  .submit .search {
+    display: inline-block;
+    position: relative;
+    text-align: center; /* 가로 중앙 정렬을 위한 텍스트 정렬 설정 */
+    left: 50%; /* 왼쪽으로 50% 이동 */
+    transform: translateX(-50%); /* 이동한 거리의 반대 방향으로 다시 이동하여 중앙 정렬 */
+  }
+  
+  
+  .submit .search input[type="text"] {
+    width: 400px;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .submit .search button[type="submit"] {
+    background-color: #FFCC57;
+    border: 4px solid #FFCC57;
+    color: #333;
+    cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 10px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transition: .9s ease;
+  }
+
+
+
+
+
+
+
+
+
+
+
+  /* 객관식 */
+  .quiz_task .form {
+    display: flex;
+    align-items: left;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 300px;
+    background-color: white;
+    border-radius: 15px;
+    padding: 20px;
+
+    
+    }
+
+    .quiz_task .title {
+    font-size: 17px;
+    font-weight: bold;
+    color: black
+    }
+
+    .quiz_task .message {
+    color: #a3a3a3;
+    font-size: 14px;
+    margin-top: 4px;
+    text-align: center
+    }
+
+    .quiz_task .inputs {
+    margin-top: 10px
+    }
+
+    .quiz_task .inputs input {
+    width: 32px;
+    height: 32px;
+    text-align: center;
+    border: none;
+    border-bottom: 1.5px solid #d2d2d2;
+    margin: 0 10px;
+    }
+
+    .quiz_task .inputs input:focus {
+    border-bottom: 1.5px solid royalblue;
+    outline: none;
+    }
+
+    .quiz_task .action {
+    margin-top: 12px;
+    padding: 12px 16px;
+    border-radius: 8px;
+    border: none;
+    background-color: royalblue;
+    color: white;
+    cursor: pointer;
+    align-self: end;
+    }
+  
+    .quiz_column {
+        display: flex;
+      }
+    

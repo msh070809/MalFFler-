@@ -1,0 +1,209 @@
+{% extends "bob/header.html" %}
+
+
+
+
+
+{% block content %}
+
+
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'web/css/lecture.css' %}">
+
+<div class="radio-input">
+
+</div>
+
+<script>
+  // 라디오 버튼의 변경을 감지하는 이벤트 리스너 추가
+  document.querySelectorAll('input[name="value-radio"]').forEach(function(radio) {
+      radio.addEventListener('change', function() {
+          // 선택한 라디오 버튼의 값에 따라 다른 주소로 이동
+          if (radio.value === "value-1") {
+              window.location.href = "/education0"; // 교육 과정 페이지로 이동
+          } else if (radio.value === "value-2") {
+              window.location.href = "/education1"; // 기초/분석 교육 페이지로 이동
+          } else if (radio.value === "value-3") {
+              window.location.href = "/education2"; // 제작 교육 페이지로 이동
+          }
+          else if (radio.value === "value-4") {
+              window.location.href = "/education3"; // 제작 교육 페이지로 이동
+          }
+      });
+  });
+</script>
+  
+  
+  
+  
+  
+  
+  <div class="card">
+    <div class="header">
+      <span class="icon">
+  
+      </span>
+      <p class="alert"><h5>커리큘럼 소개 및 악용 관련 주의 사항</h5></p>
+    </div>
+  
+  
+  
+  </div>
+  
+  
+  
+  <div class="coulmn">
+    <div class="coulmn_item1">
+  
+  <div class="card2">
+    <!-- <div class="info2">
+  
+      <div class="info__title">교육과정</div>
+      <div class="info__close"></div>
+  
+      
+  </div> -->
+
+
+  {% load custom_filters %}
+
+
+
+
+
+  {% for lecture1 in lectures %}
+    {% if '악성코드 분석이란' in progress_values and '악성코드 분석의 종류' in progress_values and '악성코드의 종류' in progress_values %}
+      <div class="info2" style="background-color: aqua;">{{lecture1}}
+    {% else %}
+      <div class="info2">
+    {% endif %}
+      <div class="info__title" style="padding:3px;">
+          <details>
+              <summary>{{ lecture1.Contents_2 }}</summary>
+              <ul>
+                  {% for content in lecture1.Contents_3|split_string %}
+                  <ul class="indented"><a href="lecture1/?table={{ content }}&page=1" class="text_change">{{ content }}</a></ul>
+
+                  {% endfor %}
+              </ul>
+          </details>
+      </div>
+      <div class="info__close"></div>
+  </div>
+  {% endfor %}
+  
+  
+  
+  
+
+  
+  </div>
+  
+  </div>
+  
+  
+  <!--<div class="coulmn_item2">
+    
+    
+    
+    <div class="cardg">
+       <div class="contentg">
+         <a href="#">
+           <span class="titleg">
+             기초 강의
+           </span>
+         </a>
+     
+         <p class="descg">
+           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae
+           dolores, possimus pariatur animi temporibus nesciunt praesentium 
+         </p>
+     
+       </div>
+     </div>
+    --> 
+    
+    
+    
+    
+    <div class="cardk">
+          <div class="card__wrapperk"></div>
+          <div class="card__title"><h5>강의 진도율</h5></div>
+          
+          <div class="card__indicator"><span class="card__indicator-amount"></span>  30%</span></div>
+          <div class="card__progress"><progress max="100" value="40"></progress></div>
+          
+    </div>
+
+
+  
+  </div>
+  
+  
+  <div>
+  
+    
+  </div>
+
+  
+  
+  
+  
+  </div>
+  
+  <!-- Footer -->
+<br><br><br>
+  <style>
+    footer {
+      height: 100%;
+    }
+    
+    
+      </style>
+     
+  
+  <!-- <footer class="w3-center w3-black w3-padding-64">
+    <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
+    <div class="w3-xlarge w3-section">
+      <i class="fa fa-facebook-official w3-hover-opacity"></i>
+      <i class="fa fa-instagram w3-hover-opacity"></i>
+      <i class="fa fa-snapchat w3-hover-opacity"></i>
+      <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+      <i class="fa fa-twitter w3-hover-opacity"></i>
+      <i class="fa fa-linkedin w3-hover-opacity"></i>
+    </div>
+    <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-text-green">w3.css</a></p>
+  </footer>
+    -->
+  <script>
+  // Modal Image Gallery
+  function onClick(element) {
+    document.getElementById("img01").src = element.src;
+    document.getElementById("modal01").style.display = "block";
+    var captionText = document.getElementById("caption");
+    captionText.innerHTML = element.alt;
+  }
+  
+  
+  // Toggle between showing and hiding the sidebar when clicking the menu icon
+  var mySidebar = document.getElementById("mySidebar");
+  
+  function w3_open() {
+    if (mySidebar.style.display === 'block') {
+      mySidebar.style.display = 'none';
+    } else {
+      mySidebar.style.display = 'block';
+    }
+  }
+  
+  // Close the sidebar with the close button
+  function w3_close() {
+      mySidebar.style.display = "none";
+  }
+  </script>
+
+
+
+
+{% endblock %}
+

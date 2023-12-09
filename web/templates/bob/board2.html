@@ -10,13 +10,18 @@
 
 {% load static %}
 <link rel="stylesheet" type="text/css" href="{% static 'web/css/board.css' %}">
-
-
-
+<link rel="stylesheet" type="text/css" href="{% static 'web/css/footer.css' %}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@600&display=swap" rel="stylesheet">
 
 <!-- 테그 창 -->
 
 
+<div id="wrapper" style="background-color: #D7DAE7;">
+  <div class="radio-input_r">
+
+  </div>
 <div class="radio-input">
     <input value="value-1" name="value-radio" id="value-1" type="radio"> <!-- 첫 번째 라디오 버튼에 checked 속성 추가 -->
     <label for="value-1">커뮤니티</label>
@@ -90,14 +95,12 @@
 
 
 </div>
-</div>
        
 
 
 <div class="search-write">
   <!-- 검색 폼 -->
   <div class="search">
-    <div class="search-write">
       <!-- 검색 폼 -->
       <div class="search">
           <form class="form" method="get" action="{% url 'board2' %}">
@@ -114,7 +117,6 @@
               </button>
           </form>
       </div>
-    </div>
     
   </div>
 
@@ -168,10 +170,10 @@
                           <div class="stats">
                         <div>
                               <div><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><g stroke-width="0" id="SVGRepo_bgCarrier"></g><g stroke-linejoin="round" stroke-linecap="round" id="SVGRepo_tracerCarrier"></g><g id="SVGRepo_iconCarrier"> <path stroke-linecap="round" stroke-width="2" d="M12 8V12L15 15"></path> <circle stroke-width="2" r="9" cy="12" cx="12"></circle> </g></svg>{{board.created_at}}</div>
-                              <div><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><g stroke-width="0" id="SVGRepo_bgCarrier"></g><g stroke-linejoin="round" stroke-linecap="round" id="SVGRepo_tracerCarrier"></g><g id="SVGRepo_iconCarrier"> <path stroke-linejoin="round" stroke-linecap="round" stroke-width="1.5" d="M16 10H16.01M12 10H12.01M8 10H8.01M3 10C3 4.64706 5.11765 3 12 3C18.8824 3 21 4.64706 21 10C21 15.3529 18.8824 17 12 17C11.6592 17 11.3301 16.996 11.0124 16.9876L7 21V16.4939C4.0328 15.6692 3 13.7383 3 10Z"></path> </g></svg>{{board.answer}}</div>
-                              <div><svg fill="#000000" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="-2.5 0 32 32"><g stroke-width="0" id="SVGRepo_bgCarrier"></g><g stroke-linejoin="round" stroke-linecap="round" id="SVGRepo_tracerCarrier"></g><g id="SVGRepo_iconCarrier">
+                              <div></div>
+                              <div>
                           
-                              <span>읽은 사람 : {{board.count}}</span>
+                              <span></span>
                         </div>
                     </div>
                   </div>
@@ -194,9 +196,7 @@
 </div>
 </div>
 
-
-
-
+</div>
 
 <div class="paging" style="color:black;">
   <ul class="pagination justify-content-center">
@@ -232,24 +232,36 @@
       {% endif %}
   </ul>
 </div>
-<br><br>
+</div>
 
 
 
 <!-- Footer -->
-<!-- <footer class="w3-center w3-black w3-padding-64">
-  <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
-  <div class="w3-xlarge w3-section">
-    <i class="fa fa-facebook-official w3-hover-opacity"></i>
-    <i class="fa fa-instagram w3-hover-opacity"></i>
-    <i class="fa fa-snapchat w3-hover-opacity"></i>
-    <i class="fa fa-pinterest-p w3-hover-opacity"></i>
-    <i class="fa fa-twitter w3-hover-opacity"></i>
-    <i class="fa fa-linkedin w3-hover-opacity"></i>
+
+<footer class="footer" style="position: relative; transform: translateY(-100%);">
+  <div style="background-color: black;">
+    <div class="footer_bottom">
+      <div class="footer-logo">
+        <img src="{% static 'LOGO_remove.png' %}" style="max-width: 10rem;  opacity: 0.5;">
+      </div>
+      <div class="company-miscellaneous">
+        <div class="company-brand-title">
+          <p class="company-title">Best Of the Best 12기</p> 
+          <p class="copyright">
+        Copyright © 2023 MalLaB Inc. All rights reserved.
+          </p>
+        </div> 
+        <p class="copyright">
+          <span>서비스 운영: MalLaB</span> |
+          <span>금천구 서부샛길 606, 대성디폴리스 지식산업센터 A동 27층</span> |
+          <span>이메일: mallab@gmail.com</span> |
+          <span>대표 연락처: 010-0000-0000</span>
+        </p>
+      </div>
+    </div>
   </div>
-  <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-text-green">w3.css</a></p>
-</footer> -->
- 
+</footer>
+
 <script>
 // Modal Image Gallery
 function onClick(element) {

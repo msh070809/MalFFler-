@@ -9,7 +9,12 @@
 
 {% load static %}
 <link rel="stylesheet" type="text/css" href="{% static 'web/css/lecture.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'web/css/footer.css' %}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@600&display=swap" rel="stylesheet">
 
+<div id="wrapper">
 <div class="radio-input">
 
 </div>
@@ -34,20 +39,9 @@
 </script>
   
   
-  
-  
-  
-  
   <div class="card">
-    <div class="header">
-      <span class="icon">
-  
-      </span>
-      <p class="alert"><h5>커리큘럼 소개 및 악용 관련 주의 사항</h5></p>
-    </div>
-  
-  
-  
+      <p style="font-weight: 900; font-size: 20px; padding-left: 20px;">⚠️ 경고</p>
+      <p class="alert" style="padding-left: 20px;">MalFFleR는 합법적인 보안 연구 및 교육 목적으로만 사용되어야 합니다.</p><p class="alert" style="padding-left: 20px">악의적인 목적으로 이를 활용하거나 다른 사람에게 피해를 주려는 행위는 불법이며 정보통신망법 48조에 의거하여 적절한 법적 처벌을 받을 수 있습니다.</p>
   </div>
   
   
@@ -65,103 +59,780 @@
   </div> -->
 
 
-  {% load custom_filters %}
+  
+<!--  -->
 
-  {% for lecture1 in lectures %}
+
+
+
+{% if '악성코드 분석이란' in progress_values and '악성코드 분석의 종류' in progress_values and '악성코드의 종류' in progress_values %}
+<div class="info2" style="background-color: {{color}};">
+  <div class="info__title" style="padding:3px;">
+        <details>
+            <summary>악성코드 분석 소개</summary>
+            <ul>
+              
+              {% if '악성코드 분석이란' in progress_values %}
+              <ul class="indented"><a href="lecture1/?table=악성코드 분석이란&page=1" class="text_change">악성코드 분석이란 ☑️</a></ul>
+              {% else %}  
+              <ul class="indented"><a href="lecture1/?table=악성코드 분석이란&page=1" class="text_change">악성코드 분석이란</a></ul>
+              {% endif %}
+
+
+              {% if '악성코드 분석의 종류' in progress_values %}
+              <ul class="indented"><a href="lecture1/?table=악성코드 분석의 종류&page=1" class="text_change">악성코드 분석의 종류 ☑️</a></ul>
+              {% else %} 
+              <ul class="indented"><a href="lecture1/?table=악성코드 분석의 종류&page=1" class="text_change">악성코드 분석의 종류</a></ul>
+              {% endif %}
+
+
+              {% if '악성코드의 종류' in progress_values %}
+              <ul class="indented"><a href="lecture1/?table=악성코드의 종류&page=1" class="text_change">악성코드의 종류 ☑️</a></ul>
+              {% else %} 
+              <ul class="indented"><a href="lecture1/?table=악성코드의 종류&page=1" class="text_change">악성코드의 종류</a></ul>
+              {% endif %}
+
+     
+
+            </ul>
+        </details>
+    </div>
+    <div class="info__close"></div>
+</div>
+
+{% else %}
+<div class="info2">
+  <div class="info__title" style="padding:3px;">
+      <details>
+          <summary>악성코드 분석 소개</summary>
+          <ul>
+              
+            {% if '악성코드 분석이란' in progress_values %}
+            <ul class="indented"><a href="lecture1/?table=악성코드 분석이란&page=1" class="text_change">악성코드 분석이란 ☑️</a></ul>
+            {% else %}  
+            <ul class="indented"><a href="lecture1/?table=악성코드 분석이란&page=1" class="text_change">악성코드 분석이란</a></ul>
+            {% endif %}
+
+
+            {% if '악성코드 분석의 종류' in progress_values %}
+            <ul class="indented"><a href="lecture1/?table=악성코드 분석의 종류&page=1" class="text_change">악성코드 분석의 종류 ☑️</a></ul>
+            {% else %} 
+            <ul class="indented"><a href="lecture1/?table=악성코드 분석의 종류&page=1" class="text_change">악성코드 분석의 종류</a></ul>
+            {% endif %}
+
+
+            {% if '악성코드의 종류' in progress_values %}
+            <ul class="indented"><a href="lecture1/?table=악성코드의 종류&page=1" class="text_change">악성코드의 종류 ☑️</a></ul>
+            {% else %} 
+            <ul class="indented"><a href="lecture1/?table=악성코드의 종류&page=1" class="text_change">악성코드의 종류</a></ul>
+            {% endif %}
+
+          </ul>
+      </details>
+  </div>
+  <div class="info__close"></div>
+</div>
+{% endif %}
+
+
+
+
+
+
+<!--  -->
+
+{% if '컴퓨터 기초' in progress_values and 'CPU 레지스터' in progress_values and '어셈블리 명령어' in progress_values and '디버깅' in progress_values and 'x64 아키텍처' in progress_values %}
+<div class="info2" style="background-color: {{color}};">
+    <div class="info__title" style="padding:3px;">
+        <details>
+            <summary>어셈블리 및 디버깅</summary>
+            <ul>
+                
+              {% if '컴퓨터 기초' in progress_values %}
+              <ul class="indented"><a href="lecture1/?table=컴퓨터 기초&page=1" class="text_change">컴퓨터 기초 ☑️</a></ul>
+            {% else %}
+              <ul class="indented"><a href="lecture1/?table=컴퓨터 기초&page=1" class="text_change">컴퓨터 기초</a></ul>
+            {% endif %}
+            
+            {% if 'CPU 레지스터' in progress_values %}
+              <ul class="indented"><a href="lecture1/?table=CPU 레지스터&page=1" class="text_change">CPU 레지스터 ☑️</a></ul>
+            {% else %}
+              <ul class="indented"><a href="lecture1/?table=CPU 레지스터&page=1" class="text_change">CPU 레지스터</a></ul>
+            {% endif %}
+            
+            {% if '어셈블리 명령어' in progress_values %}
+              <ul class="indented"><a href="lecture1/?table=어셈블리 명령어&page=1" class="text_change">어셈블리 명령어 ☑️</a></ul>
+            {% else %}
+              <ul class="indented"><a href="lecture1/?table=어셈블리 명령어&page=1" class="text_change">어셈블리 명령어</a></ul>
+            {% endif %}
+            
+            {% if '디버깅' in progress_values %}
+              <ul class="indented"><a href="lecture1/?table=디버깅&page=1" class="text_change">디버깅 ☑️</a></ul>
+            {% else %}
+              <ul class="indented"><a href="lecture1/?table=디버깅&page=1" class="text_change">디버깅</a></ul>
+            {% endif %}
+            
+            {% if 'x64 아키텍처' in progress_values %}
+              <ul class="indented"><a href="lecture1/?table=x64 아키텍처&page=1" class="text_change">x64 아키텍처 ☑️</a></ul>
+            {% else %}
+              <ul class="indented"><a href="lecture1/?table=x64 아키텍처&page=1" class="text_change">x64 아키텍처</a></ul>
+            {% endif %}
+            
+            </ul>
+        </details>
+    </div>
+    <div class="info__close"></div>
+</div>
+
+
+{% else %}
+<div class="info2">
+  <div class="info__title" style="padding:3px;">
+      <details>
+          <summary>어셈블리 및 디버깅</summary>
+          <ul>
+              
+            {% if '컴퓨터 기초' in progress_values %}
+            <ul class="indented"><a href="lecture1/?table=컴퓨터 기초&page=1" class="text_change">컴퓨터 기초 ☑️</a></ul>
+          {% else %}
+            <ul class="indented"><a href="lecture1/?table=컴퓨터 기초&page=1" class="text_change">컴퓨터 기초</a></ul>
+          {% endif %}
+          
+          {% if 'CPU 레지스터' in progress_values %}
+            <ul class="indented"><a href="lecture1/?table=CPU 레지스터&page=1" class="text_change">CPU 레지스터 ☑️</a></ul>
+          {% else %}
+            <ul class="indented"><a href="lecture1/?table=CPU 레지스터&page=1" class="text_change">CPU 레지스터</a></ul>
+          {% endif %}
+          
+          {% if '어셈블리 명령어' in progress_values %}
+            <ul class="indented"><a href="lecture1/?table=어셈블리 명령어&page=1" class="text_change">어셈블리 명령어 ☑️</a></ul>
+          {% else %}
+            <ul class="indented"><a href="lecture1/?table=어셈블리 명령어&page=1" class="text_change">어셈블리 명령어</a></ul>
+          {% endif %}
+          
+          {% if '디버깅' in progress_values %}
+            <ul class="indented"><a href="lecture1/?table=디버깅&page=1" class="text_change">디버깅 ☑️</a></ul>
+          {% else %}
+            <ul class="indented"><a href="lecture1/?table=디버깅&page=1" class="text_change">디버깅</a></ul>
+          {% endif %}
+          
+          {% if 'x64 아키텍처' in progress_values %}
+            <ul class="indented"><a href="lecture1/?table=x64 아키텍처&page=1" class="text_change">x64 아키텍처 ☑️</a></ul>
+          {% else %}
+            <ul class="indented"><a href="lecture1/?table=x64 아키텍처&page=1" class="text_change">x64 아키텍처</a></ul>
+          {% endif %}
+          
+          </ul>
+      </details>
+  </div>
+  <div class="info__close"></div>
+</div>
+
+{% endif %}
+
+
+
+
+<!--  -->
+
+{% if 'PE파일 구조' in progress_values and '악성코드 유포에 악용되는 파일 유형' in progress_values and 'ZIP파일 구조' in progress_values and 'MS Office 문서파일 구조' in progress_values %}
+<div class="info2" style="background-color: {{color}};">
+  <div class="info__title" style="padding:3px;">
+      <details>
+          <summary>파일 포맷</summary>
+          <ul>
+            {% if 'PE파일 구조' in progress_values %}
+            <ul class="indented"><a href="lecture1/?table=PE파일 구조&page=1" class="text_change">PE파일 구조 ☑️</a></ul>
+          {% else %}
+            <ul class="indented"><a href="lecture1/?table=PE파일 구조&page=1" class="text_change">PE파일 구조</a></ul>
+          {% endif %}
+          
+          {% if '악성코드 유포에 악용되는 파일 유형' in progress_values %}
+            <ul class="indented"><a href="lecture1/?table=악성코드 유포에 악용되는 파일 유형&page=1" class="text_change">악성코드 유포에 악용되는 파일 유형 ☑️</a></ul>
+          {% else %}
+            <ul class="indented"><a href="lecture1/?table=악성코드 유포에 악용되는 파일 유형&page=1" class="text_change">악성코드 유포에 악용되는 파일 유형</a></ul>
+          {% endif %}
+          
+          {% if 'ZIP파일 구조' in progress_values %}
+            <ul class="indented"><a href="lecture1/?table=ZIP파일 구조&page=1" class="text_change">ZIP파일 구조 ☑️</a></ul>
+          {% else %}
+            <ul class="indented"><a href="lecture1/?table=ZIP파일 구조&page=1" class="text_change">ZIP파일 구조</a></ul>
+          {% endif %}
+          
+          {% if 'MS Office 문서파일 구조' in progress_values %}
+            <ul class="indented"><a href="lecture1/?table=MS Office 문서파일 구조&page=1" class="text_change">MS Office 문서파일 구조 ☑️</a></ul>
+          {% else %}
+            <ul class="indented"><a href="lecture1/?table=MS Office 문서파일 구조&page=1" class="text_change">MS Office 문서파일 구조</a></ul>
+          {% endif %}
+          
+          </ul>
+      </details>
+  </div>
+  <div class="info__close"></div>
+</div>
+{% else %}
   <div class="info2">
       <div class="info__title" style="padding:3px;">
           <details>
-              <summary>{{ lecture1.Contents_2 }}</summary>
+              <summary>파일 포맷</summary>
               <ul>
-                  {% for content in lecture1.Contents_3|split_string %}
-                  <ul class="indented"><a href="lecture1/?table={{ content }}&page=1" class="text_change">{{ content }}</a></ul>
-
-                  {% endfor %}
+                  
+                {% if 'PE파일 구조' in progress_values %}
+                <ul class="indented"><a href="lecture1/?table=PE파일 구조&page=1" class="text_change">PE파일 구조 ☑️</a></ul>
+              {% else %}
+                <ul class="indented"><a href="lecture1/?table=PE파일 구조&page=1" class="text_change">PE파일 구조</a></ul>
+              {% endif %}
+              
+              {% if '악성코드 유포에 악용되는 파일 유형' in progress_values %}
+                <ul class="indented"><a href="lecture1/?table=악성코드 유포에 악용되는 파일 유형&page=1" class="text_change">악성코드 유포에 악용되는 파일 유형 ☑️</a></ul>
+              {% else %}
+                <ul class="indented"><a href="lecture1/?table=악성코드 유포에 악용되는 파일 유형&page=1" class="text_change">악성코드 유포에 악용되는 파일 유형</a></ul>
+              {% endif %}
+              
+              {% if 'ZIP파일 구조' in progress_values %}
+                <ul class="indented"><a href="lecture1/?table=ZIP파일 구조&page=1" class="text_change">ZIP파일 구조 ☑️</a></ul>
+              {% else %}
+                <ul class="indented"><a href="lecture1/?table=ZIP파일 구조&page=1" class="text_change">ZIP파일 구조</a></ul>
+              {% endif %}
+              
+              {% if 'MS Office 문서파일 구조' in progress_values %}
+                <ul class="indented"><a href="lecture1/?table=MS Office 문서파일 구조&page=1" class="text_change">MS Office 문서파일 구조 ☑️</a></ul>
+              {% else %}
+                <ul class="indented"><a href="lecture1/?table=MS Office 문서파일 구조&page=1" class="text_change">MS Office 문서파일 구조</a></ul>
+              {% endif %}
+              
               </ul>
           </details>
       </div>
       <div class="info__close"></div>
   </div>
-  {% endfor %}
-  
-  
-  
+{% endif %}
+
+
+
+
+
+
+
+  <!--  -->
+  {% if '악성코드 지속 방법(1)' in progress_values and '악성코드 지속 방법(2)' in progress_values and '악성코드 지속 방법(3)' in progress_values and '악성코드 탐지 회피를 위한 기법' in progress_values and '바이너리 보호를 위한 기법' in progress_values and '안티 디버깅을 위한 기법' in progress_values and '권한 상승을 위한 기법' in progress_values and '악성코드 은닉 기법' in progress_values %}
+  <div class="info2" style="background-color: {{color}};">
+    <div class="info__title" style="padding:3px;">
+        <details>
+            <summary>악성코드 기법</summary>
+            <ul>
+                
+              {% if '악성코드 지속 방법(1)' in progress_values %}
+              <ul class="indented"><a href="lecture1/?table=악성코드 지속 방법(1)&page=1" class="text_change">악성코드 지속 방법(1) ☑️</a></ul>
+            {% else %}
+              <ul class="indented"><a href="lecture1/?table=악성코드 지속 방법(1)&page=1" class="text_change">악성코드 지속 방법(1)</a></ul>
+            {% endif %}
+            
+            {% if '악성코드 지속 방법(2)' in progress_values %}
+              <ul class="indented"><a href="lecture1/?table=악성코드 지속 방법(2)&page=1" class="text_change">악성코드 지속 방법(2) ☑️</a></ul>
+            {% else %}
+              <ul class="indented"><a href="lecture1/?table=악성코드 지속 방법(2)&page=1" class="text_change">악성코드 지속 방법(2)</a></ul>
+            {% endif %}
+            
+            {% if '악성코드 지속 방법(3)' in progress_values %}
+              <ul class="indented"><a href="lecture1/?table=악성코드 지속 방법(3)&page=1" class="text_change">악성코드 지속 방법(3) ☑️</a></ul>
+            {% else %}
+              <ul class="indented"><a href="lecture1/?table=악성코드 지속 방법(3)&page=1" class="text_change">악성코드 지속 방법(3)</a></ul>
+            {% endif %}
+            
+            {% if '악성코드 탐지 회피를 위한 기법' in progress_values %}
+              <ul class="indented"><a href="lecture1/?table=악성코드 탐지 회피를 위한 기법&page=1" class="text_change">악성코드 탐지 회피를 위한 기법 ☑️</a></ul>
+            {% else %}
+              <ul class="indented"><a href="lecture1/?table=악성코드 탐지 회피를 위한 기법&page=1" class="text_change">악성코드 탐지 회피를 위한 기법</a></ul>
+            {% endif %}
+            
+            {% if '바이너리 보호를 위한 기법' in progress_values %}
+              <ul class="indented"><a href="lecture1/?table=바이너리 보호를 위한 기법&page=1" class="text_change">바이너리 보호를 위한 기법 ☑️</a></ul>
+            {% else %}
+              <ul class="indented"><a href="lecture1/?table=바이너리 보호를 위한 기법&page=1" class="text_change">바이너리 보호를 위한 기법</a></ul>
+            {% endif %}
+            
+            {% if '안티 디버깅을 위한 기법' in progress_values %}
+              <ul class="indented"><a href="lecture1/?table=안티 디버깅을 위한 기법&page=1" class="text_change">안티 디버깅을 위한 기법 ☑️</a></ul>
+            {% else %}
+              <ul class="indented"><a href="lecture1/?table=안티 디버깅을 위한 기법&page=1" class="text_change">안티 디버깅을 위한 기법</a></ul>
+            {% endif %}
+            
+            {% if '권한 상승을 위한 기법' in progress_values %}
+              <ul class="indented"><a href="lecture1/?table=권한 상승을 위한 기법&page=1" class="text_change">권한 상승을 위한 기법 ☑️</a></ul>
+            {% else %}
+              <ul class="indented"><a href="lecture1/?table=권한 상승을 위한 기법&page=1" class="text_change">권한 상승을 위한 기법</a></ul>
+            {% endif %}
+            
+            {% if '악성코드 은닉 기법' in progress_values %}
+              <ul class="indented"><a href="lecture1/?table=악성코드 은닉 기법&page=1" class="text_change">악성코드 은닉 기법 ☑️</a></ul>
+            {% else %}
+              <ul class="indented"><a href="lecture1/?table=악성코드 은닉 기법&page=1" class="text_change">악성코드 은닉 기법</a></ul>
+            {% endif %}
+            
+                
+            </ul>
+        </details>
+    </div>
+    <div class="info__close"></div>
+</div>
+  {% else %}
+  <div class="info2">
+      <div class="info__title" style="padding:3px;">
+          <details>
+              <summary>악성코드 기법</summary>
+              <ul>
+                  
+                {% if '악성코드 지속 방법(1)' in progress_values %}
+                <ul class="indented"><a href="lecture1/?table=악성코드 지속 방법(1)&page=1" class="text_change">악성코드 지속 방법(1) ☑️</a></ul>
+              {% else %}
+                <ul class="indented"><a href="lecture1/?table=악성코드 지속 방법(1)&page=1" class="text_change">악성코드 지속 방법(1)</a></ul>
+              {% endif %}
+              
+              {% if '악성코드 지속 방법(2)' in progress_values %}
+                <ul class="indented"><a href="lecture1/?table=악성코드 지속 방법(2)&page=1" class="text_change">악성코드 지속 방법(2) ☑️</a></ul>
+              {% else %}
+                <ul class="indented"><a href="lecture1/?table=악성코드 지속 방법(2)&page=1" class="text_change">악성코드 지속 방법(2)</a></ul>
+              {% endif %}
+              
+              {% if '악성코드 지속 방법(3)' in progress_values %}
+                <ul class="indented"><a href="lecture1/?table=악성코드 지속 방법(3)&page=1" class="text_change">악성코드 지속 방법(3) ☑️</a></ul>
+              {% else %}
+                <ul class="indented"><a href="lecture1/?table=악성코드 지속 방법(3)&page=1" class="text_change">악성코드 지속 방법(3)</a></ul>
+              {% endif %}
+              
+              {% if '악성코드 탐지 회피를 위한 기법' in progress_values %}
+                <ul class="indented"><a href="lecture1/?table=악성코드 탐지 회피를 위한 기법&page=1" class="text_change">악성코드 탐지 회피를 위한 기법 ☑️</a></ul>
+              {% else %}
+                <ul class="indented"><a href="lecture1/?table=악성코드 탐지 회피를 위한 기법&page=1" class="text_change">악성코드 탐지 회피를 위한 기법</a></ul>
+              {% endif %}
+              
+              {% if '바이너리 보호를 위한 기법' in progress_values %}
+                <ul class="indented"><a href="lecture1/?table=바이너리 보호를 위한 기법&page=1" class="text_change">바이너리 보호를 위한 기법 ☑️</a></ul>
+              {% else %}
+                <ul class="indented"><a href="lecture1/?table=바이너리 보호를 위한 기법&page=1" class="text_change">바이너리 보호를 위한 기법</a></ul>
+              {% endif %}
+              
+              {% if '안티 디버깅을 위한 기법' in progress_values %}
+                <ul class="indented"><a href="lecture1/?table=안티 디버깅을 위한 기법&page=1" class="text_change">안티 디버깅을 위한 기법 ☑️</a></ul>
+              {% else %}
+                <ul class="indented"><a href="lecture1/?table=안티 디버깅을 위한 기법&page=1" class="text_change">안티 디버깅을 위한 기법</a></ul>
+              {% endif %}
+              
+              {% if '권한 상승을 위한 기법' in progress_values %}
+                <ul class="indented"><a href="lecture1/?table=권한 상승을 위한 기법&page=1" class="text_change">권한 상승을 위한 기법 ☑️</a></ul>
+              {% else %}
+                <ul class="indented"><a href="lecture1/?table=권한 상승을 위한 기법&page=1" class="text_change">권한 상승을 위한 기법</a></ul>
+              {% endif %}
+              
+              {% if '악성코드 은닉 기법' in progress_values %}
+                <ul class="indented"><a href="lecture1/?table=악성코드 은닉 기법&page=1" class="text_change">악성코드 은닉 기법 ☑️</a></ul>
+              {% else %}
+                <ul class="indented"><a href="lecture1/?table=악성코드 은닉 기법&page=1" class="text_change">악성코드 은닉 기법</a></ul>
+              {% endif %}
+              
+              </ul>
+          </details>
+      </div>
+      <div class="info__close"></div>
+  </div>
+  {% endif %}
+
+<!--  -->
+
+
+
+
+{% if '악성코드 유포 경로' in progress_values and '악성코드 유포 기법' in progress_values %}
+
+<div class="info2" style="background-color: {{color}};">
+  <div class="info__title" style="padding:3px;">
+      <details>
+          <summary>악성코드 유포</summary>
+          <ul>
+            {% if '악성코드 유포 경로' in progress_values %}
+            <ul class="indented"><a href="lecture1/?table=악성코드 유포 경로&page=1" class="text_change">악성코드 유포 경로 ☑️</a></ul>
+          {% else %}
+            <ul class="indented"><a href="lecture1/?table=악성코드 유포 경로&page=1" class="text_change">악성코드 유포 경로</a></ul>
+          {% endif %}
+          
+          {% if '악성코드 유포 기법' in progress_values %}
+            <ul class="indented"><a href="lecture1/?table=악성코드 유포 기법&page=1" class="text_change">악성코드 유포 기법 ☑️</a></ul>
+          {% else %}
+            <ul class="indented"><a href="lecture1/?table=악성코드 유포 기법&page=1" class="text_change">악성코드 유포 기법</a></ul>
+          {% endif %}
+          
+          </ul>
+      </details>
+  </div>
+  <div class="info__close"></div>
+</div>
+
+{% else %}
+  <div class="info2">
+      <div class="info__title" style="padding:3px;">
+          <details>
+              <summary>악성코드 유포</summary>
+              <ul>
+                  
+                {% if '악성코드 유포 경로' in progress_values %}
+                <ul class="indented"><a href="lecture1/?table=악성코드 유포 경로&page=1" class="text_change">악성코드 유포 경로 ☑️</a></ul>
+              {% else %}
+                <ul class="indented"><a href="lecture1/?table=악성코드 유포 경로&page=1" class="text_change">악성코드 유포 경로</a></ul>
+              {% endif %}
+              
+              {% if '악성코드 유포 기법' in progress_values %}
+                <ul class="indented"><a href="lecture1/?table=악성코드 유포 기법&page=1" class="text_change">악성코드 유포 기법 ☑️</a></ul>
+              {% else %}
+                <ul class="indented"><a href="lecture1/?table=악성코드 유포 기법&page=1" class="text_change">악성코드 유포 기법</a></ul>
+              {% endif %}
+              
+              </ul>
+          </details>
+      </div>
+      <div class="info__close"></div>
+  </div>
+  {% endif %}
+
+
+
+<!--  -->
+
+{% if '정적분석(1)' in progress_values and '정적분석(2)' in progress_values and '정적분석을 이용한 악성코드 비교 및 분류' in progress_values and 'IDA 디스어셈블리' in progress_values %}
+<div class="info2" style="background-color: {{color}};">
+  <div class="info__title" style="padding:3px;">
+      <details>
+          <summary>정적분석</summary>
+          <ul>
+              
+            {% if '정적분석(1)' in progress_values %}
+            <ul class="indented"><a href="lecture1/?table=정적분석(1)&page=1" class="text_change">정적분석(1) ☑️</a></ul>
+          {% else %}
+            <ul class="indented"><a href="lecture1/?table=정적분석(1)&page=1" class="text_change">정적분석(1)</a></ul>
+          {% endif %}
+          
+          {% if '정적분석(2)' in progress_values %}
+            <ul class="indented"><a href="lecture1/?table=정적분석(2)&page=1" class="text_change">정적분석(2) ☑️</a></ul>
+          {% else %}
+            <ul class="indented"><a href="lecture1/?table=정적분석(2)&page=1" class="text_change">정적분석(2)</a></ul>
+          {% endif %}
+          
+          {% if '정적분석을 이용한 악성코드 비교 및 분류' in progress_values %}
+            <ul class="indented"><a href="lecture1/?table=정적분석을 이용한 악성코드 비교 및 분류&page=1" class="text_change">정적분석을 이용한 악성코드 비교 및 분류 ☑️</a></ul>
+          {% else %}
+            <ul class="indented"><a href="lecture1/?table=정적분석을 이용한 악성코드 비교 및 분류&page=1" class="text_change">정적분석을 이용한 악성코드 비교 및 분류</a></ul>
+          {% endif %}
+          
+          {% if 'IDA 디스어셈블리' in progress_values %}
+            <ul class="indented"><a href="lecture1/?table=IDA 디스어셈블리&page=1" class="text_change">IDA 디스어셈블리 ☑️</a></ul>
+          {% else %}
+            <ul class="indented"><a href="lecture1/?table=IDA 디스어셈블리&page=1" class="text_change">IDA 디스어셈블리</a></ul>
+          {% endif %}
+          
+          </ul>
+      </details>
+  </div>
+  <div class="info__close"></div>
+</div>
+{% else %}
+  <div class="info2">
+      <div class="info__title" style="padding:3px;">
+          <details>
+              <summary>정적분석</summary>
+              <ul>
+                  
+                {% if '정적분석(1)' in progress_values %}
+                <ul class="indented"><a href="lecture1/?table=정적분석(1)&page=1" class="text_change">정적분석(1) ☑️</a></ul>
+              {% else %}
+                <ul class="indented"><a href="lecture1/?table=정적분석(1)&page=1" class="text_change">정적분석(1)</a></ul>
+              {% endif %}
+              
+              {% if '정적분석(2)' in progress_values %}
+                <ul class="indented"><a href="lecture1/?table=정적분석(2)&page=1" class="text_change">정적분석(2) ☑️</a></ul>
+              {% else %}
+                <ul class="indented"><a href="lecture1/?table=정적분석(2)&page=1" class="text_change">정적분석(2)</a></ul>
+              {% endif %}
+              
+              {% if '정적분석을 이용한 악성코드 비교 및 분류' in progress_values %}
+                <ul class="indented"><a href="lecture1/?table=정적분석을 이용한 악성코드 비교 및 분류&page=1" class="text_change">정적분석을 이용한 악성코드 비교 및 분류 ☑️</a></ul>
+              {% else %}
+                <ul class="indented"><a href="lecture1/?table=정적분석을 이용한 악성코드 비교 및 분류&page=1" class="text_change">정적분석을 이용한 악성코드 비교 및 분류</a></ul>
+              {% endif %}
+              
+              {% if 'IDA 디스어셈블리' in progress_values %}
+                <ul class="indented"><a href="lecture1/?table=IDA 디스어셈블리&page=1" class="text_change">IDA 디스어셈블리 ☑️</a></ul>
+              {% else %}
+                <ul class="indented"><a href="lecture1/?table=IDA 디스어셈블리&page=1" class="text_change">IDA 디스어셈블리</a></ul>
+              {% endif %}
+              
+              </ul>
+          </details>
+      </div>
+      <div class="info__close"></div>
+  </div>
+  {% endif %}
   
 
-  
-  </div>
-  
-  </div>
-  
-  
-  <!--<div class="coulmn_item2">
-    
-    
-    
-    <div class="cardg">
-       <div class="contentg">
-         <a href="#">
-           <span class="titleg">
-             기초 강의
-           </span>
-         </a>
-     
-         <p class="descg">
-           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae
-           dolores, possimus pariatur animi temporibus nesciunt praesentium 
-         </p>
-     
-       </div>
-     </div>
-    --> 
-    
-    
-    
-    
-    <div class="cardk">
-          <div class="card__wrapperk">
-        </div>
-          <div class="card__title"><h5>강의 진도율</h5></div>
+
+
+
+
+<!--  -->
+{% if '분석환경 개요' in progress_values and '동적분석(모니터링) 도구' in progress_values and '악성코드 실행 파일 분석' in progress_values and '동적 링크 라이브러리 분석' in progress_values %}
+<div class="info2" style="background-color: {{color}};">
+  <div class="info__title" style="padding:3px;">
+      <details>
+          <summary>동적분석</summary>
+          <ul>
+              
+            {% if '분석환경 개요' in progress_values %}
+            <ul class="indented"><a href="lecture1/?table=분석환경 개요&page=1" class="text_change">분석환경 개요 ☑️</a></ul>
+          {% else %}
+            <ul class="indented"><a href="lecture1/?table=분석환경 개요&page=1" class="text_change">분석환경 개요</a></ul>
+          {% endif %}
           
-          <div class="card__indicator"><span class="card__indicator-amount"></span>  30%</span></div>
-          <div class="card__progress"><progress max="100" value="40"></progress></div>
-      </div>
-    </div>
-  
-  
-  
-  
-  
-  
-  
-  
-  
+          {% if '동적분석(모니터링) 도구' in progress_values %}
+            <ul class="indented"><a href="lecture1/?table=동적분석(모니터링) 도구&page=1" class="text_change">동적분석(모니터링) 도구 ☑️</a></ul>
+          {% else %}
+            <ul class="indented"><a href="lecture1/?table=동적분석(모니터링) 도구&page=1" class="text_change">동적분석(모니터링) 도구</a></ul>
+          {% endif %}
+          
+          {% if '악성코드 실행 파일 분석' in progress_values %}
+            <ul class="indented"><a href="lecture1/?table=악성코드 실행 파일 분석&page=1" class="text_change">악성코드 실행 파일 분석 ☑️</a></ul>
+          {% else %}
+            <ul class="indented"><a href="lecture1/?table=악성코드 실행 파일 분석&page=1" class="text_change">악성코드 실행 파일 분석</a></ul>
+          {% endif %}
+          
+          {% if '동적 링크 라이브러리 분석' in progress_values %}
+            <ul class="indented"><a href="lecture1/?table=동적 링크 라이브러리 분석&page=1" class="text_change">동적 링크 라이브러리 분석 ☑️</a></ul>
+          {% else %}
+            <ul class="indented"><a href="lecture1/?table=동적 링크 라이브러리 분석&page=1" class="text_change">동적 링크 라이브러리 분석</a></ul>
+          {% endif %}
+          
+          </ul>
+      </details>
   </div>
+  <div class="info__close"></div>
+</div>
+
+
+{% else %}
+  <div class="info2">
+      <div class="info__title" style="padding:3px;">
+          <details>
+              <summary>동적분석</summary>
+              <ul>
+                  
+                {% if '분석환경 개요' in progress_values %}
+                <ul class="indented"><a href="lecture1/?table=분석환경 개요&page=1" class="text_change">분석환경 개요 ☑️</a></ul>
+              {% else %}
+                <ul class="indented"><a href="lecture1/?table=분석환경 개요&page=1" class="text_change">분석환경 개요</a></ul>
+              {% endif %}
+              
+              {% if '동적분석(모니터링) 도구' in progress_values %}
+                <ul class="indented"><a href="lecture1/?table=동적분석(모니터링) 도구&page=1" class="text_change">동적분석(모니터링) 도구 ☑️</a></ul>
+              {% else %}
+                <ul class="indented"><a href="lecture1/?table=동적분석(모니터링) 도구&page=1" class="text_change">동적분석(모니터링) 도구</a></ul>
+              {% endif %}
+              
+              {% if '악성코드 실행 파일 분석' in progress_values %}
+                <ul class="indented"><a href="lecture1/?table=악성코드 실행 파일 분석&page=1" class="text_change">악성코드 실행 파일 분석 ☑️</a></ul>
+              {% else %}
+                <ul class="indented"><a href="lecture1/?table=악성코드 실행 파일 분석&page=1" class="text_change">악성코드 실행 파일 분석</a></ul>
+              {% endif %}
+              
+              {% if '동적 링크 라이브러리 분석' in progress_values %}
+                <ul class="indented"><a href="lecture1/?table=동적 링크 라이브러리 분석&page=1" class="text_change">동적 링크 라이브러리 분석 ☑️</a></ul>
+              {% else %}
+                <ul class="indented"><a href="lecture1/?table=동적 링크 라이브러리 분석&page=1" class="text_change">동적 링크 라이브러리 분석</a></ul>
+              {% endif %}
+              
+              </ul>
+          </details>
+      </div>
+      <div class="info__close"></div>
+  </div>
+  {% endif %}
+
+
+
+
+
+
+  <!--  -->
+
+  
+{% if '자동화 분석' in progress_values  %}
+
+  <div class="info2" style="background-color: {{color}};">
+    <div class="info__title" style="padding:3px;">
+      <details>
+          <summary>자동화 분석</summary>
+          <ul>
+
+            {% if '자동화 분석' in progress_values %}
+            <ul class="indented"><a href="lecture1/?table=자동화 분석&page=1" class="text_change">자동화 분석 ☑️</a></ul>
+          {% else %}
+            <ul class="indented"><a href="lecture1/?table=자동화 분석&page=1" class="text_change">자동화 분석</a></ul>
+          {% endif %}
+          
+          </ul>
+      </details>
+  </div>
+  <div class="info__close"></div>
+</div>
+  {% else %}
+  <div class="info2">
+      <div class="info__title" style="padding:3px;">
+          <details>
+              <summary>자동화 분석</summary>
+              <ul>
+
+                {% if '자동화 분석' in progress_values %}
+                <ul class="indented"><a href="lecture1/?table=자동화 분석&page=1" class="text_change">자동화 분석 ☑️</a></ul>
+              {% else %}
+                <ul class="indented"><a href="lecture1/?table=자동화 분석&page=1" class="text_change">자동화 분석</a></ul>
+              {% endif %}
+              
+              </ul>
+          </details>
+      </div>
+      <div class="info__close"></div>
+  </div>
+  {% endif %}
+
+
+
+
+
+
+  <!--  -->
+  {% if '악성코드 case 사례' in progress_values and '3.20 사이버테러 사건' in progress_values and 'Sony Pictures 해킹 사건' in progress_values and '다크사이드 송유관 기업 공격 사건' in progress_values and '스위프트 전산망 해킹 사건' in progress_values %}
+  <div class="info2" style="background-color: {{color}};">
+    <div class="info__title" style="padding:3px;">
+        <details>
+            <summary>악성코드 case 사례</summary>
+            <ul>
+                
+            {% if '악성코드 case 사례' in progress_values %}
+              <ul class="indented"><a href="lecture1/?table=악성코드 case 사례&page=1" class="text_change">악성코드 case 사례 ☑️</a></ul>
+            {% else %}
+              <ul class="indented"><a href="lecture1/?table=악성코드 case 사례&page=1" class="text_change">악성코드 case 사례</a></ul>
+            {% endif %}
+
+            {% if '3.20 사이버테러 사건' in progress_values %}
+              <ul class="indented"><a href="lecture1/?table=3.20 사이버테러 사건&page=1" class="text_change">3.20 사이버테러 사건 ☑️</a></ul>
+            {% else %}
+              <ul class="indented"><a href="lecture1/?table=3.20 사이버테러 사건&page=1" class="text_change">3.20 사이버테러 사건</a></ul>
+            {% endif %}
+
+            {% if 'Sony Pictures 해킹 사건' in progress_values %}
+              <ul class="indented"><a href="lecture1/?table=Sony Pictures 해킹 사건&page=1" class="text_change">Sony Pictures 해킹 사건 ☑️</a></ul>
+            {% else %}
+              <ul class="indented"><a href="lecture1/?table=Sony Pictures 해킹 사건&page=1" class="text_change">Sony Pictures 해킹 사건</a></ul>
+            {% endif %}
+
+            {% if '다크사이드 송유관 기업 공격 사건' in progress_values %}
+              <ul class="indented"><a href="lecture1/?table=다크사이드 송유관 기업 공격 사건&page=1" class="text_change">다크사이드 송유관 기업 공격 사건 ☑️</a></ul>
+            {% else %}
+              <ul class="indented"><a href="lecture1/?table=다크사이드 송유관 기업 공격 사건&page=1" class="text_change">다크사이드 송유관 기업 공격 사건</a></ul>
+            {% endif %}
+
+            {% if '스위프트 전산망 해킹 사건' in progress_values %}
+              <ul class="indented"><a href="lecture1/?table=스위프트 전산망 해킹 사건&page=1" class="text_change">스위프트 전산망 해킹 사건 ☑️</a></ul>
+            {% else %}
+              <ul class="indented"><a href="lecture1/?table=스위프트 전산망 해킹 사건&page=1" class="text_change">스위프트 전산망 해킹 사건</a></ul>
+            {% endif %}
+
+            </ul>
+        </details>
+    </div>
+    <div class="info__close"></div>
+</div>
+  {% else %}
+  <div class="info2">
+      <div class="info__title" style="padding:3px;">
+          <details>
+              <summary>악성코드 case 사례</summary>
+              <ul>
+                  
+                {% if '악성코드 case 사례' in progress_values %}
+                <ul class="indented"><a href="lecture1/?table=악성코드 case 사례&page=1" class="text_change">악성코드 case 사례 ☑️</a></ul>
+              {% else %}
+                <ul class="indented"><a href="lecture1/?table=악성코드 case 사례&page=1" class="text_change">악성코드 case 사례</a></ul>
+              {% endif %}
+              
+              {% if '3.20 사이버테러 사건' in progress_values %}
+                <ul class="indented"><a href="lecture1/?table=3.20 사이버테러 사건&page=1" class="text_change">3.20 사이버테러 사건 ☑️</a></ul>
+              {% else %}
+                <ul class="indented"><a href="lecture1/?table=3.20 사이버테러 사건&page=1" class="text_change">3.20 사이버테러 사건</a></ul>
+              {% endif %}
+              
+              {% if 'Sony Pictures 해킹 사건' in progress_values %}
+                <ul class="indented"><a href="lecture1/?table=Sony Pictures 해킹 사건&page=1" class="text_change">Sony Pictures 해킹 사건 ☑️</a></ul>
+              {% else %}
+                <ul class="indented"><a href="lecture1/?table=Sony Pictures 해킹 사건&page=1" class="text_change">Sony Pictures 해킹 사건</a></ul>
+              {% endif %}
+              
+              </ul>
+          </details>
+      </div>
+      <div class="info__close"></div>
+  </div>
+  {% endif %}
+
+  </div>
+  </div>
+
+  <div class="coulmn_item2">
+    <div class="cardg">
+           <span class="titleg">
+             기초강의
+           </span>
+         <p class="descg">
+          기초강의는 악성코드 분석을 위한 기초 개념을 이해하고  분석방법과 잘 알려진 악성코드 사건을 기반으로 침해사고 시나리오를 학습하는 과정입니다. 
+         </p>
+     </div>
+    <div class="cardk">
+          <div class="card__wrapperk"></div>
+          <div class="card__title"><span class="titleg">강의 진도율</span></div>
+          
+          <div class="card__indicator"><span class="card__indicator-amount"></span>  {{ rate }}%</span></div>
+          <div class="card__progress"><progress max="100" value="{{rate}}"></progress></div>
+    </div>
+  </div>
+  <div>
+  </div>
+
+  </div>
+</div>
   
   <!-- Footer -->
-<br><br><br>
-  <style>
-    footer {
-      height: 100%;
-    }
-    
-    
-      </style>
-     
-  
-  <!-- <footer class="w3-center w3-black w3-padding-64">
-    <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
-    <div class="w3-xlarge w3-section">
-      <i class="fa fa-facebook-official w3-hover-opacity"></i>
-      <i class="fa fa-instagram w3-hover-opacity"></i>
-      <i class="fa fa-snapchat w3-hover-opacity"></i>
-      <i class="fa fa-pinterest-p w3-hover-opacity"></i>
-      <i class="fa fa-twitter w3-hover-opacity"></i>
-      <i class="fa fa-linkedin w3-hover-opacity"></i>
+
+<footer class="footer">
+  <div style="background-color: black;">
+    <div class="footer_bottom">
+      <div class="footer-logo">
+        <img src="{% static 'LOGO_remove.png' %}" style="max-width: 10rem;  opacity: 0.5;">
+      </div>
+      <div class="company-miscellaneous">
+        <div class="company-brand-title">
+          <p class="company-title">Best Of the Best 12기</p> 
+          <p class="copyright">
+        Copyright © 2023 MalLaB Inc. All rights reserved.
+          </p>
+        </div> 
+        <p class="copyright">
+          <span>서비스 운영: MalLaB</span> |
+          <span>금천구 서부샛길 606, 대성디폴리스 지식산업센터 A동 27층</span> |
+          <span>이메일: mallab@gmail.com</span> |
+          <span>대표 연락처: 010-0000-0000</span>
+        </p>
+      </div>
     </div>
-    <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-text-green">w3.css</a></p>
-  </footer>
-    -->
+  </div>
+</footer>
+
   <script>
   // Modal Image Gallery
   function onClick(element) {
@@ -188,7 +859,6 @@
       mySidebar.style.display = "none";
   }
   </script>
-
 
 
 

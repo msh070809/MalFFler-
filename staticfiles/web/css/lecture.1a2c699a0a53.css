@@ -1,0 +1,431 @@
+footer {
+  height: 100%;
+}
+
+
+
+
+/* 서브 네비 */
+
+.radio-input {
+    display: flex;
+    flex-direction: row;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: white;
+    margin-left: 200px; /* 원하는 좌측 마진 크기를 여기에 지정하세요. */
+    margin-top:75px; /* 원하는 좌측 마진 크기를 여기에 지정하세요. */
+    margin-bottom: 10px; /* 원하는 좌측 마진 크기를 여기에 지정하세요. */
+  }
+  
+  .radio-input input[type="radio"] {
+    display: none;
+  }
+  
+  .radio-input label {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: #212121;
+    border-radius: 8px;
+    margin-right: 12px;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease-in-out;
+    
+  }
+  
+  
+  
+  
+  .radio-input input[type="radio"]:checked + label {
+    background-color: royalblue;
+    color: #fff;
+    border-color: rgb(129, 235, 129);
+  
+  }
+  
+  @keyframes radio-translate {
+    0% {
+      transform: translateX(0);
+    }
+  
+    50% {
+      transform: translateY(-10px);
+    }
+  
+    100% {
+      transform: translateX(0);
+    }
+  }
+  
+  
+  
+  body {
+    
+    background-color: #D7DAE7; /* 원하는 배경색으로 변경합니다. */
+    font-family: "Raleway", sans-serif;
+    height: 100%;
+    line-height: 1.8;
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  /* 카드 */
+  
+  
+  .card {
+    max-width: 100%;
+    border-width: 1px;
+    border-color: rgba(219, 234, 254, 1);
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 1);
+    padding: 1rem;
+    margin-left: 100px; /* 원하는 좌측 마진 크기를 여기에 지정하세요. */
+    margin-right: 100px; /* 원하는 좌측 마진 크기를 여기에 지정하세요. */
+    margin-top:20px; /* 원하는 좌측 마진 크기를 여기에 지정하세요. */
+    margin-bottom:20px; /* 원하는 좌측 마진 크기를 여기에 지정하세요. */
+   
+  }
+  
+  
+  .card2 {
+    max-width: 100%;
+    border-width: 1px;
+    border-color: rgba(219, 234, 254, 1);
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 1);
+    padding: 1rem;
+    margin-left: 100px; /* 원하는 좌측 마진 크기를 여기에 지정하세요. */
+    margin-right: 45px; /* 원하는 좌측 마진 크기를 여기에 지정하세요. */
+    margin-top:20px; /* 원하는 좌측 마진 크기를 여기에 지정하세요. */
+    margin-bottom:20px; /* 원하는 좌측 마진 크기를 여기에 지정하세요. */
+   
+  }
+  
+  
+  .card3 {
+    max-width: 100%;
+    border-width: 1px;
+    border-color: rgba(219, 234, 254, 1);
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 1);
+    padding: 1rem;
+    margin-left: 1px; /* 원하는 좌측 마진 크기를 여기에 지정하세요. */
+    margin-right: 200px; /* 원하는 좌측 마진 크기를 여기에 지정하세요. */
+    margin-top:20px; /* 원하는 좌측 마진 크기를 여기에 지정하세요. */
+    margin-bottom:20px; /* 원하는 좌측 마진 크기를 여기에 지정하세요. */
+   
+  }
+  
+  
+  .header {
+    display: flex;
+    align-items: center;
+    grid-gap: 1rem;
+    gap: 1rem;
+  }
+  
+  .header2 {
+    display: table-column;
+    align-items: center;
+    grid-gap: 1rem;
+    gap: 1rem;
+  }
+  
+  
+  .icon {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9999px;
+    background-color: #485176;
+    padding: 0.5rem;
+    color: rgba(255, 255, 255, 1);
+  }
+  
+  .icon svg {
+    height: 1rem;
+    width: 1rem;
+  }
+  
+  .alert {
+    font-weight: 600;
+    color: rgba(107, 114, 128, 1);
+  }
+  
+  .message {
+    margin-top: 1rem;
+    color: rgba(107, 114, 128, 1);
+  }
+  
+  .actions {
+    margin-top: 1.5rem;
+  }
+  
+  .actions a {
+    text-decoration: none;
+  }
+  
+  .mark-as-read, .read {
+    display: inline-block;
+    border-radius:8px;
+    width: 100%;
+    padding: 0.75rem 1.25rem;
+    text-align: center;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    font-weight: 600;
+  }
+  
+  .read {
+    background-color: rgba(59, 130, 246, 1);
+    color: rgba(255, 255, 255, 1);
+  }
+  
+  .mark-as-read {
+    margin-top: 0.5rem;
+    background-color: rgba(249, 250, 251, 1);
+    color: rgba(107, 114, 128, 1);
+    transition: all .15s ease;
+  }
+  
+  .mark-as-read:hover {
+    background-color: rgb(230, 231, 233);
+  }
+  
+  
+  
+  
+  .info {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    width: 100%;
+    padding: 12px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+    background: #6e7b8c;
+    border-radius: 8px;
+    box-shadow: 0px 0px 5px -3px #111;
+    margin-bottom: 10px;
+  }
+  
+  
+  
+  
+  .info2 {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    width: 100%;
+    padding: 12px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+    /* 토글 */
+    background: #D5DCFF;
+    border-radius: 8px;
+    box-shadow: 0px 0px 5px -3px #111;
+    margin-bottom: 10px;
+  }
+  
+  .info__icon {
+    width: 20px;
+    height: 20px;
+    transform: translateY(-2px);
+    margin-right: 8px;
+  }
+  
+  .info__icon path {
+    fill: #fff;
+  }
+  
+  .info__title {
+    font-weight: 500;
+    font-size: 14px;
+    color: #333;
+  }
+  
+  .info__close {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    margin-left: auto;
+  }
+  
+  .info__close path {
+    fill: #fff;
+  }
+  
+  
+  
+  .form {
+    position: absolute;
+    top: 55%;
+    right: 130px;
+    transform: translateY(-50%);
+    background-color: #ffffff;
+    padding: 30px;
+    width: 400px;
+    border-radius: 8px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  
+  }
+  
+  
+  .coulmn {
+    display: flex;
+  }
+  
+  .coulmn_item1 {
+    flex: 6.5;
+    /* 원하는 스타일을 추가하세요 */
+  }
+  
+  .coulmn_item2 {
+    flex: 3.5;
+    /* 원하는 스타일을 추가하세요 */
+  }
+  
+  
+  
+  
+  
+  /* 강의 진도율 */
+  .cardk {
+    margin-top: 20px;
+    margin-right: 100px;
+    --main-color: #000;
+    --bg-color: #D5DCFF;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    width: 430px;
+    height: 150px;
+    padding: 25px;
+    background: var(--bg-color);
+    border-radius: 8px;
+  }
+  
+  .card__wrapperk {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  
+  
+  
+  
+  
+  
+  /* 우측 강의 소개 카드 */
+  
+  .cardg {
+    max-width: 400px;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    border: 1px solid transparent;
+    margin-right: 200px;
+    margin-top: 20px;
+  }
+  
+  .cardg a {
+    text-decoration: none
+  }
+  
+  .contentg {
+    padding: 1.1rem;
+  }
+  
+  .imageg {
+    object-fit: cover;
+    width: 100%;
+    height: 150px;
+    background-color: rgb(239, 205, 255);
+  }
+  
+  .titleg {
+    color: #333;
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    font-weight: 600;
+  }
+  
+  .descg {
+    margin-top: 0.5rem;
+    color: #6B7280;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+  
+  .actiong {
+    display: inline-flex;
+    margin-top: 1rem;
+    color: #ffffff;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    font-weight: 500;
+    align-items: center;
+    gap: 0.25rem;
+    background-color: #2563EB;
+    padding: 4px 8px;
+    border-radius: 8px;
+  }
+  
+  .actiong span {
+    transition: .3s ease;
+  }
+  
+  .actiong:hover span {
+    transform: translateX(4px);
+  }
+  
+  progress {
+    appearance: none;
+    height: 10px;
+}
+  progress::-webkit-progress-bar {
+      background:#f0f0f0;
+      border-radius:10px;
+  }
+  progress::-webkit-progress-value {
+      border-radius:10px;
+      background: #485176;
+
+  }
+  
+  .indented {
+    text-indent: 30px;
+    padding: 3px;
+}
+
+ .text_change{
+    border: none;
+    display: inline-block;
+    vertical-align: middle;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    text-align: center;
+    cursor: pointer;
+    white-space: nowrap;
+ }
+
+  .text_change:hover{
+    color: #485176;
+    font-weight: 600;
+}
+  summary{
+    font-size: 1.2em; 
+    font-weight:600;
+    cursor: pointer;
+  }

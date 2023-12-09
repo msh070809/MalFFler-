@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>퀴즈 채점 프로그램</title>
+  <style>
+    /* 페이지 넘기는 버튼 */
+    .button button {
+      border: none;
+      outline: none;
+      background-color: #FFCC57;
+      padding: 10px 20px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #333;
+      border-radius: 5px;
+      transition: all ease 0.1s;
+      box-shadow: 0px 5px 0px 0px #d5a73d;
+    }
+
+    .button button:active {
+      transform: translateY(5px);
+      box-shadow: 0px 0px 0px 0px #d5a73d;
+    }
+
+    /* 페이지 넘기는 버튼 위치 */
+    .button .button-container {
+      margin-right: 40px;
+      display: flex;
+      justify-content: flex-end; /* 버튼을 우측으로 정렬 */
+    }
+
+    .button .button-container button {
+      margin-left: 10px; /* 버튼 사이의 간격 설정 */
+    }
+
+    /* 입력(input) 스타일 */
+    .quiz {
+      display: flex;
+      align-items: center;
+    }
+
+    .quiz input {
+      flex: 1; /* input을 가능한 한 많은 공간을 차지하도록 설정 */
+      padding: 10px; /* 내부 여백(padding) 조정 */
+      margin-top: 5px;
+      font-size: 16px; /* 폰트 크기 조정 */
+      margin-right: 10px; /* 입력란과 버튼 사이의 간격 설정 */
+    }
+
+    .quiz button {
+      padding: 10px 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="button">
+    <div class="quiz-container">
+      <h2>소문자로 제출해주세요</h2><br>
+      
+
+<!-- 첫 번째 퀴즈 -->
+      <div class="quiz">     
+        <input id="answer1" placeholder="quiz.1">
+        <button onclick="checkAnswer(1)">제출하기</button>
+      </div>
+
+      
+<!-- 두 번째 퀴즈 -->
+      <div class="quiz">
+        <input id="answer2" placeholder="quiz.2">
+        <button onclick="checkAnswer(2)">제출하기</button>
+      </div>
+
+      
+<!-- 세 번째 퀴즈 -->
+      <div class="quiz">
+        <input id="answer3" placeholder="quiz.3">
+        <button onclick="checkAnswer(3)">제출하기</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // 답안 확인 함수
+    function checkAnswer(questionNumber) {
+      var userAnswer = document.getElementById('answer' + questionNumber).value.trim().toLowerCase();
+
+      var results = ["mitre att&ck", "obfuscated files or information", "process injection"]; // 각 퀴즈에 대한 정답 배열
+
+      var correctAnswer = results[questionNumber - 1];
+
+      if (userAnswer === correctAnswer) {
+        alert('정답입니다!');
+      } else {
+        alert('오답입니다. 다시 시도해보세요.');
+      }
+    }
+  </script>
+</body>
+</html>

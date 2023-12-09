@@ -9,7 +9,31 @@ class user(models.Model):
     pw = models.CharField(max_length=255)
     auth = models.CharField(max_length=255)
     start= models.DateTimeField(auto_now_add=True)
-    
+
+    lec1 = models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(255)], default=0)
+    lec2 = models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(255)], default=0)
+    lec3 = models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(255)], default=0)
+
+    A = models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(255)], default=1)
+    B = models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(255)], default=1)
+    C = models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(255)], default=1)
+    D = models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(255)], default=1)
+    E = models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(255)], default=1)
+    F = models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(255)], default=1)
+
+
+
+
+class Progress(models.Model):
+    user = models.ForeignKey(user, on_delete=models.CASCADE)
+    filed = models.TextField(max_length=50 ,default='')
+    progress_value = models.TextField(max_length=50)  # 최대 50글자의 문자열을 저장할 수 있는 TextField
+
+
+
+class problem_exe_Progress(models.Model):
+    user = models.TextField(max_length=50 ,default='')
+    name = models.TextField(max_length=50 ,default='')
 
 
 # 기초/분석 교육 db
@@ -17,6 +41,14 @@ class lecture1(models.Model):
     Contents_1 = models.CharField(max_length=255, default='기초 교육')     # ex)  교육과정 , 기초/분석 교육 ,  제작교육
     Contents_2 = models.CharField(max_length=255,default='')                   # ex)  악성코드 분석 소개 (토글 형식)     
     Contents_3 = models.TextField(default='')                                  # 다수의 값을 저장하기 위해 TextField 사용
+
+
+
+
+
+
+
+
 
 
 
@@ -37,6 +69,12 @@ class lecture3(models.Model):
 
 
 
+# 마지막 페이지 저장
+class lecture_page(models.Model): 
+    toggle  = models.CharField(max_length=255, default='') 
+    page = models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(255)], default=1)                              # 다수의 값을 저장하기 위해 TextField 사용
+
+  
 
 
   
@@ -47,7 +85,7 @@ class lecture3(models.Model):
 class problem(models.Model):
     PROBLEM_FIELD_CHOICES = (
         ('InfoStealer', 'InfoStealer'),
-        ('Adware', 'Adware'),
+        ('RAT', 'RAT'),
         ('Downloader/Dropper', 'Downloader/Dropper'),
         ('Ransomware', 'Ransomware'),
         ('Backdoor', 'Backdoor'),
@@ -80,35 +118,17 @@ class problem(models.Model):
 
 
 
-# scenario 목차 db
-class scenario(models.Model):
-    problemTitle = models.CharField(max_length=255)
-    problemInfo =  models.CharField(max_length=150) 	
-    sha256 =  models.CharField(max_length=255)  
-    Field = models.CharField(max_length=255)
-    level = models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(255)], default=0)
-    status =  models.CharField(max_length=255, default=0)       # 풀이여부
-    table = models.TextField(default='') 
+class problem_exe(models.Model):
+    name = models.CharField(max_length=255)
+    answer = models.CharField(max_length=150)
+    markdown = models.TextField(default='')
+    A = models.IntegerField(validators=[MinValueValidator(0), MaxValueValidator(255)], default=0)
+    B = models.IntegerField(validators=[MinValueValidator(0), MaxValueValidator(255)], default=0)
+    C = models.IntegerField(validators=[MinValueValidator(0), MaxValueValidator(255)], default=0)
+    D = models.IntegerField(validators=[MinValueValidator(0), MaxValueValidator(255)], default=0)
+    E = models.IntegerField(validators=[MinValueValidator(0), MaxValueValidator(255)], default=0)
+    F = models.IntegerField(validators=[MinValueValidator(0), MaxValueValidator(255)], default=0)
 
-
-
-
-
-
-
-# 게시판
-class board(models.Model):
-    BOARD_FIELD_CHOICES = (
-        ('커뮤니티', '커뮤니티'),
-        ('Qna', 'Qna'),
-        ('공지사항', '공지사항')
-    )
-
-    web_id = models.CharField(max_length=30)
-    title =models.CharField(max_length=50 , default=0)
-    filed = models.CharField(max_length=255 , choices=BOARD_FIELD_CHOICES, default='커뮤니티') 
-    text = models.TextField()
-    count = models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(255)], default=0)
 
 
 
@@ -136,6 +156,7 @@ class boards(models.Model):
 # 답변
 class boardAnwser(models.Model):
     web_id = models.CharField(max_length=30)
+    answer_id = models.CharField(max_length=30 , default="")
     title = models.CharField(max_length=50, default=0)
     text = models.TextField(default=0)
     answer = models.TextField()

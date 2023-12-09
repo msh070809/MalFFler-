@@ -6,109 +6,247 @@
 
 {% block content %}
 
-
-
-<!-- Header with full-height image -->
-
-
-
-
 <!-- 로그인 상태 -->
 {% if web_id %}
 
 {% load static %}
-<link rel="stylesheet" type="text/css" href="{% static 'web/css/login2.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'web/css/login_home.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'web/css/footer.css' %}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@600&display=swap" rel="stylesheet">
 
+<body>
+  <div class="slideshow-container">
+  <div class="fade">
+      <img src="{% static '1.png' %}" alt="Slide 1"> 
+  </div>
+         
+  <div class="fade">
+      <img src="{% static '2.png' %}" alt="Slide 2"> 
+  </div>
+         
+  <div class="fade">
+      <img src="{% static '3.png' %}" alt="Slide 3"> 
+  </div>
 
-<style>
-  .margin-right{
-  margin-right: 120px;
-  }
+  <a class="prev" onclick="prevSlide()">&#10094;</a>
+  <a class="next" onclick="nextSlide()">&#10095;</a>
+</div>
 
-  .margin-left{
-    margin-left: 120px;
-  }
-</style>
-<!-- Header with full-height image -->
-<header class="bgimg-1 w3-display-container w3-grayscale-min" id="home" style="background-color: #D7DAE7;">
-  <div class="w3-display-left w3-text-white introduction margin-left" >
-    <h1 style="color: #333; font-size:4em; font-weight:bold">MalFFleR</h1>
-    <span class="w3-large" style="color:#333">MalFFleR 는 악성코드의 기초부터 제작, 분석에 이르는 다양한 강의와 실전 경험을 제공합니다.<br>
-      강의와 실전 분석 문제를 통해 악성코드의 작동 원리를 이해하고, <br>
-      자체적으로 악성코드를 제작하고 분석하는 과정을 경험해보세요.<br>
-      우리 플랫폼을 통해 악성코드의 세계로 여행을 떠나보세요. <br>
-      보안 분야에서의 성공적인 경력을 쌓기 위한 첫 걸음을 내딛을 준비가 되셨나요?<br>
-    </span>
-  </div> 
-  <form class="form margin-right" style="right:0;">
-    <div class="flex-column">
-      <label><H2 style="font-size:2em; font-weight:bold;">'{{web_id}}' 님</H2></label>
-    </div>
-    <br>
-    <div class="card">
-      <div class="header">나의 진도율</div>
-      <div class="body">
-        <div class="skill">
-          <div class="skill-name">기초/분석</div>
-          <div class="skill-level">
-            <div class="skill-percent" style="width: 90%"></div>
-          </div>
-          <div class="skill-percent-number">90%</div>
+<section>
+  <div class="adware-center">
+  <h3 class="content-title">
+    왕초보도 할 수 있어요🐣
+  </h3>
+  <span class="content-description">악성코드 분석 입문을 위한 쉽고 친절한 입문 강의!!</span>
+    <div class="margin-container row">
+      <div class="col-4">
+        <div class="for-beginner-card" style="float: left;">
+            <img src="{% static 'lecture1-1.png' %}" class="card-image">
+            <div class="card-content">
+              <span class="card-title">
+                악성코드의 종류
+              </span>
+              <span class="card-description">
+                악성코드의 종류가 궁금하신가요? 바이러스, 트로이 목마, 랜섬웨어, 루트킷까지 다양한 악성코드의 종류부터 시작하여 흥미로운 악성코드의 세계에 빠져보세요. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                            
+              </span>
+              <a href="lecture1/?table=악성코드의 종류&page=1" class="a">수강하기</a>
+            </div>
         </div>
-        <div class="skill">
-          <div class="skill-name">제작</div>
-          <div class="skill-level">
-            <div class="skill-percent" style="width: 80%"></div>
-          </div>
-          <div class="skill-percent-number">80%</div>
+      </div>
+      <div class="col-4">
+        <div class="for-beginner-card" style="margin: 0 auto;">
+            <img src="{% static 'lecture1-2.png' %}" class="card-image" >
+            <div class="card-content">
+              <span class="card-title">
+                악성코드 지속 방법(1)
+              </span>
+              <span class="card-description">
+                악성코드의 지속 기법을 파헤쳐보는 강의에 오신 것을 환영해요! 악성코드가 시스템에 오래 머무르고 감지를 회피하기 위한 방법을 학습하며, 분석에 대한 흥미를 느껴보세요. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     
+              </span>
+              <a href="lecture1/?table=악성코드 지속 방법(1)&page=1" class="a">수강하기</a>
+            </div>
         </div>
-        <div class="skill">
-          <div class="skill-name">문제</div>
-          <div class="skill-level">
-            <div class="skill-percent" style="width: 75%"></div>
-          </div>
-          <div class="skill-percent-number">75%</div>
+      </div>
+      <div class="col-4">
+        <div class="for-beginner-card" style="float: right;">
+            <img src="{% static 'lecture1-3.png' %}" class="card-image">
+            <div class="card-content">
+              <span class="card-title">
+                악성코드 case 사례
+              </span>
+              <span class="card-description">
+                악성코드 case 사례에서는 실제 시나리오를 토대로 침해사고의 배경과 진행 과정을 배울 수 있어요! 더불어, MITRE ATT&CK 프레임워크를 활용하여 악성코드의 기술에 대해 공부해보세요.
+              </span>
+              <a href="lecture1/?table=악성코드 case 사례&page=1" class="a">수강하기</a>
+            </div>
         </div>
-        <div class="skill">
-          <div class="skill-name">시나리오</div>
-          <div class="skill-level">
-            <div class="skill-percent" style="width: 75%"></div>
-          </div>
-          <div class="skill-percent-number">75%</div>
-        </div>
-      </div>  
-      <style>
-
-      .css_container {
-        margin-left: 10px;
-        margin-bottom: 10px;
-        display: flex; /* Flexbox 레이아웃 사용 */
-        justify-content: space-between; /* 좌우로 간격을 벌리기 위한 속성 */
-      }
-
-      .span {
-        flex: 1; /* 좌우의 링크를 균일한 너비로 설정 */
-      }
-
-      .margin-span-left{
-          margin-left: 60px;
-      }
-
-      .margin-span-right{
-          margin-right: 90px;
-          text-align: right;
-      }
-      </style>
-      <div class="css_container">
-       <span class="span margin-span-left" ><a href="member_info_change" style="text-decoration: none;">회원 정보수정</a></span><span class="span margin-span-right"><a href="logout" style="text-decoration: none;">로그아웃</a></span>
       </div>
     </div>
-  </form>
-</header>
-  
+  </div>
+</section>
 
+<section>
+  <div class="adware-center">
+    <h3 class="content-title">
+    C언어로 악성코드를 배워요🐤
+  </h3>
+  <span class="content-description">악성코드의 비밀을 직접 확인하며 배우는 입문을 위한 특별한 강의!!</span>
+    <div class="margin-container row">
+      <div class="col-4">
+        <div class="for-beginner-card" style="float: left;">
+            <img src="{% static 'lecture2-1.png' %}" class="card-image">
+            <div class="card-content">
+              <span class="card-title">
+                API 프로그래밍
+              </span>
+              <span class="card-description">
+                API 프로그래밍의 핵심을 익히고, 다양한 서비스와의 상호작용을 경험할 수 있는 강좌입니다. 예제와 함께 API 프로그래밍에서 활용되는 기술을 습득하세요.
+              </span>
+              <a href="lecture1/?table=API 프로그래밍&page=1" class="a">수강하기</a>
+            </div>
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="for-beginner-card" style="margin: 0 auto;">
+            <img src="{% static 'lecture2-2.png' %}" class="card-image">
+            <div class="card-content">
+              <span class="card-title">
+                이벤트로그 삭제
+              </span>
+              <span class="card-description">
+                악성코드의 이벤트 로그 삭제 기법을 자세히 다루는 '이벤트 로그 삭제' 강좌! 악성코드가 시스템에서 자신의 흔적을 지우는 과정을 살펴보며 보안 역량을 강화하세요.
+              </span>
+              <a href="lecture1/?table=이벤트로그 삭제&page=1" class="a">수강하기</a>
+            </div>
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="for-beginner-card" style="float: right;">
+            <img src="{% static 'lecture2-3.png' %}" class="card-image">
+            <div class="card-content">
+              <span class="card-title">
+                XOR 암호화
+              </span>
+              <span class="card-description">
+                XOR 암호화 강의를 통해 암호화 마스터가 되어보세요! XOR 알고리즘을 Windows API와 함께 활용하여 데이터를 안전하게 암호화하는 방법을 학습할 수 있어요.
+              </span>
+              <a href="lecture1/?table=XOR 암호화&page=1" class="a">수강하기</a>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
+<section>
+  <div class="adware-center">
+  <a href="./lecture1" style="text-decoration: none;"><h3 class="content-title">
+    실제 악성코드를 분석해봐요🐥
+  </h3></a>
+  <span class="content-description">실전 경험으로 더 깊게 이해하는 악성코드 분석의 세계!!</span>
+    <div class="margin-container row">
+      <div class="col-4">
+        <div class="for-beginner-card" style="float: left;">
+            <img src="{% static 'lecture3-1.png' %}" class="card-image">
+            <div class="card-content">
+              <span class="card-title">
+                1단계
+              </span>
+              <span class="card-description">
+                가장 간단한 악성코드부터 분석해보세요! 키로깅의 특성과 기술을 파헤쳐보며, 작동 원리를 깊이 파고들어 악성코드 분석 방법을 공부하세요.
+              </span>
+              <a href="lecture1/?table=1단계&page=1" class="a">수강하기</a>
+            </div>
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="for-beginner-card" style="margin: 0 auto;">
+            <img src="{% static 'lecture3-2.png' %}" class="card-image">
+            <div class="card-content">
+              <span class="card-title">
+                3단계
+              </span>
+              <span class="card-description">
+                AgentTesla는 정보를 훔치는 것이 주 목적인 악성코드에요! 상세한 분석을 통해 인포스틸러의 기능과 사용하는 기법에 대해 알아보세요.
+              </span>
+              <a href="lecture1/?table=3단계&page=1" class="a">수강하기</a>
+            </div>
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="for-beginner-card" style="float: right;">
+            <img src="{% static 'lecture3-3.png' %}" class="card-image">
+            <div class="card-content">
+              <span class="card-title">
+                문서형
+              </span>
+              <span class="card-description">
+                문서형 악성코드는 문서 파일을 통해 전파되는 특징을 가지고 있어요! 문서형 악성코드만의 특별한 분석 기법을 통해 실전 능력을 향상시킬 수 있어요.
+              </span>
+              <a href="lecture1/?table=문서형&page=1" class="a">수강하기</a>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+</body>
+<script type="text/javascript">
+  var slideIndex = 0;
+  showSlides();
 
+  function showSlides() {
+    var slides = document.getElementsByClassName("fade");
+    
+    for (var i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";  
+    }
+
+    slideIndex++;
+    
+    if (slideIndex > slides.length) {
+      slideIndex = 1;
+    }    
+
+    slides[slideIndex-1].style.display = "block";  
+
+    setTimeout(showSlides, 4000); // Change image every 2 seconds
+  }
+
+  // Show the previous slide
+  function prevSlide() {
+    showSlide(getPrevIndex());
+  }
+
+  // Show the next slide
+  function nextSlide() {
+    showSlide(getNextIndex());
+  }
+
+  // Show a specific slide based on index
+  function showSlide(index) {
+    var slides = document.getElementsByClassName("fade");
+
+    for (var i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+    }
+
+    slides[index].style.display = "block";
+  }
+
+  // Get the index of the previous slide
+  function getPrevIndex() {
+    return (slideIndex - 2 + document.getElementsByClassName("fade").length) % document.getElementsByClassName("fade").length;
+  }
+
+  // Get the index of the next slide
+  function getNextIndex() {
+    return (slideIndex % document.getElementsByClassName("fade").length);
+  }
+</script>
 
 
 
@@ -119,19 +257,22 @@
 {% load static %}
 
 <link rel="stylesheet" type="text/css" href="{% static 'web/css/login.css' %}">
-
+<link rel="stylesheet" type="text/css" href="{% static 'web/css/footer.css' %}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@600&display=swap" rel="stylesheet">
 
 <style>
   .margin-right{
-  margin-right: 120px;
+  margin-right: 6%;
   }
 
   .margin-left{
-    margin-left: 120px;
+    margin-left: 6%;
   }
 </style>
 <header class="bgimg-1 w3-display-container w3-grayscale-min" id="home" style="background-color: #D7DAE7;">
-  <div class="w3-display-left w3-text-white introduction margin-left" >
+  <div class="w3-display-left w3-text-white margin-left" style="left: 0%; padding-left: 8px;">
     <h1 style="color: #333; font-size:4em; font-weight:bold">MalFFleR</h1>
     <span class="w3-large" style="color:#333">MalFFleR 는 악성코드의 기초부터 제작, 분석에 이르는 다양한 강의와 실전 경험을 제공합니다.<br>
       강의와 실전 분석 문제를 통해 악성코드의 작동 원리를 이해하고, <br>
@@ -141,7 +282,7 @@
     </span>
   </div> 
 
-  <form class="form margin-right" style="right:0;" method="post" action="{%url 'login_logic'%}">
+  <form class="form margin-right" style="right:0; margin-right: 6.5;" method="post" action="{%url 'login_logic'%}">
     {%csrf_token%}
     <div class="flex-column">
       <label>아이디 </label></div>
@@ -160,10 +301,13 @@
       <!-- <input type="radio"> -->
       <!-- <label>Remember me </label> -->
       </div>
-      <span class="span">비밀번호 찾기</span>
     </div>
     <button type="submit" class="button-submit">로그인</button>
-    <p class="p">회원이 아니신가요?<span class="span" id="signin">회원가입</span>
+
+
+
+<p class="p">회원이 아니신가요?<span class="span" id="signin"> <a href="member_insert1" style="text-decoration: none;">회원가입</a></span></p>
+
     {% if messages %}
     <ul class="messages">
         {% for message in messages %}
@@ -179,51 +323,7 @@
 {% endif %}
 
 
-
 <!-- 
-
-<div class="w3-container" style="padding:128px 16px" id="about">
-  <h3 class="w3-center">ABOUT THE COMPANY</h3>
-  <p class="w3-center w3-large">Key features of our company</p>
-  <div class="w3-row-padding w3-center" style="margin-top:64px">
-    <div class="w3-quarter">
-      <i class="fa fa-desktop w3-margin-bottom w3-jumbo w3-center"></i>
-      <p class="w3-large">Responsive</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
-    </div>
-    <div class="w3-quarter">
-      <i class="fa fa-heart w3-margin-bottom w3-jumbo"></i>
-      <p class="w3-large">Passion</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
-    </div>
-    <div class="w3-quarter">
-      <i class="fa fa-diamond w3-margin-bottom w3-jumbo"></i>
-      <p class="w3-large">Design</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
-    </div>
-    <div class="w3-quarter">
-      <i class="fa fa-cog w3-margin-bottom w3-jumbo"></i>
-      <p class="w3-large">Support</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
-    </div>
-  </div>
-</div> -->
-
-
-<!-- Footer -->
-<!-- <footer class="w3-center w3-black w3-padding-64">
-  <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
-  <div class="w3-xlarge w3-section">
-    <i class="fa fa-facebook-official w3-hover-opacity"></i>
-    <i class="fa fa-instagram w3-hover-opacity"></i>
-    <i class="fa fa-snapchat w3-hover-opacity"></i>
-    <i class="fa fa-pinterest-p w3-hover-opacity"></i>
-    <i class="fa fa-twitter w3-hover-opacity"></i>
-    <i class="fa fa-linkedin w3-hover-opacity"></i>
-  </div>
-  <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-text-green">w3.css</a></p>
-</footer>
-  -->
 <script>
 // Modal Image Gallery
 function onClick(element) {
@@ -259,6 +359,7 @@ window.onload = function () {
       }
   }, 1500); // 1초 후에 실행
 }
+
 document.addEventListener("DOMContentLoaded", function() {
   // span 요소를 가져옵니다.
   var signinSpan = document.getElementById("signin");
@@ -280,5 +381,29 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 });
 </script>
+
+<footer class="footer">
+  <div style="background-color: black;">
+    <div class="footer_bottom">
+      <div class="footer-logo">
+        <img src="{% static 'LOGO_remove.png' %}" style="max-width: 10rem;  opacity: 0.5;">
+      </div>
+      <div class="company-miscellaneous">
+        <div class="company-brand-title">
+          <p class="company-title">Best Of the Best 12기</p> 
+          <p class="copyright">
+        Copyright © 2023 MalLaB Inc. All rights reserved.
+          </p>
+        </div> 
+        <p class="copyright">
+          <span>서비스 운영: MalLaB</span> |
+          <span>금천구 서부샛길 606, 대성디폴리스 지식산업센터 A동 27층</span> |
+          <span>이메일: mallab@gmail.com</span> |
+          <span>대표 연락처: 010-0000-0000</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer> -->
 
 {% endblock %}

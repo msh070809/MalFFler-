@@ -1,3 +1,5 @@
+
+
 """
 Django settings for bob project.
 
@@ -26,7 +28,7 @@ SECRET_KEY = 'django-insecure--&)6e3h$m$i!-=sl!4xdmn8rh2$zskjo22$6$f&27f&-nv9!vz
 DEBUG = True
 
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['218.146.20.61','192.168.4.111','localhost']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -37,7 +39,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'web',
     'vmware',
-    
 ]
 
 MIDDLEWARE = [
@@ -48,6 +49,16 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+
+]
+
+
+
+
+CORS_ALLOWED_ORIGINS = [
+"http://218.146.20.61:20022",
+
 ]
 
 ROOT_URLCONF = 'bob.urls'
@@ -120,15 +131,18 @@ USE_TZ = True
 import os
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'web','static')]
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles') 
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-
-
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField' 
 
 
 # 세션 자동 해체
-SESSION_COOKIE_AGE = 60 * 60  # 60초 * 60분 = 1시간
-SESSION_SAVE_EVERY_REQUEST = True
+
+SESSION_COOKIE_AGE = 60*60
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+

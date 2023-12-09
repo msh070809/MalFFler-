@@ -9,12 +9,16 @@
 
 {% load static %}
 <link rel="stylesheet" type="text/css" href="{% static 'web/css/exe.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'web/css/footer.css' %}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@600&display=swap" rel="stylesheet">
 
 
-
-<body style="background-color: #D7DAE7; height: 600px;">
+<body style="background-color: #D7DAE7;">
+<div id="wrapper">
 <!-- 문제검색창 -->
-<div class=search>
+<div class="search">
     <form class="form" method="post" action="">
         {% csrf_token %}
         <button>
@@ -30,90 +34,74 @@
         </button>
     </form>
   </div>
-    
-    
-
 
 <div class="introduce">
-    <div class="card">
-        <div class="header">
-   
-    
-        <p class="alert">
-            
-
-            <!-- 문제 종류 테그-->
             <div class="table">
-                <div class="radio-input">
-                  <div style="color: rgb(75 85 99);"><h4>분야  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h4></div>      
-                  
-        
+                <div class="radio-input parent">
+                  <div class="child_main"><h4>분야</h4></div>      
+                  <div class="child">
                   {% if search_filed  %}
-           
-                  <input value="" name="value-radio" id="All" type="radio" name="search_filed" >
-                  <label for="All"> &nbsp;&nbsp; All &nbsp;&nbsp;</label>   
+                  <input value="" name="value-radio" id="All" type="radio" name="search_filed" checked="checked">
+                  <label for="All">All</label>   
                   {% else %}    
-                  <input  name="value-radio" id="All" type="radio" checked >
-                  <label for="All"> &nbsp;&nbsp; All &nbsp;&nbsp;</label>   
+                  <input  name="value-radio" id="All" type="radio" checked="checked" >
+                  <label for="All">All</label>   
                   {% endif %}
-
-
+                </div>
+                <div class="child">
                   {% if search_filed == 'InfoStealer' %}
                   <input value="InfoStealer" name="value-radio" id="InfoStealer" type="radio" name="search_filed" checked>
-                  <label for="InfoStealer"> &nbsp;&nbsp; InfoStealer &nbsp;&nbsp;</label>   
+                  <label for="InfoStealer">InfoStealer</label>   
                   {% else %}    
                   <input value="InfoStealer" name="value-radio" id="InfoStealer" type="radio" name="search_filed">
-                  <label for="InfoStealer"> &nbsp;&nbsp; InfoStealer &nbsp;&nbsp;</label>   
+                  <label for="InfoStealer">InfoStealer</label>   
                   {% endif %}
-
-
-                  {% if search_filed == 'Adware' %}
-                  <input value="Adware" name="value-radio" id="Adware" type="radio" name="search_filed" checked>
-                  <label for="Adware"> &nbsp;&nbsp; Adware &nbsp;&nbsp;</label>   
+                </div>
+                <div class="child">
+                  {% if search_filed == 'RAT' %}
+                  <input value="RAT" name="value-radio" id="RAT" type="radio" name="search_filed" checked>
+                  <label for="RAT">RAT</label>   
                   {% else %}    
-                  <input value="Adware" name="value-radio" id="Adware" type="radio" name="search_filed">
-                  <label for="Adware"> &nbsp;&nbsp; Adware &nbsp;&nbsp;</label>   
+                  <input value="RAT" name="value-radio" id="RAT" type="radio" name="search_filed">
+                  <label for="RAT">RAT</label>   
                   {% endif %}
-
-                  
+                </div>
+                <div class="child">
                   {% if search_filed == 'Downloader/Dropper' %}
                   <input value="Downloader/Dropper" name="value-radio" id="Downloader/Dropper" type="radio" name="search_filed" checked>
-                  <label for="Downloader/Dropper"> &nbsp;&nbsp; Downloader / Dropper &nbsp;&nbsp;</label>   
+                  <label for="Downloader/Dropper">Downloader / Dropper</label>   
                   {% else %}    
                   <input value="Downloader/Dropper" name="value-radio" id="Downloader/Dropper" type="radio" name="search_filed">
-                  <label for="Downloader/Dropper"> &nbsp;&nbsp; Downloader / Dropper &nbsp;&nbsp;</label>   
+                  <label for="Downloader/Dropper">Downloader / Dropper</label>   
                   {% endif %}
-
-
+                </div>
+                <div class="child">
                   {% if search_filed == 'Ransomware' %}
                   <input value="Ransomware" name="value-radio" id="Ransomware" type="radio" name="search_filed" checked>
-                  <label for="Ransomware"> &nbsp;&nbsp; Ransomware &nbsp;&nbsp;</label>   
+                  <label for="Ransomware">Ransomware</label>   
                   {% else %}    
                   <input value="Ransomware" name="value-radio" id="Ransomware" type="radio" name="search_filed">
-                  <label for="Ransomware"> &nbsp;&nbsp; Ransomware &nbsp;&nbsp;</label>   
+                  <label for="Ransomware">Ransomware</label>   
                   {% endif %}
-                  
-
+                </div>
+                <div class="child">
                   {% if search_filed == 'Backdoor' %}
                   <input value="Backdoor" name="value-radio" id="Backdoor" type="radio" name="search_filed" checked>
-                  <label for="Backdoor"> &nbsp;&nbsp; Backdoor &nbsp;&nbsp;</label>   
+                  <label for="Backdoor">Backdoor</label>   
                   {% else %}    
                   <input value="Backdoor" name="value-radio" id="Backdoor" type="radio" name="search_filed">
-                  <label for="Backdoor"> &nbsp;&nbsp; Backdoor &nbsp;&nbsp;</label>   
+                  <label for="Backdoor">Backdoor</label>   
                   {% endif %}
-                  
-                
-       
+                </div>
+                <div class="child">
                   {% if search_filed == 'Scenario' %}
                   <input value="Scenario" name="value-radio" id="Scenario" type="radio" name="search_filed" checked>
-                  <label for="Scenario"> &nbsp;&nbsp; Scenario &nbsp;&nbsp;</label>   
+                  <label for="Scenario">Scenario</label>   
                   {% else %}    
                   <input value="Scenario" name="value-radio" id="Scenario" type="radio" name="search_filed">
-                  <label for="Scenario"> &nbsp;&nbsp; Scenario &nbsp;&nbsp;</label>   
+                  <label for="Scenario">Scenario</label>   
                   {% endif %}
-                
-
-                  
+                </div>
                 </div>
             </div>
                 
@@ -132,74 +120,66 @@
                 });
               </script>
               
-            
-
-
         </p>
-
-        <p class="alert">
-            
-
-            <!-- 문제 종류 테그-->
-    
             <div class="table">
                 <form method="post" action="" id="search-form">  <!-- 폼 엘리먼트에 id 추가 -->
                     {% csrf_token %}
-                    <div class="radio-input">
-                        <div style="color: rgb(75 85 99);"><h4>난이도  &nbsp;&nbsp;&nbsp;</h4></div>      
-                        
-                        
-                        {% if search_term %}
-                        <input value="Print_out_all_the_questions" name="search" id="All-level" type="radio" checked>
-                        <label for="All-level"> &nbsp;&nbsp; All &nbsp;&nbsp;</label>
-                        {% else %}    
-                        <input value="Print_out_all_the_questions" name="search" id="All-level" type="radio" checked>
-                        <label for="All-level"> &nbsp;&nbsp; All &nbsp;&nbsp;</label>
-                        {% endif %}
-        
+                    <div class="radio-input parent">
+                        <div class="child_main"><h4>난이도</h4></div>       
+         <!-- <div class="child">
+  {% if search_term %}
+  <input value="Print_out_all_filed" name="search" id="All-level" type="radio" checked="checked">
+  <label for="All-level"> All</label>
+  {% else %}    
+  <input value="Print_out_all_filed" name="search" id="All-level" type="radio" checked="checked">
+  <label for="All-level">All</label>
+  {% endif %}
+  </div> -->
+                        <div class="child">
                         {% if search_term == 'Print_out_level1__questions' %}
                         <input value="Print_out_level1__questions" name="search" id="value-1-level" type="radio" checked>
-                        <label for="value-1-level">&nbsp;&nbsp; 1 &nbsp;&nbsp;</label>
+                        <label for="value-1-level">1</label>
                         {% else %}
                         <input value="Print_out_level1__questions" name="search" id="value-1-level" type="radio">
-                        <label for="value-1-level">&nbsp;&nbsp; 1 &nbsp;&nbsp;</label>
+                        <label for="value-1-level">1</label>
                         {% endif %}
-                        
+                        </div>
+                        <div class="child">
                         {% if search_term == 'Print_out_level2__questions' %}
                         <input value="Print_out_level2__questions" name="search" id="value-2-level" type="radio" checked>
-                        <label for="value-2-level">&nbsp;&nbsp; 2 &nbsp;&nbsp;</label>
+                        <label for="value-2-level">2</label>
                         {% else %}
                         <input value="Print_out_level2__questions" name="search" id="value-2-level" type="radio">
-                        <label for="value-2-level">&nbsp;&nbsp; 2 &nbsp;&nbsp;</label>
+                        <label for="value-2-level">2</label>
                         {% endif %}
-        
+                        </div>
+                        <div class="child">
                         {% if search_term == 'Print_out_level3__questions' %}
                         <input value="Print_out_level3__questions" name="search" id="value-3-level" type="radio" checked>
-                        <label for="value-3-level">&nbsp;&nbsp; 3 &nbsp;&nbsp;</label>
+                        <label for="value-3-level">3</label>
                         {% else %}
                         <input value="Print_out_level3__questions" name="search" id="value-3-level" type="radio">
-                        <label for="value-3-level">&nbsp;&nbsp; 3 &nbsp;&nbsp;</label>
+                        <label for="value-3-level">3</label>
                         {% endif %}
-        
+                        </div>
+                        <div class="child">
                         {% if search_term == 'Print_out_level4__questions' %}
                         <input value="Print_out_level4__questions" name="search" id="value-4-level" type="radio" checked>
-                        <label for="value-4-level">&nbsp;&nbsp; 4 &nbsp;&nbsp;</label>
+                        <label for="value-4-level">4</label>
                         {% else %}
                         <input value="Print_out_level4__questions" name="search" id="value-4-level" type="radio">
-                        <label for="value-4-level">&nbsp;&nbsp; 4 &nbsp;&nbsp;</label>
+                        <label for="value-4-level">4</label>
                         {% endif %}
-        
+                        </div>
+                        <div class="child">
                         {% if search_term == 'Print_out_level5__questions' %}
                         <input value="Print_out_level5__questions" name="search" id="value-5-level" type="radio" checked>
-                        <label for="value-5-level">&nbsp;&nbsp; 5 &nbsp;&nbsp;</label>
+                        <label for="value-5-level">5</label>
                         {% else %}
                         <input value="Print_out_level5__questions" name="search" id="value-5-level" type="radio">
-                        <label for="value-5-level">&nbsp;&nbsp; 5 &nbsp;&nbsp;</label>
+                        <label for="value-5-level">5</label>
                         {% endif %}
-        
-        
-        
-                        
+                        </div>
                     </div>
                 </form>
             </div>
@@ -227,97 +207,51 @@
 
 
         </p>
-        
-        </div>
-    
-    
-    </div>
 </div>
-
-
-
-
-
-
-
-
-
 
 <!-- 문제 창 -->
 
-
-    
-<!-- 
-                        <table id="tableBody">
-                            <tr style="color: black; width:150px;" >
-                                <td><h5>문제 정보</h5></td>
-                                <td><h5>SHA256</h5></td>
-                                <td><h5>분야</h5></td>
-                                <td><h5>난이도</h5></td>
-                            </tr>
-   
-                            {% for problem in question_list %}
-                            <tr style="color: rgb(75 85 99); width:150px;">
-                                <td><h5>{{problem.problemTitle}}</h5></td>
-                               <td><h5>{{problem.problemInfo}}</h5></td> 
-                                <td><h5>{{problem.sha256}}</h5></td>
-                                <td><h5>{{problem.Field}}</h5></td>
-                                <td><h5>{{problem.level}}</h5></td>
-                            </tr>
-                            {% endfor %}      
-                        -->
-
-
-                        </table>
-                 
-                      
-  
-                        <table class="table33">
-                            {% for problem in question_list %}
-                            {% if forloop.first or forloop.counter0|divisibleby:3 %}
-                            <tr>
-                            {% endif %}
-                            <td>
-                                <div class="exe">
-                                    <div class="cookie-card">
-                                        <h5><span class="title">{{ problem.problemTitle }}</span></h5>
-                                        <p class="description"><h7>{{ problem.problemInfo }}</h7></p>
-                                        <!-- <p class="description">{{ problem.sha256 }}</p> -->
-                                        <div class="actions">
-                                            <div class="pref">
-                                                난이도 : {{ problem.level }}
-                                            </div>
-                                            <div class="pref">
-                                                {{ problem.Field }}
-                                            </div>
-                                            <a href="/problem/?table={{ problem.problemTitle }}"> 
-                                                <button class="accept">
-                                                    문제풀기
-                                                </button>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </td>
-                            {% if forloop.last or forloop.counter|divisibleby:3 %}
-                            </tr>
-                            {% endif %}
-                            {% endfor %}
-                        </table>
-                        
+<table class="table33">
+  {% for problem in question_list %}
+  {% if forloop.first or forloop.counter0|divisibleby:3 %}
+  <tr>
+  {% endif %}
+  <td>
+      <div class="exe">
+          <div class="cookie-card">
+              <h5><span class="title td_content">{{ problem.problemTitle }}</span></h5>
+              <p class="description td_content"><h7>{{ problem.problemInfo }}</h7></p>
+              <!-- <p class="description">{{ problem.sha256 }}</p> -->
+              <div class="actions td_content">
+                  <div class="pref">
+                      난이도 : {{ problem.level }}
+                  </div>
+                  <div class="pref">
+                      {{ problem.Field }}
+                  </div>
+                  <a href="/problem/?table={{ problem.problemTitle }}"> 
+                      <button class="accept">
+                          문제풀기
+                      </button>
+                  </a>
+              </div>
+          </div>
+      </div>
+  </td>
+  {% if forloop.last or forloop.counter|divisibleby:3 %}
+  </tr>
+  {% endif %}
+  {% endfor %}
+</table>                     
 
 <!-- 페이징처리 시작 -->
-<div class="paging" style="color:white;">
+<div class="paging" style="color:#737373;">
     <ul class="pagination justify-content-center">
         <!-- 이전페이지 -->
         {% if question_list.has_previous %}
-        
-            <a class="page-link" href="?page={{ question_list.previous_page_number }}">이전</a>
-        
+            <a class="page-link btn-type" href="?page={{ question_list.previous_page_number }}">이전</a>
         {% else %}
-        
             <span class="page-link btn-type" aria-disabled="true">이전</span>
-        
         {% endif %}
         <!-- 페이지리스트 -->
         {% for page_number in question_list.paginator.page_range %}
@@ -341,27 +275,39 @@
         {% endif %}
     </ul>
 </div>
-<br><br>
-
 </div>
 
- 
 
 
-<!-- Footer -->
-<!-- <footer class="w3-center w3-black w3-padding-64">
-  <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
-  <div class="w3-xlarge w3-section">
-    <i class="fa fa-facebook-official w3-hover-opacity"></i>
-    <i class="fa fa-instagram w3-hover-opacity"></i>
-    <i class="fa fa-snapchat w3-hover-opacity"></i>
-    <i class="fa fa-pinterest-p w3-hover-opacity"></i>
-    <i class="fa fa-twitter w3-hover-opacity"></i>
-    <i class="fa fa-linkedin w3-hover-opacity"></i>
+
+
+<footer class="footer" style="position: relative; transform: translateY(-100%);">
+  <div style="background-color: black;">
+    <div class="footer_bottom">
+      <div class="footer-logo">
+        <img src="{% static 'LOGO_remove.png' %}" style="max-width: 10rem;  opacity: 0.5;">
+      </div>
+      <div class="company-miscellaneous">
+        <div class="company-brand-title">
+          <p class="company-title">Best Of the Best 12기</p> 
+          <p class="copyright">
+        Copyright © 2023 MalLaB Inc. All rights reserved.
+          </p>
+        </div> 
+        <p class="copyright">
+          <span>서비스 운영: MalLaB</span> |
+          <span>금천구 서부샛길 606, 대성디폴리스 지식산업센터 A동 27층</span> |
+          <span>이메일: mallab@gmail.com</span> |
+          <span>대표 연락처: 010-0000-0000</span>
+        </p>
+      </div>
+    </div>
   </div>
-  <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-text-green">w3.css</a></p>
-</footer> -->
- 
+</footer>
+
+
+</body>
+
 <script>
 // Modal Image Gallery
 function onClick(element) {
@@ -388,16 +334,20 @@ function w3_close() {
     mySidebar.style.display = "none";
 }
 </script>
-
-</body>
-
-
-
-
-
-
-
-
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // 현재 페이지 경로 가져오기
+      var currentPath = window.location.pathname;
+      
+      // '/exe/'로 시작하는 페이지에서만 폰트 변경
+      if (currentPath.startsWith('exe/')) {
+        var h4Elements = document.querySelectorAll('*');
+        h4Elements.forEach(function(h4Element) {
+          h4Element.style.fontFamily = 'Noto Sans KR', sans-serif;; // 또는 다른 원하는 폰트로 변경
+        });
+      }
+    });
+  </script>
 
 
 

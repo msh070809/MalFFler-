@@ -1,0 +1,314 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+<title>malware security education platform</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="../../static/web/css/exe.css">
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
+
+body, html {
+  height: 100%;
+  line-height: 1.8;
+  /* background-color: #f0f0f5; */
+}
+
+
+/* Full height image header */
+.bgimg-1 {
+  background-position: center;
+  background-size: cover;
+  background-image: url("/w3images/mac.jpg");
+  min-height: 100%;
+}
+
+.w3-bar .w3-button {
+  padding: 16px;
+}
+
+#myNavbar{
+  position: relative;
+}
+
+.subbar {
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+  right:0;
+}
+.w3-greyscale,.w3-grayscale{filter:grayscale(75%)}.w3-greyscale-min,.w3-grayscale-min{filter:grayscale(0%)}
+    
+.w3-white-bar,.w3-hover-white:hover{color:white!important; background-color:#1A244D;}
+
+
+
+</style>
+</head>
+<body>
+
+  
+  
+{% if web_id %}
+
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+  <div class="w3-bar w3-white-bar w3-card" id="myNavbar" style="background-color:#1A244D;">
+    <a href="/home" class="w3-bar-item w3-button w3-wide"><img src="{% static 'LOGO.png' %}" style="max-height: 36.58px; max-width: 170px; background-color:#1A244D;"></a>
+    <!-- Right-sided navbar links -->
+    <div class="w3-right w3-hide-small subbar">
+      <a href="/education1" class="w3-bar-item w3-button">기초강의</a>
+      <a href="/education2" class="w3-bar-item w3-button">핵심원리</a>
+      <a href="/education3" class="w3-bar-item w3-button">분석강의</a>
+      <a href="/exe" class="w3-bar-item w3-button">문제풀이</a>
+      <a href="/board" class="w3-bar-item w3-button"></i> 커뮤니티</a>
+      <a href="/home" class="w3-bar-item w3-button"><i class="fa fa-user"></i> {{web_id}} 님</a>
+    </div>
+    <!-- Hide right-floated links on small screens and replace them with a menu icon -->
+
+    <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="w3_open()">
+      <i class="fa fa-bars"></i>
+    </a>
+  </div>
+</div>
+
+<!-- Sidebar on small screens when clicking the menu icon -->
+<nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-left w3-hide-medium w3-hide-large" style="display:none " id="mySidebar">
+  <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">Close ×</a>
+  <a href="/education1" class="w3-bar-item w3-button">기초강의</a>
+  <a href="/education2" class="w3-bar-item w3-button">핵심원리</a>
+  <a href="/education3" class="w3-bar-item w3-button">분석강의</a>
+  <a href="/exe" class="w3-bar-item w3-button">문제풀이</a>
+  <a href="/board" class="w3-bar-item w3-button"></i> 커뮤니티</a>
+  <a href="/home" class="w3-bar-item w3-button"><i class="fa fa-user"></i> {{web_id}} 님</a>
+</nav>
+
+{% else %}
+
+
+
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+  <div class="w3-bar w3-white-bar w3-card" id="myNavbar" style="background-color:#1A244D;">
+    <a href="/" class="w3-bar-item w3-button w3-wide"><img src="{% static 'LOGO.png' %}" style="max-height: 36.58px; max-width: 170px; background-color:#1A244D;"></a>
+    <!-- Right-sided navbar links -->
+    <div class="w3-right w3-hide-small subbar">
+      <a href="/education1" class="w3-bar-item w3-button">기초강의</a>
+      <a href="/education2" class="w3-bar-item w3-button">핵심원리</a>
+      <a href="/education3" class="w3-bar-item w3-button">분석강의</a>
+      <a href="/exe" class="w3-bar-item w3-button"><i class="fa fa-th"></i> 문제풀이</a>
+      <a href="/board" class="w3-bar-item w3-button"></i> 커뮤니티</a>
+      <a href="/" class="w3-bar-item w3-button"><i class="fa fa-user"></i> 로그인</a>
+    </div>
+    <!-- Hide right-floated links on small screens and replace them with a menu icon -->
+
+    <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="w3_open()">
+      <i class="fa fa-bars"></i>
+    </a>
+  </div>
+</div>
+
+
+
+{% endif %}
+
+
+{% load static %}
+<style>
+  /* iframe을 선택하고 테두리 스타일을 none(없음)으로 설정합니다. */
+  iframe {
+      border: none;
+      
+  }
+
+        /* 우측 정렬을 위한 스타일 설정 */
+        .pagination {
+            text-align: right;
+        }
+
+      
+</style>
+
+<link rel="stylesheet" type="text/css" href="{% static 'web/css/lecture_study.css' %}">
+
+
+
+<div class="coulmn">
+  <div class="card2">
+    <div class="contentg">
+      <!-- 사진이 들어간는 곳 -->
+ 
+    </div>
+
+    
+    <!-- <div class="pagination">
+
+
+      <div class="button">
+        <span>학습 중 모르는 내용이 있다면 질문해주세요.</span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <button id="openWindowButton">&nbsp;&nbsp;gpt&nbsp;&nbsp;</button>
+
+      
+    </div>
+      </div> -->
+
+  </div>
+
+
+
+    <div class="card2">
+      <div class="contentg">
+  
+        <!-- <div id="loaded-content"></div> -->
+
+   
+        <h2 id="uploadStatus">파일을 업로드하세요</h2>
+
+        <div class="button">
+          <form id="uploadForm" action="#" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="file" name="file" required><br><br>
+            <button type="submit" value="업로드">업로드</button>
+          </form>
+</div>
+ 
+
+
+<!-- 채점 중일때 상태 js -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // 파일 업로드 폼
+    const uploadForm = document.getElementById('uploadForm');
+    // 업로드 상태 메시지
+    const uploadStatus = document.getElementById('uploadStatus');
+  
+    uploadForm.addEventListener('submit', function(event) {
+      // 업로드가 시작될 때 메시지 변경
+      uploadStatus.innerText = '채점 중입니다...';
+      // 업로드 완료 후 처리 (시뮬레이션용 setTimeout 사용)
+      setTimeout(function() {
+        // 여기서 업로드 완료 후의 동작을 정의합니다.
+        // 채점이 완료되면 원래 상태로 메시지 변경
+        uploadStatus.innerText = '파일을 업로드하세요';
+      }, 300000000); // 예시로 3초 뒤에 업로드 완료 메시지로 변경
+    });
+  });
+  </script>
+      <br>
+      <!-- <div class="pagination">
+        
+        
+        <span>page {{page}} / {{result}}</span>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button id="previous-button">전장으로</button>
+        <button id="next-button">다음장으로</button>
+        <button id="openWindowButton">MPT</button>
+    </div> -->
+
+
+
+    
+      <!-- 버튼 -->
+      <div class="button-container">
+<!-- Django 템플릿 -->
+<div class="pagination">
+
+
+<div class="button">
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <button id="previous-button">전장으로</button>
+<button id="next-button">다음장으로</button>
+
+</div>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+
+</div></div>
+
+       
+   
+
+      </div>
+        
+      =
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+      // "전장으로" 버튼에 클릭 이벤트 리스너를 추가합니다.
+      document.querySelector('#previous-button').addEventListener('click', moveToPrevious);
+  
+      // "다음장으로" 버튼에 클릭 이벤트 리스너를 추가합니다.
+      document.querySelector('#next-button').addEventListener('click', moveToNext);
+  
+      function moveToPrevious() {
+          // 현재 페이지의 URL을 가져옵니다.
+          let currentUrl = window.location.href;
+  
+          // URL에서 "table"과 "value" 매개변수를 추출하고 현재 값을 얻습니다.
+          let url = new URL(currentUrl);
+          let currentTable = url.searchParams.get("table");
+          let currentValue = parseInt(url.searchParams.get("page"));
+  
+          // 값이 없을 경우 기본값을 설정할 수 있습니다.
+          if (isNaN(currentValue)) {
+              currentValue = 0;
+          }
+  
+          // 현재 값이 -1 미만이면 "첫 페이지 입니다" 메시지를 표시하고 더 이상 진행하지 않습니다.
+          if (currentValue <= 1) {
+              alert("첫 페이지 입니다");
+              return;
+          }
+  
+          // 값을 감소시킵니다.
+          let newValue = currentValue - 1;
+  
+          // 새로운 URL을 만듭니다.
+          let newUrl = `${url.pathname}?table=${currentTable}&page=${newValue}`;
+  
+          // 새 URL로 이동합니다.
+          window.location.href = newUrl;
+      }
+  
+      function moveToNext() {
+          // 현재 페이지의 URL을 가져옵니다.
+          let currentUrl = window.location.href;
+  
+          // URL에서 "table"과 "value" 매개변수를 추출하고 현재 값을 얻습니다.
+          let url = new URL(currentUrl);
+          let currentTable = url.searchParams.get("table");
+          let currentValue = parseInt(url.searchParams.get("page"));
+  
+          // 값이 없을 경우 기본값을 설정할 수 있습니다.
+          if (isNaN(currentValue)) {
+              currentValue = 0;
+          }
+  
+          // 값을 증가시킵니다.
+          let newValue = currentValue + 1;
+  
+          // 새로운 URL을 만듭니다.
+          let newUrl = `${url.pathname}?table=${currentTable}&page=${newValue}`;
+  
+          // 새 URL로 이동합니다.
+          window.location.href = newUrl;
+      }
+  });
+  </script>
+  
+  
+  
+
+
+</body>
+</html>

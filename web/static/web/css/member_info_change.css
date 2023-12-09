@@ -1,24 +1,24 @@
-footer {
-  height: 100%;
+*{
+  font-family: 'Noto Sans KR', sans-serif !important;
 }
-
   
   body {
-    
     background-color: #D7DAE7; /* 원하는 배경색으로 변경합니다. */
     height: 100%;
     line-height: 1.8;
   }
   
-  
-  
+  #wrapper{
+    height: auto;
+    min-height: 100%;
+    padding-bottom: 300px;
+  }
 
 
 .cardk {
     margin-top: 20px;
     --main-color: #000;
     --bg-color: #EBD18D;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     width: 260px;
     padding: 25px;
     background: var(--bg-color);
@@ -224,13 +224,13 @@ footer {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    max-width: 500px;
+    width: 40%;
+    height: 100%;
     background-color: #fff;
     padding: 20px;
     border-radius: 20px;
     margin: 0 auto; /* 좌우에서 가운데 정렬 */
-    margin-top: 20px;
-    margin-bottom: 120px;
+    margin-top: 3%;
     position: relative;
   }
   
@@ -337,6 +337,7 @@ footer {
     font-size: 16px;
     transform: .3s ease;
     cursor: pointer;
+    margin-bottom: 3%;
   }
   
   .submit:hover {

@@ -8,9 +8,10 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <link rel="stylesheet" href="../../static/web/css/exe.css">
 <style>
-body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
+*{font-family: 'Noto Sans KR', sans-serif !important;}
 
 body, html {
   height: 100%;
@@ -33,7 +34,7 @@ body, html {
 
 .w3-greyscale,.w3-grayscale{filter:grayscale(75%)}.w3-greyscale-min,.w3-grayscale-min{filter:grayscale(0%)}
     
-.w3-white-bar,.w3-hover-white:hover{color:white!important; background-color:#1A244D;}
+.w3-white-bar{color:white!important; background-color:#1A244D;}
 
 .w3-button{
     border: none;
@@ -50,7 +51,7 @@ body, html {
 }
 
 #myNavbar{
-  position: relative;
+  position: static;
 }
 
 .subbar {
@@ -61,17 +62,17 @@ body, html {
 }
 
 .margin-bar-right{
-  margin-right: 100px;
+  margin-right: 5.5%;
 }
 
 .margin-bar-left{
-  margin-left: 100px;
+  margin-left: 5.5%;
 }
 
 .menu_button{
     border: none;
     display: inline-block;
-    padding: 16px 16px;
+    padding: 16px 16px 20px 16px;
     vertical-align: middle;
     overflow: hidden;
     text-decoration: none;
@@ -84,6 +85,45 @@ body, html {
 
 .menu_button:hover {
   color: #CCCCCC;
+}
+
+.dropdown{
+  position : relative;
+  display : inline-block;
+  border-radius: 20px;
+  cursor: pointer;
+  max-height: 100px;
+  padding: 16px 16px 0 16px;
+}
+
+.dropdown-content{
+  display : none;
+  position : absolute;
+  margin-left: -50%;
+  z-index : 1;
+  font-weight: 400;
+  background-color: #1A244D;
+  min-width : 120px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1) inset;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.dropdown-content a{
+  display : block;
+  text-align: center;
+  text-decoration : none;
+  color : white;
+  font-size: 12px;
+  padding : 12px 20px;
+}
+
+.dropdown-content a:hover{
+  background-color : #404558e7
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
 }
 
 </style>
@@ -102,7 +142,7 @@ body, html {
       <!-- Right-sided navbar links -->
       <div class="w3-right w3-hide-small subbar margin-bar-right">
         <a href="/education1" class="w3-bar-item menu_button">기초강의</a>
-        <a href="/education2" class="w3-bar-item menu_button">제작강의</a>
+        <a href="/education2" class="w3-bar-item menu_button">핵심원리</a>
         <a href="/education3" class="w3-bar-item menu_button">분석강의</a>
         <a href="/exe" class="w3-bar-item menu_button">문제풀이</a>
         <a href="/board" class="w3-bar-item menu_button"></i> 커뮤니티</a>
@@ -110,25 +150,9 @@ body, html {
         <a href="/home" class="w3-bar-item menu_button"><i class="fa fa-user"></i> '운영자'님</a>
       </div>
       <!-- Hide right-floated links on small screens and replace them with a menu icon -->
-
-      <a href="javascript:void(0)" class="w3-bar-item menu_button w3-right w3-hide-large w3-hide-medium" onclick="w3_open()">
-        <i class="fa fa-bars"></i>
       </a>
     </div>
   </div>
-
-  <!-- Sidebar on small screens when clicking the menu icon -->
-  <nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-left w3-hide-medium w3-hide-large" style="display:none" id="mySidebar">
-    <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item menu_button w3-large w3-padding-16">Close ×</a>
-    <a href="/education1" class="w3-bar-item menu_button">기초강의</a>
-    <a href="/education2" class="w3-bar-item menu_button">제작강의</a>
-    <a href="/education3" class="w3-bar-item menu_button">분석강의</a>
-    <a href="/exe" class="w3-bar-item menu_button">문제풀이</a>
-    <a href="/board" class="w3-bar-item menu_button"></i> 커뮤니티</a>
-    <a href="/report" class="w3-bar-item menu_button"></i> 보고서</a>
-    <a href="/home" class="w3-bar-item menu_button"><i class="fa fa-user"></i> '운영자'님</a>
-  </nav>
-
 
 
   {% else %}
@@ -139,30 +163,22 @@ body, html {
       <!-- Right-sided navbar links -->
       <div class="w3-right w3-hide-small subbar margin-bar-right">
         <a href="/education1" class="w3-bar-item menu_button">기초강의</a>
-        <a href="/education2" class="w3-bar-item menu_button">제작강의</a>
+        <a href="/education2" class="w3-bar-item menu_button">핵심원리</a>
         <a href="/education3" class="w3-bar-item menu_button">분석강의</a>
         <a href="/exe" class="w3-bar-item menu_button">문제풀이</a>
         <a href="/board" class="w3-bar-item menu_button"></i> 커뮤니티</a>
-        <a href="/home" class="w3-bar-item menu_button"><i class="fa fa-user"></i> {{web_id}} 님</a>
+        <div class="dropdown">{{web_id}} 님
+          <div class="dropdown-content">
+            <a href="/my_profile.html"><span>My Profile</span></a>
+            <a href="/member_info_change" style="border-top: 2px solid white;"><span>회원 정보 수정</span></a>
+            <a href="/logout" style="border-top: 2px solid white;"><span>Logout</span></a>
+          </div>
+        </div>
       </div>
       <!-- Hide right-floated links on small screens and replace them with a menu icon -->
-
-      <a href="javascript:void(0)" class="w3-bar-item menu_button w3-right w3-hide-large w3-hide-medium" onclick="w3_open()">
-        <i class="fa fa-bars"></i>
       </a>
     </div>
   </div>
-
-  <!-- Sidebar on small screens when clicking the menu icon -->
-  <nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-left w3-hide-medium w3-hide-large" style="display:none" id="mySidebar">
-    <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item menu_button w3-large w3-padding-16">Close ×</a>
-    <a href="/education1" class="w3-bar-item menu_button">기초강의</a>
-    <a href="/education2" class="w3-bar-item menu_button">제작강의</a>
-    <a href="/education3" class="w3-bar-item menu_button">분석강의</a>
-    <a href="/exe" class="w3-bar-item menu_button">문제풀이</a>
-    <a href="/board" class="w3-bar-item menu_button"></i> 커뮤니티</a>
-    <a href="/home" class="w3-bar-item menu_button"><i class="fa fa-user"></i> {{web_id}} 님</a>
-  </nav>
 
   {% endif %}
 {% else %}
@@ -176,16 +192,12 @@ body, html {
     <!-- Right-sided navbar links -->
     <div class="w3-right w3-hide-small subbar margin-bar-right">
       <a href="/education1" class="w3-bar-item menu_button">기초강의</a>
-      <a href="/education2" class="w3-bar-item menu_button">제작강의</a>
+      <a href="/education2" class="w3-bar-item menu_button">핵심원리</a>
       <a href="/education3" class="w3-bar-item menu_button">분석강의</a>
       <a href="/exe" class="w3-bar-item menu_button">문제풀이</a>
       <a href="/board" class="w3-bar-item menu_button"></i> 커뮤니티</a>
-      <a href="/home" class="w3-bar-item menu_button"><i class="fa fa-user"></i> {{web_id}} 님</a>
+      <a href="/home" class="w3-bar-item menu_button">로그인</a>
     </div>
-    <!-- Hide right-floated links on small screens and replace them with a menu icon -->
-
-    <a href="javascript:void(0)" class="w3-bar-item menu_button w3-right w3-hide-large w3-hide-medium" onclick="w3_open()">
-      <i class="fa fa-bars"></i>
     </a>
   </div>
 </div>

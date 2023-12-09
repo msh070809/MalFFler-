@@ -1,0 +1,505 @@
+
+footer {
+  height: 100%;
+}
+
+
+body, html {
+  height: 200%;
+  line-height: 1.8;
+  background-color: #D7DAE7;
+  position: relative;
+}
+
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+}
+
+/* 메인 */
+.table .radio-input {
+    margin-left: 20px; /* 원하는 좌측 마진 크기를 여기에 지정하세요. */
+    margin-top:10px; /* 원하는 좌측 마진 크기를 여기에 지정하세요. */
+    margin-bottom: 10px; /* 원하는 좌측 마진 크기를 여기에 지정하세요. */
+    display: flex;
+    flex-direction: row;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: rgb(75 85 99);
+  }
+  
+  .table .radio-input input[type="radio"] {
+    display: none;
+  }
+  
+  .table .radio-input label {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: white;
+    border-radius: 15px;
+    margin-right: 12px;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  
+  
+  .table .radio-input input[type="radio"]:checked + label {
+    background-color: #FFCC57;
+    color: #333;
+  }
+  
+  @keyframes radio-translate {
+    0% {
+      transform: translateX(0);
+    }
+  
+    50% {
+      transform: translateY(-10px);
+    }
+  
+    100% {
+      transform: translateX(0);
+    }
+  }
+  
+  
+  
+  
+  
+  
+  .introduce .card {
+    max-width: 100%;
+    border-width: 1px;
+    border-color: rgba(219, 234, 254, 1);
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 1);
+    padding: 1rem;
+    margin-left: 100px; /* 원하는 좌측 마진 크기를 여기에 지정하세요. */
+    margin-right: 100px; /* 원하는 좌측 마진 크기를 여기에 지정하세요. */
+    margin-top:30px; /* 원하는 좌측 마진 크기를 여기에 지정하세요. */
+    margin-bottom:15px; /* 원하는 좌측 마진 크기를 여기에 지정하세요. */
+   
+  }
+  
+  
+  
+  
+  .introduce .card2 {
+    width: 1120px;
+    border-width: 1px;
+    border-color: rgba(219, 234, 254, 1);
+    border-radius: 1rem;
+    background-color: rgba(255, 255, 255, 1);
+    padding: 1rem;
+    margin-left: 200px; /* 원하는 좌측 마진 크기를 여기에 지정하세요. */
+    margin-right: 200px; /* 원하는 좌측 마진 크기를 여기에 지정하세요. */
+    margin-top:25px; /* 원하는 좌측 마진 크기를 여기에 지정하세요. */
+    margin-bottom:20px; /* 원하는 좌측 마진 크기를 여기에 지정하세요. */
+   
+  }
+  
+  
+  
+  
+  .introduce .header {
+    display: block;
+    align-items: center;
+    grid-gap: 1rem;
+    gap: 1rem;
+  }
+  
+  .introduce .header2 {
+    display: table-column;
+    align-items: center;
+    grid-gap: 1rem;
+    gap: 1rem;
+  }
+  
+  
+  .introduce .icon {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9999px;
+    background-color: red;
+    padding: 0.5rem;
+    color: rgba(255, 255, 255, 1);
+  }
+  
+  .introduce .icon svg {
+    height: 1rem;
+    width: 1rem;
+  }
+  
+  .introduce .alert {
+    font-weight: 600;
+    color: rgba(107, 114, 128, 0.934);
+  }
+  
+  .introduce .message {
+    margin-top: 1rem;
+    color: rgba(107, 114, 128, 1);
+  }
+  
+  .introduce .actions {
+    margin-top: 1.5rem;
+  }
+  
+  .introduce .actions a {
+    text-decoration: none;
+  }
+  
+  .introduce .mark-as-read, .read {
+    display: inline-block;
+    border-radius: 0.5rem;
+    width: 100%;
+    padding: 0.75rem 1.25rem;
+    text-align: center;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    font-weight: 600;
+  }
+  
+  .introduce .read {
+    background-color: rgba(59, 130, 246, 1);
+    color: rgba(255, 255, 255, 1);
+  }
+  
+  .introduce .mark-as-read {
+    margin-top: 0.5rem;
+    background-color: rgba(249, 250, 251, 1);
+    color: rgba(107, 114, 128, 1);
+    transition: all .15s ease;
+  }
+  
+  .introduce .mark-as-read:hover {
+    background-color: rgb(230, 231, 233);
+  }
+  
+  
+  
+  
+  .introduce .info {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    width: 100%;
+    padding: 12px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+    background: #6e7b8c;
+    border-radius: 8px;
+    box-shadow: 0px 0px 5px -3px #111;
+    margin-bottom: 10px;
+  }
+  
+  
+  
+  
+  .introduce .info__icon {
+    width: 20px;
+    height: 20px;
+    transform: translateY(-2px);
+    margin-right: 8px;
+  }
+  
+  .introduce .info__icon path {
+    fill: #fff;
+  }
+  
+  .introduce .info__title {
+    font-weight: 500;
+    font-size: 14px;
+    color: #fff;
+  }
+  
+  .introduce .info__close {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    margin-left: auto;
+  }
+  
+  .introduce .info__close path {
+    fill: #fff;
+  }
+  
+  
+  
+  .introduce .form {
+    position: absolute;
+    top: 55%;
+    right: 130px;
+    transform: translateY(-50%);
+    background-color: #ffffff;
+    padding: 30px;
+    width: 400px;
+    border-radius: 20px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  
+  }
+  
+  
+  
+  
+  
+  /* 문제 검색창 */
+  /* From uiverse.io by @satyamchaudharydev */
+  /* removing default style of button */
+  
+  .search .form button {
+    border: none;
+    background: none;
+    color: #8b8ba7;
+  }
+  /* styling of whole input container */
+  .search .form {
+    margin-left: 100px;
+    margin-top: 100px;
+    --timing: 0.3s;
+    --width-of-input: 600px;
+    --height-of-input: 40px;
+    --border-height: 2px;
+    --input-bg: #fff;
+    --border-color: #2f2ee9;
+    --border-radius: 30px;
+    --after-border-radius: 1px;
+    position: relative;
+    width: var(--width-of-input);
+    height: var(--height-of-input);
+    display: flex;
+    align-items: center;
+    padding-inline: 0.8em;
+    border-radius: var(--border-radius);
+    transition: border-radius 0.5s ease;
+    background: var(--input-bg,#fff);
+  }
+  /* styling of Input */
+  .search .input {
+    font-size: 0.9rem;
+    background-color: transparent;
+    width: 100%;
+    height: 100%;
+    padding-inline: 0.5em;
+    padding-block: 0.7em;
+    border: none;
+  }
+  /* styling of animated border */
+  .search .form:before {
+    content: "";
+    position: absolute;
+    background: var(--border-color);
+    transform: scaleX(0);
+    transform-origin: center;
+    width: 100%;
+    height: var(--border-height);
+    left: 0;
+    bottom: 0;
+    border-radius: 1px;
+    transition: transform var(--timing) ease;
+  }
+  /* Hover on Input */
+  .search .form:focus-within {
+    border-radius: var(--after-border-radius);
+  }
+  
+  .search input:focus {
+    outline: none;
+  }
+  /* here is code of animated border */
+  .search .form:focus-within:before {
+    transform: scale(1);
+  }
+  /* styling of close button */
+  /* == you can click the close button to remove text == */
+  .search .reset {
+    border: none;
+    background: none;
+    opacity: 0;
+    visibility: hidden;
+  }
+  /* close button shown when typing */
+  .search input:not(:placeholder-shown) ~ .reset {
+    opacity: 1;
+    visibility: visible;
+  }
+  /* sizing svg icons */
+  .search .form svg {
+    width: 17px;
+    margin-top: 3px;
+  }
+  
+  
+  
+  
+  
+  /* 문제 테이블 */
+    /* 첫 번째 열의 너비를 150px로 설정 */
+    td {
+    padding-left: 8px;
+  }
+    td:nth-child(1) {
+      width: 250px;
+    }
+  
+    /* 두 번째 열의 너비를 100px로 설정 */
+    td:nth-child(2) {
+      width: 400px;
+    }
+  
+    /* 세 번째 열의 너비를 75px로 설정 */
+    td:nth-child(3) {
+      width: 280px;
+    }
+  
+    /* 네 번째 열의 너비를 125px로 설정 */
+    td:nth-child(4) {
+      width: 125px;
+    }
+
+
+
+
+
+
+
+
+
+/* 문제 */
+table {
+  width: 600px; /* Set the overall width of the table */
+  height: 400px; /* Set the overall height of the table */
+  border-collapse: collapse; /* Collapse cell borders for a consistent look */
+}
+
+table td {
+  width: 30%; /* Set the width of each table cell to one-third of the table's width */
+  height: 33.33%; /* Set the height of each table cell to one-third of the table's height */
+  padding: 0; /* Remove any padding or margin on table cells */
+}
+.exe .cookie-card {
+  margin-bottom: 10px;
+  margin-right: 29px;
+  width: 420px;
+  height: 200px;
+  padding: 1rem;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 20px 20px 30px rgba(0, 0, 0, .05);
+}
+
+.exe .title {
+  font-weight: 600;
+  color: rgb(31 41 55);
+}
+
+.exe .description {
+  margin-top: 1rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: rgb(75 85 99);
+}
+
+.exe .description a {
+  --tw-text-opacity: 1;
+  color: rgb(59 130 246);
+}
+
+.exe .description a:hover {
+  -webkit-text-decoration-line: underline;
+  text-decoration-line: underline;
+}
+
+.exe .actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1rem;
+  -moz-column-gap: 1rem;
+  column-gap: 1rem;
+  flex-shrink: 0;
+}
+
+.exe .pref {
+  font-size: 0.75rem;
+  line-height: 1rem;
+  color: rgb(31 41 55 );
+
+
+  border: none;
+  background-color: transparent;
+}
+
+.exe .pref:focus {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+.exe .accept {
+  font-size: 0.75rem;
+  line-height: 1rem;
+  background-color: #485176;
+  font-weight: 500;
+  border-radius: 0.5rem;
+  color: #fff;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0.625rem;
+  padding-bottom: 0.625rem;
+  border: none;
+  transition: all .15s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+.exe .accept:hover {
+  color: #ccc;
+}
+
+.exe .accept:focus {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+
+
+.table33{
+  margin-left: 100px;
+  margin-right:90px;
+
+}
+
+
+
+/* 페이징 */
+.paging {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.btn-type {
+  border: none;
+  outline: none;
+  background-color: #FFCC57;
+  padding: 10px 20px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #333;
+  border-radius: 5px;
+  transition: all ease 0.1s;
+  box-shadow: 0px 5px 0px 0px #d5a73d;
+  cursor: pointer;
+}
+
+.btn-type:active {
+  transform: translateY(5px);
+  box-shadow: 0px 0px 0px 0px #d5a73d;
+}

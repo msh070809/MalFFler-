@@ -1,4 +1,6 @@
-
+*{
+  font-family: 'Noto Sans KR', sans-serif;
+}
 
 footer {
   height: 100%;
@@ -370,33 +372,9 @@ footer {
     margin: 0 auto; /* 좌우 여백을 자동으로 조절하여 가로 중앙에 오도록 함 */
   }
   
-  
-  
-  .radio-input {
-    --container_width: 300px;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center; /* 내부 컨텐츠를 가로 중앙에 배치 */
-    border-radius: 9999px;
-    background-color: #fff;
-    color: #000000;
-    width: var(--container_width);
-    overflow: hidden;
-    border: 1px solid rgba(53, 52, 52, 0.226);
-  }
-  
-  
-  
-  
-  
-  
-  
-  
   .radio-input label {
     width: 100%;
     padding: 10px;
-    cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -418,11 +396,11 @@ footer {
   }
   
   .radio-input label:has(input:checked) {
-    color: #fff;
+    color: #333333;
   }
   
   .radio-input label:has(input:checked) ~ .selection {
-    background-color: rgb(11 117 223);
+    background-color: #FFCC57;
     display: inline-block;
   }
   
@@ -470,6 +448,10 @@ footer {
     color: inherit;
   }
   
+.modal{
+  margin-bottom: 300px;
+}
+
   .modal-container {
     max-height: 600px;
     max-width: 600px;
@@ -607,12 +589,12 @@ footer {
   }
   
   .button.is-primary {
-    background-color: royalblue;
-    color: #fff;
+    background-color: #FFCC57;
+    color: #333333;
   }
   
   .button.is-primary:hover, .button.is-primary:focus {
-    background-color:royalblue;
+    background-color:#FFCC57;
   }
   
   .icon-button {
