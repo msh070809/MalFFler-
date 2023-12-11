@@ -125,7 +125,8 @@ path('mpt/',views.mpt ,  name='mpt'),
 
 path('mpt_key/',views.mpt_key),
 
-
+###가상화 
+ path('virtualize/', views.virtualize, name='virtualize'),
 
 
 # path('<path:var>', TemplateView.as_view(template_name="bob/404.html")),

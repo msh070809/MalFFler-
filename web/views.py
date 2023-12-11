@@ -159,6 +159,8 @@ def member_insert3(request):
 
 # 회원 가입 로직
 # 비로그인시에만 접근 가능
+
+import re
 def member_insert_logic(request):
     if 'web_id' in request.session:
         return redirect('home')
@@ -167,6 +169,14 @@ def member_insert_logic(request):
             username = request.POST.get('username')
             password = hashlib.sha256(request.POST['password'].encode('utf-8')).hexdigest()
             password_confirm = hashlib.sha256(request.POST['password_confirm'].encode('utf-8')).hexdigest()
+
+
+            special_characters = re.compile(r'[!@#$%^&*()_-]+')
+
+
+            if special_characters.search(username):
+                messages.error(request, '특수문자는 사용할 수 없습니다.')
+                return redirect('member_insert2')
 
             # 비밀번호와 비밀번호 확인이 일치하는지 확인
             if password != password_confirm:
@@ -545,7 +555,46 @@ def lecture_study3(request):
 
 
 
+#가상화
+def virtualize(request):
+    file_name = request.GET.get('file', '')
+    virtualize_data = virtualize.objects.get(file=file_name)
+    
+    # Proxmox API 연결 정보
+    proxmox_host = '192.16.4.110:8006'  # Proxmox VE 주소
+    proxmox_user = 'root@pam'  # Proxmox VE 계정
+    proxmox_password = 'password'  # Proxmox VE 계정 비밀번호
+    vm_node = 'www'  # Proxmox 노드
+    vm_id=101#virtualize_data.vm_id
+    # 가상 머신 시작
+ # Proxmox API에 가상 머신 상태 및 VNC 정보 조회
 
+    # 가상 머신 시작
+    # Proxmox API에 가상 머신 상태 및 VNC 정보 조회
+    proxmox = proxmoxer.ProxmoxAPI(proxmox_host, user=proxmox_user, password=proxmox_password, verify_ssl=False)
+    vm_status = proxmox.nodes(vm_node).qemu(vm_id).status.current.get()
+
+    # 가상 머신이 실행 중일 때 VNC 서버 주소 및 포트 가져오기
+    if vm_status['status'] == 'running':
+        vnc_spice_info = proxmox.nodes(vm_node).qemu(vm_id).spiceproxy().post(node=vm_node, vmid=vm_id)
+
+    #공인 ip필요
+    vnc_spice_info['proxy'] = "http://218.146.20.61:3128"
+
+    # 파일을 서버에 생성하는 대신 메모리에 생성합니다.
+    file_content = '[virt-viewer]\n'
+    for key, value in vnc_spice_info.items():
+        if isinstance(value, str):
+            file_content += f'{key}={value}\n'
+        else:
+            file_content += f'{key}={str(value)}\n'
+
+    # 파일 내용을 메모리에 저장한 후 FileResponse를 사용하여 클라이언트에게 전송
+    file_content = file_content.encode('utf-8')
+    response = HttpResponse(file_content, content_type='application/octet-stream')
+    response['Content-Disposition'] = 'attachment; filename="pve-spice.vv"'
+    
+    return response
 
 
 
@@ -753,17 +802,19 @@ def board3(request):
 
 
 
+
 # 게시판에 글쓰기 / 저장
 def board_write(request):
     if 'web_id' in request.session:      
         if request.method == 'POST':
+            hash256 = calculate_sha256(str(time.localtime().tm_year) + str(time.localtime().tm_mon) + str(time.localtime().tm_mday) + str(time.localtime().tm_hour) + str(time.localtime().tm_min) + str(time.localtime().tm_sec))
             title = request.POST.get('title')
             category = request.POST.get('category')
             content = request.POST.get('content')
 
             print(f"{request.session['web_id']} {title}")
             # board 모델에 데이터 저장
-            boards(web_id=request.session['web_id'], title=title ,filed=category, text=content).save()
+            boards(web_id=request.session['web_id'],hash256=hash256 ,title=title ,filed=category, text=content).save()
             return redirect('board')
 
         else:
@@ -779,41 +830,36 @@ def board_write(request):
 # 게시글 보기
 def board_view(request):
     if request.method == 'GET':
-        web_id = request.GET.get('web_id')
-        text = request.GET.get('text')
-        title = request.GET.get('title')
+        hash256 = request.GET.get('hash256')
         
-        
-        record = boards.objects.filter(web_id=web_id, text=text, title=title)
+        record = boards.objects.filter(hash256=hash256)
 
-        answers = boardAnwser.objects.filter(web_id=web_id, text=text, title=title)
+        answers = boardAnwser.objects.filter(hash256=hash256)
 
         if record:
-            return render(request, 'bob/board_view.html', {'record': record , 'web_id': request.session.get('web_id') , "answers":answers})
+            return render(request, 'bob/board_view.html', {'record': record , 'web_id': request.session.get('web_id'),'answers':answers })
         else:
             return redirect("board")
 
-
-        return render(request, 'bob/board_view.html', {'record': record , 'web_id': request.session.get('web_id') , "answers":answers})
+        #  return render(request, 'bob/board_view.html', {'record': record , 'web_id': request.session.get('web_id') , "answers":answers})
     # 댓글 작성
     elif request.method == 'POST':
         if 'web_id' in request.session:
-            web_id = request.POST.get('web_id')
+            hash256 = request.POST.get('hash256')
             answer_id = request.session.get('web_id')
-            text = request.POST.get('text')
-            title = request.POST.get('title')
-            filed = request.POST.get('filed')
             answer = request.POST.get('answer')
 
             if answer.strip() == "":
                 return render(request, 'bob/write.html' )
-                       
             
             # boardAnswer 모델에 답변 저장
-            boardAnwser(web_id=web_id, answer_id=answer_id , text=text, title=title, answer=answer).save()
-            return redirect(f'/board_view/?web_id={quote(web_id)}&title={quote(title)}&text={quote(text)}')
+            boardAnwser( hash256=hash256,answer_id=answer_id ,answer=answer).save()
+            return redirect(f'/board_view/?hash256={hash256}')
+
         else:
             return render(request, 'bob/No_login.html')
+
+
             
 
 
@@ -1120,7 +1166,7 @@ def vi_api_num1(request):
                 
                 # 바이러스 토탈 설정 ------------------------------------------------------------------------------------------------------
                 # 예시 정답
-                answer = "T1027" #저희가 문제 만들 때 문제에 대한 정답을 이런 형식으로 전달드릴 예정이에요!
+                answer = "T1622" #저희가 문제 만들 때 문제에 대한 정답을 이런 형식으로 전달드릴 예정이에요!
 
                 # 사용자가 제출한 코드에서 추출한 techniques 번호들을 모을 리스트
                 techniques = []

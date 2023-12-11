@@ -71,7 +71,7 @@
       <input value="private" name="switch" id="switch" type="checkbox" class="switch">
    
         <div class="os">
-          <button id="openWindowButton">
+          <button id="openVirtualButton">
             가상화 os
           </button>
         </div>
@@ -80,7 +80,37 @@
       </label>
 
     </div>
-
+    <script>
+      document.getElementById('openVirtualButton').addEventListener('click', function() {
+        var fileValue = "{{ file }}";
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', '/virtualize/?file=' + encodeURIComponent(fileValue), true);
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === 4) {
+                if (xhr.status === 200) {
+                    // 서버 응답을 받았을 때의 로직을 작성
+                    console.log('Virtualize 함수가 성공적으로 실행되었습니다.');
+    
+                    // 서버에서 전송한 파일 데이터를 블롭으로 생성
+                    var blob = new Blob([xhr.response], { type: 'application/octet-stream' });
+    
+                    // 브라우저에서 파일 다운로드를 위한 링크 생성
+                    var link = document.createElement('a');
+                    link.href = window.URL.createObjectURL(blob);
+                    link.download = 'pve-spice.vv';
+    
+                    // 링크를 클릭하여 파일 다운로드
+                    link.click();
+                } else {
+                    // 오류 처리
+                    console.error('Virtualize 함수 실행 중 오류가 발생했습니다.');
+                }
+            }
+        };
+      xhr.responseType = 'arraybuffer';  // 이 부분이 추가되어야 합니다.
+      xhr.send();
+    });
+    </script>
 
   
   </div>

@@ -1,0 +1,67 @@
+{'Toggle': '악성코드 분석이란', 'Page': 1}
+{'Toggle': '악성코드의 종류', 'Page': 6}
+{'Toggle': 'CPU 레지스터', 'Page': 5}
+{'Toggle': 'x64 아키텍처', 'Page': 3}
+{'Toggle': '디버깅', 'Page': 8}
+{'Toggle': '악성코드 탐지 회피를 위한 기법', 'Page': 8}
+{'Toggle': '어셈블리 명령어', 'Page': 5}
+{'Toggle': '컴퓨터 기초', 'Page': 4}
+{'Toggle': '안티VM - 문제', 'Page': 1}
+{'Toggle': '안티VM', 'Page': 3}
+{'Toggle': '안티디버깅', 'Page': 4}
+{'Toggle': '흔적 제거 기법 - 레지스트리 값 삭제 문제', 'Page': 1}
+{'Toggle': '흔적 제거 기법 - 레지스트리 값 삭제', 'Page': 3}
+{'Toggle': '흔적 제거 기법 - 이벤트로그 삭제 문제', 'Page': 1}
+{'Toggle': '흔적 제거 기법 - 이벤트로그 삭제', 'Page': 2}
+{'Toggle': '1단계', 'Page': 13}
+{'Toggle': '악성코드 분석의 종류', 'Page': 2}
+{'Toggle': 'PE파일 구조', 'Page': 9}
+{'Toggle': '악성코드 유포에 악용되는 파일 유형', 'Page': 6}
+{'Toggle': 'ZIP파일 구조', 'Page': 7}
+{'Toggle': 'MS Office 문서파일 구조', 'Page': 6}
+{'Toggle': '악성코드 지속 방법(1)', 'Page': 7}
+{'Toggle': '악성코드 지속 방법(2)', 'Page': 6}
+{'Toggle': '악성코드 지속 방법(3)', 'Page': 8}
+{'Toggle': '악성코드 은닉 기법', 'Page': 3}
+{'Toggle': '악성코드 유포 경로', 'Page': 6}
+{'Toggle': '악성코드 유포 기법', 'Page': 5}
+{'Toggle': '악성코드 case 사례', 'Page': 3}
+{'Toggle': '3.20 사이버테러 사건', 'Page': 4}
+{'Toggle': 'XOR 암호화', 'Page': 12}
+{'Toggle': '자가 삭제', 'Page': 5}
+{'Toggle': 'MBR 파괴', 'Page': 7}
+{'Toggle': 'cipher를 이용한 데이터 파괴', 'Page': 4}
+{'Toggle': '3단계', 'Page': 19}
+{'Toggle': 'go', 'Page': 12}
+{'Toggle': '안티 디버깅을 위한 기법', 'Page': 12}
+{'Toggle': '바이너리 보호를 위한 기법', 'Page': 14}
+{'Toggle': '동적 분석(모니터링)도구', 'Page': 13}
+{'Toggle': '동적 링크 라이브러리 분석', 'Page': 5}
+{'Toggle': '악성코드 실행 파일 분석', 'Page': 6}
+{'Toggle': '4단계', 'Page': 32}
+{'Toggle': '문서형', 'Page': 9}
+{'Toggle': '액세스 토큰을 이용한 권한 상승', 'Page': 5}
+{'Toggle': '레지스트리 등록', 'Page': 7}
+{'Toggle': '서비스 등록', 'Page': 8}
+{'Toggle': '작업 스케줄러 등록', 'Page': 9}
+{'Toggle': '키보드 후킹', 'Page': 5}
+{'Toggle': 'IDA 디스어셈블리', 'Page': 8}
+{'Toggle': '정적분석을 이용한 악성코드 비교 및 분류', 'Page': 10}
+{'Toggle': '정적분석(2)', 'Page': 8}
+{'Toggle': '정적분석(1)', 'Page': 9}
+{'Toggle': '프로그래밍 환경 구축', 'Page': 4}
+{'Toggle': 'Sony Pictures 해킹 사건', 'Page': 3}
+{'Toggle': '레지스트리 값 확인하여 VM탐', 'Page': 3}
+{'Toggle': '문제풀이', 'Page': 11}
+{'Toggle': '2단계', 'Page': 8}
+{'Toggle': '컴퓨터 프로그램의 이해', 'Page': 3}
+{'Toggle': '레지스트리 값 확인하여 VM 탐지', 'Page': 3}
+{'Toggle': 'IsDebuggerPresent', 'Page': 3}
+{'Toggle': '닷넷', 'Page': 10}
+{'Toggle': '동적분석(모니터링) 도구', 'Page': 13}
+{'Toggle': '이벤트로그 삭제', 'Page': 2}
+{'Toggle': '키로깅', 'Page': 5}
+{'Toggle': '자동화 분석', 'Page': 5}
+{'Toggle': '권한 상승을 위한 기법', 'Page': 5}
+{'Toggle': '레지스트리 값 삭제', 'Page': 3}
+{'Toggle': '윈도우 API 프로그래밍', 'Page': 8}

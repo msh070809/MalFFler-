@@ -70,7 +70,7 @@
   <button id="previous-button"><</button>
 <button id="next-button">></button>
 <button id="openWindowButton">&nbsp;&nbsp;GPT&nbsp;&nbsp;</button>
-<button id="openWindowButton">&nbsp;&nbsp;가상화&nbsp;&nbsp;</button>
+<button id="openVirtButton">&nbsp;&nbsp;가상화&nbsp;&nbsp;</button>
 </div>
 
       </div>
@@ -88,18 +88,47 @@
 
       </div>
         
-        <script>
-          document.getElementById('openWindowButton').addEventListener('click', function() {
-              // 새 창을 열기 위한 URL을 여기에 입력
-              var newWindowURL = 'http://218.146.20.61:20022/mpt/?table={{file}}&lecture=3';
-              // var newWindowURL = 'http://192.168.3.135:8000/mpt/?table={{file}}';  // 새 창을 열고자 하는 웹 페이지 URL로 변경
-              var windowWidth = 800;  // 창의 너비를 설정 (픽셀 단위로)
-              var windowHeight = 600;  // 창의 높이를 설정 (픽셀 단위로)
-          
-              // 새 창을 엽니다. 너비와 높이를 설정합니다.
-              window.open(newWindowURL, '_blank', 'width=' + windowWidth + ', height=' + windowHeight);
-          });
-          </script>
+  <script>
+    document.getElementById('openWindowButton').addEventListener('click', function() {
+        // 새 창을 열기 위한 URL을 여기에 입력
+        var newWindowURL = 'http://218.146.20.61:20022/mpt/?table={{file}}&lecture=3';
+        // var newWindowURL = 'http://192.168.3.135:8000/mpt/?table={{file}}';  // 새 창을 열고자 하는 웹 페이지 URL로 변경
+        var windowWidth = 800;  // 창의 너비를 설정 (픽셀 단위로)
+        var windowHeight = 600;  // 창의 높이를 설정 (픽셀 단위로)
+    
+        // 새 창을 엽니다. 너비와 높이를 설정합니다.
+        window.open(newWindowURL, '_blank', 'width=' + windowWidth + ', height=' + windowHeight);
+    });
+    document.getElementById('openVirtButton').addEventListener('click', function() {
+      var fileValue = "{{ file }}";
+      var xhr = new XMLHttpRequest();
+      xhr.open('GET', '/virtualize/?file=' + encodeURIComponent(fileValue), true);
+      xhr.onreadystatechange = function() {
+          if (xhr.readyState === 4) {
+              if (xhr.status === 200) {
+                  // 서버 응답을 받았을 때의 로직을 작성
+                  console.log('Virtualize 함수가 성공적으로 실행되었습니다.');
+
+                  // 서버에서 전송한 파일 데이터를 블롭으로 생성
+                  var blob = new Blob([xhr.response], { type: 'application/octet-stream' });
+
+                  // 브라우저에서 파일 다운로드를 위한 링크 생성
+                  var link = document.createElement('a');
+                  link.href = window.URL.createObjectURL(blob);
+                  link.download = 'pve-spice.vv';
+
+                  // 링크를 클릭하여 파일 다운로드
+                  link.click();
+              } else {
+                  // 오류 처리
+                  console.error('Virtualize 함수 실행 중 오류가 발생했습니다.');
+              }
+          }
+      };
+      xhr.responseType = 'arraybuffer';  // 이 부분이 추가되어야 합니다.
+      xhr.send();
+    });
+  </script>
 
 <script>
   document.addEventListener('DOMContentLoaded', function() {

@@ -141,12 +141,12 @@ from django.utils import timezone
 from django.core.validators import MinValueValidator, MaxValueValidator
 
 class boards(models.Model):
+    hash256 = models.CharField(max_length=255 , default='') 
     BOARD_FIELD_CHOICES = (
         ('커뮤니티', '커뮤니티'),
         ('Qna', 'Qna'),
         ('공지사항12755555', '공지사항12755555')
     )
-
     web_id = models.CharField(max_length=30)
     title = models.CharField(max_length=50, default=0)
     filed = models.CharField(max_length=255, choices=BOARD_FIELD_CHOICES, default='커뮤니티') 
@@ -159,6 +159,7 @@ class boards(models.Model):
 
 # 답변
 class boardAnwser(models.Model):
+    hash256 = models.CharField(max_length=255 , default='') 
     web_id = models.CharField(max_length=30)
     answer_id = models.CharField(max_length=30 , default="")
     title = models.CharField(max_length=50, default=0)
@@ -179,7 +180,10 @@ class gpt_report(models.Model):
     created_at = models.DateTimeField(default=timezone.now)  # 현재 시간을 기본값으로 설정
 
 
-
+class virtualize(models.Model):
+    file = models.CharField(max_length=255, default='') 
+    vm_id= models.CharField(max_length=255, default='')
+    status=models.CharField(max_length=3, default='') 
 
 
 

@@ -38,11 +38,11 @@
         radio.addEventListener('change', function() {
             // 선택한 라디오 버튼의 값에 따라 다른 주소로 이동
             if (radio.value === "value-1") {
-                window.location.href = "/board"; 
+                window.location.href = "/board/"; 
             } else if (radio.value === "value-2") {
-                window.location.href = "/board2";
+                window.location.href = "/board2/";
             } else if (radio.value === "value-3") {
-                window.location.href = "/board3"; 
+                window.location.href = "/board3/"; 
             }
         });
     });
@@ -118,7 +118,7 @@
 
 {% for board in question_list %}
 
-<a href="/board_view?web_id={{ board.web_id | urlencode }}&title={{ board.title | urlencode }}&text={{ board.text | urlencode }}" >
+<a href="/board_view?hash256={{board.hash256}}">
          
                         <div class="task1" draggable="true">
                           <div class="tags">
