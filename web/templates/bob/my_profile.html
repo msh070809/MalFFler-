@@ -35,6 +35,7 @@
   <div class="card">
     <div class="header">나의 진도율</div>
     <div class="content-div">
+     <div class="skill_div">
       <div class="skill">
         <div class="skill-name">기초강의</div>
         <div class="skill-level">
@@ -59,10 +60,11 @@
       <div class="skill">
         <div class="skill-name">문제풀이</div>
         <div class="skill-level">
-          <div class="skill-percent" style="width: 0%"></div>
+          <div class="skill-percent" style="width: {{ percent_progress }}%"></div>
         </div>
-        <div class="skill-percent-number">0%</div>
+        <div class="skill-percent-number">{{ percent_progress }}%</div>
       </div>
+     </div>
     </div>  
   </div>
 </form>
@@ -85,7 +87,7 @@
     
                 </div> 
               </div>
-              <div class="child">
+              <div class="child_explantion child">
                 <ul class="explanation">
                   <li class="explanation_element">분석능력 : 분석 능력은 악성코드의 행동, 기술, 패턴 등을 신속하고 효과적으로 이해하고 해석하는 능력을 의미합니다. </li>
                   <li class="explanation_element">보안지식 : 보안 지식은 악성코드가 이용하는 공격 기법, 취약점, 보안 프로토콜, 암호화 기술 등에 대한 깊은 이해를 의미합니다.</li>

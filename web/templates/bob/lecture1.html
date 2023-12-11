@@ -578,18 +578,14 @@
 
 
 <!--  -->
-{% if '분석환경 개요' in progress_values and '동적분석(모니터링) 도구' in progress_values and '악성코드 실행 파일 분석' in progress_values and '동적 링크 라이브러리 분석' in progress_values %}
+{% if '동적분석(모니터링) 도구' in progress_values and '악성코드 실행 파일 분석' in progress_values and '동적 링크 라이브러리 분석' in progress_values %}
 <div class="info2" style="background-color: {{color}};">
   <div class="info__title" style="padding:3px;">
       <details>
           <summary>동적분석</summary>
           <ul>
               
-            {% if '분석환경 개요' in progress_values %}
-            <ul class="indented"><a href="lecture1/?table=분석환경 개요&page=1" class="text_change">분석환경 개요 ☑️</a></ul>
-          {% else %}
-            <ul class="indented"><a href="lecture1/?table=분석환경 개요&page=1" class="text_change">분석환경 개요</a></ul>
-          {% endif %}
+
           
           {% if '동적분석(모니터링) 도구' in progress_values %}
             <ul class="indented"><a href="lecture1/?table=동적분석(모니터링) 도구&page=1" class="text_change">동적분석(모니터링) 도구 ☑️</a></ul>
@@ -623,12 +619,7 @@
               <summary>동적분석</summary>
               <ul>
                   
-                {% if '분석환경 개요' in progress_values %}
-                <ul class="indented"><a href="lecture1/?table=분석환경 개요&page=1" class="text_change">분석환경 개요 ☑️</a></ul>
-              {% else %}
-                <ul class="indented"><a href="lecture1/?table=분석환경 개요&page=1" class="text_change">분석환경 개요</a></ul>
-              {% endif %}
-              
+
               {% if '동적분석(모니터링) 도구' in progress_values %}
                 <ul class="indented"><a href="lecture1/?table=동적분석(모니터링) 도구&page=1" class="text_change">동적분석(모니터링) 도구 ☑️</a></ul>
               {% else %}
@@ -806,6 +797,23 @@
 
   </div>
 </div>
+<script>
+var elements = document.querySelectorAll('.info2, details');
+
+elements.forEach(function(element) {
+    element.addEventListener('click', function(event) {
+        var details = this.querySelector('details');
+
+        if (!details) {
+            details = this.closest('details');
+        }
+
+        if (details) {
+            details.open = !details.open;
+        }
+    });
+});
+</script>
   
   <!-- Footer -->
 

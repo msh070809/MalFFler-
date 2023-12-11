@@ -1,4 +1,4 @@
-{% extends "bob/header.html" %}
+v{% extends "bob/header.html" %}
 
 
 
@@ -14,16 +14,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@600&display=swap" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="{% static 'web/css/footer.css' %}">
 
-
+<div id="wrapper">
 <div class="radio-input">
-  <!-- <input value="value-1" name="value-radio" id="value-1" type="radio">
-  <label for="value-1">교육 과정</label>
-  <input value="value-2" name="value-radio" id="value-2" type="radio">
-  <label for="value-2">기초 교육</label>
-  <input value="value-3" name="value-radio" id="value-3" type="radio" checked>
-  <label for="value-3">분석 교육</label>
-  <input value="value-4" name="value-radio" id="value-2" type="radio">
-  <label for="value-4">제작 교육</label> -->
 </div>
 
 <script>
@@ -74,9 +66,9 @@
 
   
 <!--  -->
-   
-   &nbsp;&nbsp;&nbsp;&nbsp;핵심원리 기초   
-
+   <div class="main_category_f" style="background-color: {{color}};">
+    기초 개념 
+  </div>
   {% if '컴퓨터 프로그램의 이해' in progress_values and '프로그래밍 환경 구축' in progress_values and '윈도우 API 프로그래밍' in progress_values %}
       <div class="info2" style="width: 100%; background-color: {{color}};">
     <div class="info__title" style="padding:3px;">
@@ -150,8 +142,9 @@
 
 <!--  -->
   
-  &nbsp;&nbsp;&nbsp;&nbsp;Anti-Analysis   
-   
+   <div class="main_category_f" style="margin-top : 20px; background-color: {{color}};">
+    Anti-Analysis 
+  </div>
 
   {% if '레지스트리 값 확인하여 VM 탐지' in progress_values %}
   <div class="info2" style="width: 100%; background-color: {{color}};">
@@ -240,9 +233,10 @@
 
   
 
-  <!--  -->
-  &nbsp;&nbsp;&nbsp;&nbsp;흔적 제거 기법   
-   
+  <!--  --> 
+   <div class="main_category_f" style="margin-top : 20px; background-color: {{color}};">
+    흔적 제거 기법   
+  </div>
 
   {% if '이벤트로그 삭제' in progress_values and '레지스트리 값 삭제' in progress_values and '자가 삭제' in progress_values %}
   <div class="info2" style="width: 100%; background-color: {{color}};">
@@ -450,8 +444,9 @@
   
 
   
-  &nbsp;&nbsp;&nbsp;&nbsp;인젝션/후킹   
-  
+  <div class="main_category_f" style="margin-top : 20px; background-color: {{color}};">
+    인젝션/후킹    
+  </div>
 
    <!--  -->
 
@@ -540,10 +535,9 @@
   
   
   
-
-
-&nbsp;&nbsp;&nbsp;&nbsp;문제풀이   
-
+<div class="main_category_f" style="margin-top : 20px; background-color: {{color}};">
+    문제풀이   
+  </div>
   
 
 {% if '핵심원리 문제풀이1' in progress_values and '핵심원리 문제풀이2' in progress_values and '핵심원리 문제풀이3' in progress_values and '핵심원리 문제풀이4' in progress_values%}
@@ -554,25 +548,25 @@
       <ul>
         <ul class="indented">
 
-          {% if '핵심원리 문제풀이_1' in progress_values %}
+          {% if '핵심원리 문제풀이1' in progress_values %}
            <ul class="indented"><a href="핵심원리 문제풀이1" class="text_change">핵심원리 문제풀이1 ☑️</a></ul>
         {% else %}
            <ul class="indented"><a href="핵심원리 문제풀이1" class="text_change">핵심원리 문제풀이1</a></ul>
         {% endif %}
 
-          {% if '핵심원리 문제풀이_2' in progress_values %}
+          {% if '핵심원리 문제풀이2' in progress_values %}
            <ul class="indented"><a href="핵심원리 문제풀이2" class="text_change">핵심원리 문제풀이2 ☑️</a></ul>
         {% else %}
            <ul class="indented"><a href="핵심원리 문제풀이2" class="text_change">핵심원리 문제풀이2</a></ul>
         {% endif %}
 
-          {% if '핵심원리 문제풀이_3' in progress_values %}
+          {% if '핵심원리 문제풀이3' in progress_values %}
            <ul class="indented"><a href="핵심원리 문제풀이3" class="text_change">핵심원리 문제풀이3 ☑️</a></ul>
         {% else %}
            <ul class="indented"><a href="핵심원리 문제풀이3" class="text_change">핵심원리 문제풀이3</a></ul>
         {% endif %}
 	
-          {% if '핵심원리 문제풀이_3' in progress_values %}
+          {% if '핵심원리 문제풀이4' in progress_values %}
            <ul class="indented"><a href="핵심원리 문제풀이4" class="text_change">핵심원리 문제풀이4 ☑️</a></ul>
         {% else %}
            <ul class="indented"><a href="핵심원리 문제풀이4" class="text_change">핵심원리 문제풀이4</a></ul>
@@ -594,25 +588,25 @@
       <ul>
         <ul class="indented">
 
-          {% if '핵심원리 문제풀이_1' in progress_values %}
+          {% if '핵심원리 문제풀이1' in progress_values %}
            <ul class="indented"><a href="핵심원리 문제풀이1" class="text_change">핵심원리 문제풀이1 ☑️</a></ul>
         {% else %}
            <ul class="indented"><a href="핵심원리 문제풀이1" class="text_change">핵심원리 문제풀이1</a></ul>
         {% endif %}
 
-          {% if '핵심원리 문제풀이_2' in progress_values %}
+          {% if '핵심원리 문제풀이2' in progress_values %}
            <ul class="indented"><a href="핵심원리 문제풀이2" class="text_change">핵심원리 문제풀이2 ☑️</a></ul>
         {% else %}
            <ul class="indented"><a href="핵심원리 문제풀이2" class="text_change">핵심원리 문제풀이2</a></ul>
         {% endif %}
 
-          {% if '핵심원리 문제풀이_3' in progress_values %}
+          {% if '핵심원리 문제풀이3' in progress_values %}
            <ul class="indented"><a href="핵심원리 문제풀이3" class="text_change">핵심원리 문제풀이3 ☑️</a></ul>
         {% else %}
            <ul class="indented"><a href="핵심원리 문제풀이3" class="text_change">핵심원리 문제풀이3</a></ul>
         {% endif %}
 	
-          {% if '핵심원리 문제풀이_3' in progress_values %}
+          {% if '핵심원리 문제풀이4' in progress_values %}
            <ul class="indented"><a href="핵심원리 문제풀이4" class="text_change">핵심원리 문제풀이4 ☑️</a></ul>
         {% else %}
            <ul class="indented"><a href="핵심원리 문제풀이4" class="text_change">핵심원리 문제풀이4</a></ul>
@@ -624,31 +618,21 @@
       </ul>
     </details>
   </div>
+ <div class="info__close"></div>
 </div>
 {% endif %}
-
-
+  </div>
   </div>
   
-  </div>
-  
-  
-  <div class="coulmn_item2">
-    
-    
-
   <div class="coulmn_item2">
     <div class="cardg">
            <span class="titleg">
-             핵심 원리
+             핵심원리
            </span>
          <p class="descg">
           핵심원리는 악성코드 분석 시 악성코드의 행위를 쉽게 파악하기 위해 프로그래밍의 기초를 배우고 악성코드에 자주 사용되는 기법들을 구현해보는 과정입니다. 
          </p>
      </div>
-
-    
-    
     
     <div class="cardk">
           <div class="card__wrapperk">
@@ -659,16 +643,10 @@
           <div class="card__progress"><progress max="100" value="{{rate}}"></progress></div>
       </div>
     </div>
-  
-  
-  
-  
-  
-  
-  
     </div>
   
-  </div>
+ </div>
+</div>
   <!-- Footer -->
 
 <footer class="footer">
@@ -694,7 +672,23 @@
     </div>
   </div>
 </footer>
+<script>
+var elements = document.querySelectorAll('.info2, details');
 
+elements.forEach(function(element) {
+    element.addEventListener('click', function(event) {
+        var details = this.querySelector('details');
+
+        if (!details) {
+            details = this.closest('details');
+        }
+
+        if (details) {
+            details.open = !details.open;
+        }
+    });
+});
+</script>
   <script>
   // Modal Image Gallery
   function onClick(element) {

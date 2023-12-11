@@ -408,7 +408,7 @@ table td:nth-child(3n){
 
 .td_content{
   overflow: hidden;
-  height: 33.333333%;
+  height: 28%;
   margin-bottom: 10px;
   word-break: keep-all;
 }

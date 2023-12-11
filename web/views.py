@@ -20,6 +20,7 @@ from Crypto.Hash import SHA256 as SHA
 import sys
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404
+from urllib.parse import quote
 import urllib.request
 
 
@@ -36,6 +37,8 @@ import hashlib
 import time
 import json
 import time
+
+
 
 
 
@@ -95,10 +98,24 @@ def login_logic(request):
 
 
 #마이페이지
+#마이페이지
 def my_profile(request):
     if 'web_id' in request.session:
         user_instance = user.objects.get(web_id=request.session.get('web_id'))
-        return render(request, 'bob/my_profile.html' , {'web_id': request.session.get('web_id') ,'user_instance':user_instance})
+
+        user_id = request.session.get('web_id') 
+        solved_problems_count = problem_exe_Progress.objects.filter(user=user_id).count()
+
+        # 전체 문제 수
+        total_problems_count = problem_exe.objects.count()
+
+        # 퍼센트 계산
+        if total_problems_count > 0:
+            percent_progress = round((solved_problems_count / total_problems_count) * 100)
+        else:
+            percent_progress = 0  # 0으로 나누는 경우 예외 처리
+	
+        return render(request, 'bob/my_profile.html' , {'web_id': request.session.get('web_id') ,'user_instance':user_instance , 'percent_progress':percent_progress})
     else:
        return render(request, 'bob/No_login.html')
 
@@ -188,7 +205,7 @@ def info_change_logic(request):
             new_password_confirm = hashlib.sha256(request.POST['new_password_confirm'].encode('utf-8')).hexdigest()
 
             try:
-                WebUser = user.objects.get(pw=past_password)
+                WebUser = user.objects.get(web_id=request.session.get('web_id') ,pw=past_password)
 
             except user.DoesNotExist:
                 messages.error(request, '기존 비밀번호가 일치하지 않습니다.')
@@ -256,7 +273,6 @@ lec1 = [
     "정적분석(2)",
     "정적분석을 이용한 악성코드 비교 및 분류",
     "IDA 디스어셈블리",
-    "분석환경 개요",
     "동적분석(모니터링) 도구",
     "악성코드 실행 파일 분석",
     "동적 링크 라이브러리 분석",
@@ -312,11 +328,11 @@ lec2 = [
     "XOR 암호화",
     "MBR 파괴",
     "키로깅",
-    "액세스 토큰을 이용한 권한 상승",
-    "핵심원리 문제풀이1",
-"핵심원리 문제풀이2",
-"핵심원리 문제풀이3",
-"핵심원리 문제풀이4"
+    "액세스 토큰을 이용한 권한 상승" ,
+    "핵심원리 문제풀이1" ,
+    "핵심원리 문제풀이2" , 
+    "핵심원리 문제풀이3" ,
+    "핵심원리 문제풀이4"
 ]
 
 
@@ -424,61 +440,69 @@ def count_html_files_with_word_in_filename(folder_path, search_word):
 
 
 def lecture_study1(request):
-    if 'web_id' in request.session:
-        if request.method == 'GET':
-            table = request.GET.get('table')
-            page = request.GET.get('page')
-            file=table+page
-            folder_path = "web/static/web/lecture1"
+    try:
+        if 'web_id' in request.session:
+            if request.method == 'GET':
+                table = request.GET.get('table')
+                page = request.GET.get('page')
+                file=table+page
+                folder_path = "web/static/web/lecture1"
 
-            lecture_page_obj = lecture_page.objects.get(toggle=table)  # toggle과 table이 같은 경우의 레코드 찾기
-            result = lecture_page_obj.page  # 해당 레코드의 페이지 가져오기
-            # result = (count_html_files_with_word_in_filename(folder_path , table)//2)
+                lecture_page_obj = lecture_page.objects.get(toggle=table)  # toggle과 table이 같은 경우의 레코드 찾기
+                result = lecture_page_obj.page  # 해당 레코드의 페이지 가져오기
+                # result = (count_html_files_with_word_in_filename(folder_path , table)//2)
 
-   
-            if int(page) > int(result):
-                web_id = request.session.get('web_id')
-                current_user = user.objects.get(web_id=web_id)
-                existing_progress = Progress.objects.filter(user=current_user,progress_value=table).exists()
-                if not existing_progress:  # 진행 상황이 없을 경우에만 추가
-                    progress = Progress(user=current_user, filed= "기초강의" , progress_value=table)
-                    progress.save()
-                return render(request ,'bob/complete_page1.html')
-            else:
-                return render(request, 'bob/lecture_study1.html', {'web_id': request.session.get('web_id') , 'file': file , 'page':page , 'result' : result})
-    else:
-       return render(request ,'bob/No_login.html')
+    
+                if int(page) > int(result):
+                    web_id = request.session.get('web_id')
+                    current_user = user.objects.get(web_id=web_id)
+                    existing_progress = Progress.objects.filter(user=current_user,progress_value=table).exists()
+                    if not existing_progress:  # 진행 상황이 없을 경우에만 추가
+                        progress = Progress(user=current_user, filed= "기초강의" , progress_value=table)
+                        progress.save()
+                    return render(request ,'bob/complete_page1.html')
+                else:
+                    return render(request, 'bob/lecture_study1.html', {'web_id': request.session.get('web_id') , 'file': file , 'page':page , 'result' : result})
+        else:
+            return render(request ,'bob/No_login.html')
+    except:
+        return redirect('home')
 
 
 
 
 # 분석 강의
 # 분석 강의
+
 
 def lecture_study2(request):
-    if 'web_id' in request.session:
-        if request.method == 'GET':
-            table = request.GET.get('table')
-            page = request.GET.get('page')
-            file=table+page
-            folder_path = "web/static/web/lecture2"
-            lecture_page_obj = lecture_page.objects.get(toggle=table)  # toggle과 table이 같은 경우의 레코드 찾기
-            result = lecture_page_obj.page  # 해당 레코드의 페이지 가져오기
-            # result = (count_html_files_with_word_in_filename(folder_path , table)//2)
+    try:
+        if 'web_id' in request.session:
+            if request.method == 'GET':
+                table = request.GET.get('table')
+                page = request.GET.get('page')
+                file=table+page
+                folder_path = "web/static/web/lecture2"
+                lecture_page_obj = lecture_page.objects.get(toggle=table)  # toggle과 table이 같은 경우의 레코드 찾기
+                result = lecture_page_obj.page  # 해당 레코드의 페이지 가져오기
+                # result = (count_html_files_with_word_in_filename(folder_path , table)//2)
 
 
-            if int(page) > int(result):
-                web_id = request.session.get('web_id')
-                current_user = user.objects.get(web_id=web_id)
-                existing_progress = Progress.objects.filter(user=current_user,progress_value=table).exists()
-                if not existing_progress:  # 진행 상황이 없을 경우에만 추가
-                    progress = Progress(user=current_user, filed= "핵심원리" , progress_value="핵심원리 문제풀이1")
-                    progress.save()
-                return render(request ,'bob/complete_page2.html')
-            else:
-                return render(request, 'bob/lecture_study2.html', {'web_id': request.session.get('web_id') , 'file': file , 'page':page , 'result' : result})
-    else:
-       return render(request ,'bob/No_login.html')
+                if int(page) > int(result):
+                    web_id = request.session.get('web_id')
+                    current_user = user.objects.get(web_id=web_id)
+                    existing_progress = Progress.objects.filter(user=current_user,progress_value=table).exists()
+                    if not existing_progress:  # 진행 상황이 없을 경우에만 추가
+                        progress = Progress(user=current_user, filed= "핵심원리" , progress_value="핵심원리 문제풀이1")
+                        progress.save()
+                    return render(request ,'bob/complete_page2.html')
+                else:
+                    return render(request, 'bob/lecture_study2.html', {'web_id': request.session.get('web_id') , 'file': file , 'page':page , 'result' : result})
+        else:
+            return render(request ,'bob/No_login.html')
+    except:
+        return redirect('home')
+
 
 
 
@@ -491,30 +515,32 @@ def lecture_study2(request):
 
 
 # 제작 강의
-
 def lecture_study3(request):
-    if 'web_id' in request.session:
-        if request.method == 'GET':
-            table = request.GET.get('table')
-            page = request.GET.get('page')
-            file=table+page
-            folder_path = "web/static/web/lecture3"
-            lecture_page_obj = lecture_page.objects.get(toggle=table)  # toggle과 table이 같은 경우의 레코드 찾기
-            result = lecture_page_obj.page  # 해당 레코드의 페이지 가져오기
-            # result = (count_html_files_with_word_in_filename(folder_path , table)//2)
-   
-            if int(page) > int(result):
-                web_id = request.session.get('web_id')
-                current_user = user.objects.get(web_id=web_id)
-                existing_progress = Progress.objects.filter(user=current_user,progress_value=table).exists()
-                if not existing_progress:  # 진행 상황이 없을 경우에만 추가
-                    progress = Progress(user=current_user, filed= "핵심원리" , progress_value=table)
-                    progress.save()
-                return render(request ,'bob/complete_page3.html')
-            else:
-                return render(request, 'bob/lecture_study3.html', {'web_id': request.session.get('web_id') , 'file': file , 'page':page , 'result' : result})
-    else:
-       return render(request ,'bob/No_login.html')
+    try:
+        if 'web_id' in request.session:
+            if request.method == 'GET':
+                table = request.GET.get('table')
+                page = request.GET.get('page')
+                file=table+page
+                folder_path = "web/static/web/lecture3"
+                lecture_page_obj = lecture_page.objects.get(toggle=table)  # toggle과 table이 같은 경우의 레코드 찾기
+                result = lecture_page_obj.page  # 해당 레코드의 페이지 가져오기
+                # result = (count_html_files_with_word_in_filename(folder_path , table)//2)
+    
+                if int(page) > int(result):
+                    web_id = request.session.get('web_id')
+                    current_user = user.objects.get(web_id=web_id)
+                    existing_progress = Progress.objects.filter(user=current_user,progress_value=table).exists()
+                    if not existing_progress:  # 진행 상황이 없을 경우에만 추가
+                        progress = Progress(user=current_user, filed= "핵심원리" , progress_value=table)
+                        progress.save()
+                    return render(request ,'bob/complete_page3.html')
+                else:
+                    return render(request, 'bob/lecture_study3.html', {'web_id': request.session.get('web_id') , 'file': file , 'page':page , 'result' : result})
+        else:
+            return render(request ,'bob/No_login.html')
+    except:
+        return redirect('home')
 
 
 
@@ -578,28 +604,40 @@ def exe(request):
         return render(request, 'bob/exe.html', {'question_list': page_obj ,"search_term": search_term , "filed_list" : filed_list , "search_filed": search_filed})
 
 
+
+
 def exe2(request):
     if 'web_id' in request.session:  
         file = request.GET.get('table')  
-
+        pro_val = problem.objects.filter(problemTitle=file).values_list('sha256', flat=True)
         if file:
             exes = problem.objects.filter(problemTitle=file)
-   
-            records_with = problem_exe.objects.filter(name__icontains=file)
-            
-            for record in records_with:
-                record.markdown = markdown.markdown(record.markdown)
+            print(exes)
+            if exes:
+                records_with = problem_exe.objects.filter(name__icontains=file)
+                problem_with = problem_exe_Progress.objects.filter(user= request.session.get('web_id') , name__icontains=file).values_list('name', flat=True)
 
-            context = {
-                'file': file,
-                'exes': exes,
-                'web_id': request.session.get('web_id'),
-                'records_with': records_with
-            }
             
-            return render(request, 'bob/exe2.html', context)
+                for record in records_with:
+                    record.markdown = markdown.markdown(record.markdown)
+
+                context = {
+                    'file': file,
+                    'exes': exes,
+                    'web_id': request.session.get('web_id'),
+                    'records_with': records_with,
+                    'problem_with':problem_with,
+                    'pro_val':pro_val
+                }
+                
+                return render(request, 'bob/exe2.html', context)
+            else:
+                return redirect('home')
     else:
         return render(request, 'bob/No_login.html')
+
+
+
 
 
 
@@ -607,6 +645,7 @@ def exe3(request):
     if request.method == 'POST':
         problem_name = request.POST.get('problem_name').strip()
         answer = request.POST.get('answer')
+        problem_location = request.POST.get('problem_location')
 
         # 모델에서 해당 problem_name에 해당하는 데이터를 가져옵니다.
         problem = get_object_or_404(problem_exe, name=problem_name)
@@ -630,7 +669,7 @@ def exe3(request):
                 progress.save()
 
 
-            return render(request, 'bob/answer1.html')
+            return render(request, 'bob/answer_location.html' , {'problem_location' : problem_location})
         else:
             return render(request, 'bob/answer2.html')
 
@@ -697,7 +736,7 @@ def board3(request):
 
     # 모든 문제 목록을 가져옵니다.
     question_list = boards.objects.all()  # Use your problem model here
-    question_list = question_list.filter(filed="공지사항")
+    question_list = question_list.filter(filed="공지사항12755555")
 
     # 검색어가 제목에 포함된 게시물을 필터링합니다.
     if search_term:
@@ -749,8 +788,10 @@ def board_view(request):
 
         answers = boardAnwser.objects.filter(web_id=web_id, text=text, title=title)
 
-        # if record != None or answers != None:
-        #     return redirect('home')
+        if record:
+            return render(request, 'bob/board_view.html', {'record': record , 'web_id': request.session.get('web_id') , "answers":answers})
+        else:
+            return redirect("board")
 
 
         return render(request, 'bob/board_view.html', {'record': record , 'web_id': request.session.get('web_id') , "answers":answers})
@@ -770,10 +811,10 @@ def board_view(request):
             
             # boardAnswer 모델에 답변 저장
             boardAnwser(web_id=web_id, answer_id=answer_id , text=text, title=title, answer=answer).save()
-            return redirect(f'/board_view/?web_id={web_id}&title={title}&text={text}&filed={filed}')
+            return redirect(f'/board_view/?web_id={quote(web_id)}&title={quote(title)}&text={quote(text)}')
         else:
-            # return render(request, 'bob/No_login.html')
-            return render(request, 'bob/EasterEgg.html')
+            return render(request, 'bob/No_login.html')
+            
 
 
 
@@ -1079,7 +1120,7 @@ def vi_api_num1(request):
                 
                 # 바이러스 토탈 설정 ------------------------------------------------------------------------------------------------------
                 # 예시 정답
-                answer = "T1053.005" #저희가 문제 만들 때 문제에 대한 정답을 이런 형식으로 전달드릴 예정이에요!
+                answer = "T1027" #저희가 문제 만들 때 문제에 대한 정답을 이런 형식으로 전달드릴 예정이에요!
 
                 # 사용자가 제출한 코드에서 추출한 techniques 번호들을 모을 리스트
                 techniques = []
@@ -1179,7 +1220,9 @@ def vi_api_num1(request):
                                             techniques.append(technique_id) # 정답 비교를 위해 리스트에 technique 번호 저장
                             print(f"VirusTotal report techniques saved to: {output_file_path}")
 
-                            if answer in technique_id: # techniques 리스트에 정답이 있다면 정답, 불일치하면 오답 => 이 부분을 사용자에게 보여지도록 구현해주시면 돼요!
+
+
+                            if answer in technique_id: 
                                 api_answer = "정답"
                             else:
                                 api_answer = "오답"
@@ -1203,10 +1246,10 @@ def vi_api_num1(request):
         
     
                         if api_answer == "정답":
-                            current_user = user.objects.get(web_id=web_id)
+                            current_user = user.objects.get(web_id=request.session.get('web_id'))
                             progress = Progress(user=current_user, filed= "핵심원리" , progress_value="핵심원리 문제풀이1")
                             progress.save()
-                            return render(request, 'bob/answer1.html')
+                            return render(request, 'bob/answer1_.html')
                         else:
                             return render(request, 'bob/answer2.html')
 
@@ -1356,10 +1399,10 @@ def vi_api_num2(request):
         
     
                         if api_answer == "정답":
-                            current_user = user.objects.get(web_id=web_id)
+                            current_user = user.objects.get(web_id=request.session.get('web_id'))
                             progress = Progress(user=current_user, filed= "핵심원리" , progress_value="핵심원리 문제풀이2")
                             progress.save()
-                            return render(request, 'bob/answer1.html')
+                            return render(request, 'bob/answer1_.html')
                         else:
                             return render(request, 'bob/answer2.html')
 
@@ -1510,10 +1553,10 @@ def vi_api_num3(request):
         
     
                         if api_answer == "정답":
-                            current_user = user.objects.get(web_id=web_id)
+                            current_user = user.objects.get(web_id=request.session.get('web_id'))
                             progress = Progress(user=current_user, filed= "핵심원리" , progress_value="핵심원리 문제풀이3")
                             progress.save()
-                            return render(request, 'bob/answer1.html')
+                            return render(request, 'bob/answer1_.html')
                         else:
                             return render(request, 'bob/answer2.html')
 
@@ -1663,10 +1706,10 @@ def vi_api_num4(request):
         
     
                         if api_answer == "정답":
-                            current_user = user.objects.get(web_id=web_id)
+                            current_user = user.objects.get(web_id=request.session.get('web_id'))
                             progress = Progress(user=current_user, filed= "핵심원리" , progress_value="핵심원리 문제풀이4")
                             progress.save()
-                            return render(request, 'bob/answer1.html')
+                            return render(request, 'bob/answer1_.html')
                         else:
                             return render(request, 'bob/answer2.html')
 
@@ -1786,32 +1829,3 @@ def mpt_key(request):
 
 
 
-#  <iframe src="{% static 'web/lecture1/'|add:file|add:'(좌).html' %}" style="width: 100%; height: 585px;" ></iframe>
-'''
-
-
-
-def lecture_study1(request):
-    if 'web_id' in request.session:
-        if request.method == 'GET':
-            table = request.GET.get('table')
-            page = request.GET.get('page')
-            file=table+page
-            folder_path = "web/static/web/lecture1"
-            result = (count_html_files_with_word_in_filename(folder_path , table)//2)
-
-   
-            if int(page) > int(result):
-                web_id = request.session.get('web_id')
-                current_user = user.objects.get(web_id=web_id)
-                existing_progress = Progress.objects.filter(user=current_user,progress_value=table).exists()
-                if not existing_progress:  # 진행 상황이 없을 경우에만 추가
-                    progress = Progress(user=current_user, filed= "기초강의" , progress_value=table)
-                    progress.save()
-                return render(request ,'bob/complete_page1.html')
-            else:
-                return render(request, 'bob/lecture_study1.html', {'web_id': request.session.get('web_id') , 'file': file , 'page':page , 'result' : result})
-    else:
-       return render(request ,'bob/No_login.html')
-
-'''

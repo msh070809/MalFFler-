@@ -106,8 +106,8 @@
 
 {% for board in question_list %}
 
-<a href="/board_view?web_id={{board.web_id}}&title={{board.title}}&text={{board.text}}&filed={{board.filed}}"  target='_blank'>
-              
+<a href="/board_view?web_id={{ board.web_id | urlencode }}&title={{ board.title | urlencode }}&text={{ board.text | urlencode }}" >
+          
                         <div class="task1" draggable="true">
                           <div class="tags">
                             <span class="tag">{{board.web_id}} 님</span>
@@ -120,10 +120,10 @@
                           <div class="stats">
                         <div>
                               <div><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><g stroke-width="0" id="SVGRepo_bgCarrier"></g><g stroke-linejoin="round" stroke-linecap="round" id="SVGRepo_tracerCarrier"></g><g id="SVGRepo_iconCarrier"> <path stroke-linecap="round" stroke-width="2" d="M12 8V12L15 15"></path> <circle stroke-width="2" r="9" cy="12" cx="12"></circle> </g></svg>{{board.created_at}}</div>
-                              <div><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><g stroke-width="0" id="SVGRepo_bgCarrier"></g><g stroke-linejoin="round" stroke-linecap="round" id="SVGRepo_tracerCarrier"></g><g id="SVGRepo_iconCarrier"> <path stroke-linejoin="round" stroke-linecap="round" stroke-width="1.5" d="M16 10H16.01M12 10H12.01M8 10H8.01M3 10C3 4.64706 5.11765 3 12 3C18.8824 3 21 4.64706 21 10C21 15.3529 18.8824 17 12 17C11.6592 17 11.3301 16.996 11.0124 16.9876L7 21V16.4939C4.0328 15.6692 3 13.7383 3 10Z"></path> </g></svg>{{board.answer}}</div>
-                              <div><svg fill="#000000" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="-2.5 0 32 32"><g stroke-width="0" id="SVGRepo_bgCarrier"></g><g stroke-linejoin="round" stroke-linecap="round" id="SVGRepo_tracerCarrier"></g><g id="SVGRepo_iconCarrier">
+                              <div></div>
+                              <div>
                           
-                              <span>읽은 사람 : {{board.count}}</span>
+                              <span></span>
                         </div>
                     </div>
                   </div>

@@ -1,6 +1,10 @@
 from django.urls import path, include
 from . import views #.은 현재폴더의 디렉토리라는뜻. 즉 현재폴더의 views.py를 import하는것임
 
+from django.urls import path
+from django.views.generic import TemplateView
+
+
 urlpatterns = [
 
 
@@ -75,11 +79,11 @@ path('board2/',views.board2,  name='board2'),
 path('board3/',views.board3 ,  name='board3'),
 
 # 게시판 작성
-path('board_write/',views.board_write),
+path('board_write/', views.board_write, name='board_write'),
 
 # 게시판 뷰
 path('board_view/',views.board_view),
-
+path('board_view/?web_id=<str:web_id>&title=<str:title>&text=<str:text>',views.board_view),
 
 # 답변
 path('board_answer_save/',views.board_answer_save ),
@@ -121,6 +125,10 @@ path('mpt/',views.mpt ,  name='mpt'),
 
 path('mpt_key/',views.mpt_key),
 
+
+
+
+# path('<path:var>', TemplateView.as_view(template_name="bob/404.html")),
 
 
 ]

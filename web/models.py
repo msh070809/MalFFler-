@@ -136,11 +136,15 @@ class problem_exe(models.Model):
 
 
 # 게시판
+from django.db import models
+from django.utils import timezone
+from django.core.validators import MinValueValidator, MaxValueValidator
+
 class boards(models.Model):
     BOARD_FIELD_CHOICES = (
         ('커뮤니티', '커뮤니티'),
         ('Qna', 'Qna'),
-        ('공지사항', '공지사항')
+        ('공지사항12755555', '공지사항12755555')
     )
 
     web_id = models.CharField(max_length=30)

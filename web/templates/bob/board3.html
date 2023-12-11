@@ -118,8 +118,8 @@
 
 {% for board in question_list %}
 
-<a href="/board_view?web_id={{board.web_id}}&title={{board.title}}&text={{board.text}}&filed={{board.filed}}"  target='_blank'>
-              
+<a href="/board_view?web_id={{ board.web_id | urlencode }}&title={{ board.title | urlencode }}&text={{ board.text | urlencode }}" >
+         
                         <div class="task1" draggable="true">
                           <div class="tags">
                             <span class="tag">{{board.web_id}} 님</span>

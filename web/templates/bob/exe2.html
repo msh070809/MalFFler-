@@ -64,7 +64,7 @@
     <span class="icon">
 
     </span>
-    <p class="alert"><h5>{{file}}</h5></p>
+    <p class="alert"><h5>{{file}} </h5></p>
 
 
     <div class="checkbox-wrapper-35">
@@ -76,8 +76,9 @@
           </button>
         </div>
         </div>
-
+해시값 : {% for sha256_value in pro_val %}{{ sha256_value }}{% endfor %}
       </label>
+
     </div>
 
 
@@ -111,25 +112,17 @@
 
 <!-- 목차 -->
 <!-- 목차 -->
+
  {% for exe in records_with %}
-<div class="info">
+ 
+ {% if exe.name in problem_with %} 
+<div class="info" style="background-color: #D5DCFF;">
 
   <div class="info__title">
- 
-   
       <details>
-        <summary> {{ exe.name }}</summary>
-      
+        <summary> {{ exe.name }} </summary>
         <div class="card3">
-          <!-- html -->
-  
-          <!-- 제출 버튼 -->
           <br>
- 
-
-        
-   
-     
        <!-- 정답 제출 -->
        <form action="/exe_answer/" method="post" style="margin-left: 15px;">
           {% csrf_token %}
@@ -139,16 +132,43 @@
             <div class="search">
                 <input placeholder="문제의 답을 작성해주세요" type="text" name="answer">
                 <input type="hidden" name="problem_name" value="{{ exe.name }}">
+                <input type="hidden" name="problem_location" value="{{ file }}">
                 <button type="submit">제출하기</button>
               </div>
           </div>
         </form>
-     
     </details>
   
   </div>
-
 </div>
+{% else %}
+<div class="info">
+
+  <div class="info__title">
+      <details>
+        <summary> {{ exe.name }} </summary>
+        <div class="card3">
+          <br>
+       <!-- 정답 제출 -->
+       <form action="/exe_answer/" method="post" style="margin-left: 15px;">
+          {% csrf_token %}
+          {{ exe.markdown | safe }}
+          <br>
+          <div class="submit">
+            <div class="search">
+                <input placeholder="문제의 답을 작성해주세요" type="text" name="answer">
+                <input type="hidden" name="problem_name" value="{{ exe.name }}">
+                <input type="hidden" name="problem_location" value="{{ file }}">
+                <button type="submit">제출하기</button>
+              </div>
+          </div>
+        </form>
+    </details>
+  
+  </div>
+</div>
+
+{% endif %}
 
 {% endfor %}
 
